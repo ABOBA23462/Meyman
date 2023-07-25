@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.screens.favorite.FavoriteFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line1_hor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line2_hor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="268dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line3_hor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line1_vert"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="12dp" />
+
+    <TextView
+        android:id="@+id/tv_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Избранные"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/line1_vert"
+        app:layout_constraintTop_toBottomOf="@id/line1_hor" />
+
+    <ImageView
+        android:id="@+id/iv_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12.8dp"
+        android:src="@drawable/favorite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line2_hor" />
+
+    <TextView
+        android:id="@+id/tv_your_favorite"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:lines="2"
+        android:text="Здесь будут появляться ваши избранные"
+        android:textAlignment="center"
+        android:lineSpacingMultiplier="1.3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_favorite" />
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="336dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#376FDD"
+        android:text="Войти"
+        android:textColor="@color/white"
+        android:background="@drawable/rounder_button"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@id/line3_hor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

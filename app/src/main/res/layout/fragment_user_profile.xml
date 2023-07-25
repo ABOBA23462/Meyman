@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.screens.profile.user.UserProfileFragment">
+
+    <ImageView
+        android:id="@+id/iv_profile_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profile_circle_2"
+        app:layout_constraintStart_toEndOf="@id/line1_vert"
+        app:layout_constraintTop_toBottomOf="@id/line1_hor" />
+
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Profile Name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_profile_icon"
+        app:layout_constraintStart_toEndOf="@id/iv_profile_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_profile_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Person Info"
+        android:textColor="#898989"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_profile_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_name" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="12dp"
+        app:layout_constraintTop_toTopOf="@id/line1_hor"
+        app:layout_constraintBottom_toBottomOf="@id/v_line"/>
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="9dp"
+        android:background="#898989"
+        app:layout_constraintStart_toStartOf="@id/iv_profile_icon"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile_icon" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_notification"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#00000000"
+        app:layout_constraintStart_toEndOf="@id/line1_vert"
+        app:layout_constraintTop_toBottomOf="@id/line2_hor">
+
+        <ImageView
+            android:id="@+id/iv_notification_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/notification_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="Уведомления"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_notification_icon"
+            app:layout_constraintStart_toEndOf="@id/iv_notification_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_notification_icon" />
+
+        <ImageView
+            android:id="@+id/iv_chevron_right1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/chevron_right"
+            app:layout_constraintBottom_toBottomOf="@id/iv_notification_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_notification_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_question"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#00000000"
+        app:layout_constraintStart_toEndOf="@id/line1_vert"
+        app:layout_constraintTop_toBottomOf="@id/line3_hor">
+
+        <ImageView
+            android:id="@+id/iv_question_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/call_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="Связаться с нами"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_question_icon"
+            app:layout_constraintStart_toEndOf="@id/iv_question_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_question_icon" />
+
+        <ImageView
+            android:id="@+id/iv_chevron_right2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/chevron_right"
+            app:layout_constraintBottom_toBottomOf="@id/iv_question_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_question_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_call"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#00000000"
+        app:layout_constraintStart_toEndOf="@id/line1_vert"
+        app:layout_constraintTop_toBottomOf="@id/line4_hor">
+
+        <ImageView
+            android:id="@+id/iv_call_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14.5dp"
+            android:src="@drawable/add_object"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="Зарегистрировать свой объект"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
+            app:layout_constraintStart_toEndOf="@id/iv_call_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_call_icon" />
+
+        <ImageView
+            android:id="@+id/iv_chevron_right3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/chevron_right"
+            app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_call_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line1_hor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line2_hor"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="110dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line3_hor"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="158dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line4_hor"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="206dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line1_vert"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="12dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
