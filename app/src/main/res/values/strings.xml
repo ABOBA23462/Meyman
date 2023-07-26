@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Meyman</string>
+    <string name="booking">Бронирования</string>
+    <string name="login_to_get_started">Чтобы начать, войдите в аккаунт или создайте новый</string>
+    <string name="sign_in">Войти</string>
+    <string name="personal_information">Личная информация</string>
+    <string name="save">сохранить</string>
+    <string name="mail">Почта</string>
+    <string name="surname">Фамилия</string>
+    <string name="name">Имя</string>
+    <string name="connect_with_us">Cвязаться с нами</string>
+    <string name="email">Электронная почта</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="favorite">Избранные</string>
+    <string name="your_favorites">Здесь будут появляться ваши избранные</string>
+    <string name="sign_in_account">Войдите в аккаунт</string>
+    <string name="call_of_registration">Чтобы приступить к управлению бронированиями и без труда спланировать следущую поездку.</string>
+    <string name="sign_in_or_log_in">Войти или зарегестрироваться</string>
+    <string name="regist_mine_object">Зарегистрировать свой объект</string>
+    <string name="log_in">Зарегистрироваться</string>
+    <string name="password">Пароль</string>
+    <string name="forgot_password">Забыл пароль?</string>
+    <string name="or">Или</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="user_name">Имя пользователя</string>
+    <string name="person_inform">Личная информация</string>
+    <string name="notification">Уведомления</string>
+</resources>
