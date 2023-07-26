@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="469dp"
@@ -7,8 +8,8 @@
     android:background="@drawable/rounder"
     android:backgroundTint="@color/white"
     android:backgroundTintMode="add"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.ui.screens.sign.up.SignUpFragment">
+    tools:context=".presentation.ui.screens.sign.up.SignUpFragment"
+    tools:ignore="TextSizeCheck">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/line1_hor"
@@ -73,7 +74,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/rounder2"
         android:backgroundTint="#898989"
-        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -100,7 +101,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
         android:paddingVertical="8dp"
-        android:text="Войти"
+        android:text="@string/sign_in"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -114,7 +115,7 @@
         android:layout_marginStart="2dp"
         android:paddingHorizontal="10dp"
         android:paddingVertical="8dp"
-        android:text="Зарегистрироваться"
+        android:text="@string/log_in"
         android:textColor="#376FDD"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -150,12 +151,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:autofillHints=""
-            android:backgroundTint="#00000000"
-            android:hint="Электронная почта"
+            android:autofillHints="emailAddress"
+            android:backgroundTint="@color/transparent"
+            android:hint="@string/email"
             android:paddingStart="16dp"
             android:textColor="@color/black"
-            android:textColorHint="#898989" />
+            android:textColorHint="@color/gray2"
+            tools:ignore="RtlSymmetry,TextFields,TouchTargetSizeCheck,TextContrastCheck" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -177,12 +179,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:autofillHints=""
-            android:backgroundTint="#00000000"
-            android:hint="Пароль"
+            android:autofillHints="password"
+            android:backgroundTint="@color/transparent"
+            android:hint="@string/password"
             android:paddingStart="16dp"
             android:textColor="@color/black"
-            android:textColorHint="#898989" />
+            android:textColorHint="@color/gray2"
+            tools:ignore="RtlSymmetry,TextFields,TouchTargetSizeCheck,TextContrastCheck" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -191,9 +194,7 @@
         android:layout_width="336dp"
         android:layout_height="52dp"
         android:layout_centerInParent="true"
-        android:backgroundTint="#00000000"
         app:cardCornerRadius="10dp"
-        app:cardElevation="0dp"
         app:layout_constraintStart_toEndOf="@id/line1_vert"
         app:layout_constraintTop_toBottomOf="@id/line4_hor"
         app:strokeColor="@color/black"
@@ -204,12 +205,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:autofillHints=""
-            android:backgroundTint="#00000000"
-            android:hint="Повторите пароль"
+            android:autofillHints="password"
+            android:backgroundTint="@color/transparent"
+            android:hint="@string/repeat_password"
             android:paddingStart="16dp"
             android:textColor="@color/black"
-            android:textColorHint="#898989" />
+            android:textColorHint="@color/gray2"
+            tools:ignore="RtlSymmetry,TextFields,TouchTargetSizeCheck,TextContrastCheck" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -219,7 +221,7 @@
         android:layout_height="50dp"
         android:background="@drawable/rounder_button"
         android:backgroundTint="#376FDD"
-        android:text="Зарегистрироваться"
+        android:text="@string/log_in"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -227,13 +229,14 @@
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line5_hor" />
+        app:layout_constraintTop_toBottomOf="@id/line5_hor"
+        tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
 
     <TextView
         android:id="@+id/tv_or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Или"
+        android:text="@string/or"
         android:textAllCaps="true"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/stick1"
@@ -261,7 +264,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/google_icon" />
+            android:src="@drawable/google_icon"
+            tools:ignore="ContentDescription" />
 
     </com.google.android.material.card.MaterialCardView>
 

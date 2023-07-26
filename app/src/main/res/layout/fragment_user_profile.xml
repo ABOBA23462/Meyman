@@ -12,38 +12,40 @@
         android:layout_height="wrap_content"
         android:src="@drawable/profile_circle_2"
         app:layout_constraintStart_toEndOf="@id/line1_vert"
-        app:layout_constraintTop_toBottomOf="@id/line1_hor" />
+        app:layout_constraintTop_toBottomOf="@id/line1_hor"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <TextView
         android:id="@+id/tv_profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="Profile Name"
+        android:text="@string/user_name"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/iv_profile_icon"
         app:layout_constraintStart_toEndOf="@id/iv_profile_icon"
         app:layout_constraintTop_toTopOf="@id/iv_profile_icon" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Person Info"
-        android:textColor="#898989"
+        android:text="@string/person_inform"
+        android:textColor="@color/gray2"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/tv_profile_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_profile_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_name"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_edit"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="12dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@id/v_line"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/line1_hor"
-        app:layout_constraintBottom_toBottomOf="@id/v_line"/>
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <View
         android:id="@+id/v_line"
@@ -72,14 +74,15 @@
             android:src="@drawable/notification_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:text="Уведомления"
+            android:text="@string/notification"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_notification_icon"
@@ -94,7 +97,8 @@
             android:src="@drawable/chevron_right"
             app:layout_constraintBottom_toBottomOf="@id/iv_notification_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_notification_icon" />
+            app:layout_constraintTop_toTopOf="@id/iv_notification_icon"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -114,14 +118,15 @@
             android:src="@drawable/call_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:text="Связаться с нами"
+            android:text="@string/connect_with_us"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_question_icon"
@@ -136,7 +141,8 @@
             android:src="@drawable/chevron_right"
             app:layout_constraintBottom_toBottomOf="@id/iv_question_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_question_icon" />
+            app:layout_constraintTop_toTopOf="@id/iv_question_icon"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -156,28 +162,19 @@
             android:src="@drawable/add_object"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:text="Зарегистрировать свой объект"
+            android:text="@string/regist_mine_object"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
             app:layout_constraintStart_toEndOf="@id/iv_call_icon"
-            app:layout_constraintTop_toTopOf="@id/iv_call_icon" />
-
-        <ImageView
-            android:id="@+id/iv_chevron_right3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/chevron_right"
-            app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/iv_call_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
