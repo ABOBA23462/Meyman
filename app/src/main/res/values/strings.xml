@@ -25,12 +25,4 @@
     <string name="user_name">Имя пользователя</string>
     <string name="person_inform">Личная информация</string>
     <string name="notification">Уведомления</string>
-    <string name="Поиск">Поиск</string>
-    <string name="Избранные">Избранные</string>
-    <string name="Бронирования">Бронирования</string>
-    <string name="Профиль">Профиль</string>
-    <string name="title_home" />
-    <string name="title_dashboard" />
-    <string name="title_notifications" />
-    <string name="meyman">Meyman</string>
 </resources>
