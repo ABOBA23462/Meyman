@@ -1,6 +1,6 @@
 package com.example.meyman.data.remote.dtos
 
-data class UsernameEntity(
+data class UsernameDto(
     val avatar: String,
     val date_joined: String,
     val email: String,
