@@ -33,4 +33,27 @@
     <string name="title_dashboard" />
     <string name="title_notifications" />
     <string name="meyman">Meyman</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="choose_direction">Выбрать направление</string>
+    <string name="city_hotel_address">Город, отель, адрес</string>
+    <string name="near_to_me">Рядом со мной</string>
+    <string name="disabled">отключено</string>
+    <string name="recent_search">Недавний поиск</string>
+    <string name="regions">Регионы</string>
+    <string name="sorting">Сортировка</string>
+    <string name="filter">Фильтр</string>
+    <string name="amount_of_variants">количество вариантов</string>
+    <string name="region">Регион</string>
+    <string name="period_amount_of_people">Период, количество людей</string>
+    <string name="hotel_name">Hotel Name</string>
+    <string name="_10_0">10.0</string>
+    <string name="rating">Рейтинг</string>
+    <string name="amount_of_reviews">· количество отзывов</string>
+    <string name="n_kilometers_from_the_center">n км от центра</string>
+    <string name="free_cancellation">Бесплатная отмена</string>
+    <string name="no_prepayment_required">Предоплата не требуется \n платите на месте</string>
+    <string name="from_0_som">от 0 сом.</string>
+    <string name="including_taxes_and_fees">Включая налоги и сборы</string>
 </resources>
