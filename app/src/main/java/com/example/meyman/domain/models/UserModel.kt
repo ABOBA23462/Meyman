@@ -6,10 +6,10 @@ data class UserModel(
     val count: Int,
     val next: String,
     val previous: String,
-    val results: List<UserItemModel>
+    val results: List<UsernameModel>
 )
 
-data class UserItemModel(
+data class UsernameModel(
     val id: Int = DEFAULT_ID,
     val avatar: String,
     val date_joined: String,
