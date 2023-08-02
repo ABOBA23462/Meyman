@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class HostelDto(
+data class HostelDto<T>(
     val count: Int,
     val next: String,
     val previous: String,

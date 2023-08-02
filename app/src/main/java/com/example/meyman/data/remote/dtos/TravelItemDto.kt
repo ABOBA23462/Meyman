@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class TravelItemDto(
+data class TravelItemDto<T>(
     val accommodation_type: String,
     val bathrooms: Int,
     val bed_type: String,
