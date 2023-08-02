@@ -7,4 +7,8 @@
     <color name="blue1">#376FDD</color>
     <color name="black2">#2A2828</color>
     <color name="red">#F40303</color>
+
+    <color name="yellow">#FFC700</color>
+    <color name="gray">#898989</color>
+    <color name="green">#1BAB21</color>
 </resources>
