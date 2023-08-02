@@ -1,4 +1,4 @@
-package com.example.meyman.domain.models
+package com.example.meyman.domain.utils.models
 
 import com.example.meyman.core.DEFAULT_ID
 

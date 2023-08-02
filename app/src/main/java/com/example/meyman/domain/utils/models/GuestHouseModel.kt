@@ -1,15 +1,15 @@
-package com.example.meyman.domain.models
+package com.example.meyman.domain.utils.models
 
 import com.example.meyman.core.DEFAULT_ID
 
-data class SanatoriumModel(
+data class GuestHouseModel(
     val count: Int,
     val next: String,
     val previous: String,
-    val results: List<SanatoriumItemModel>
+    val results: List<GuestHouseItemModel>
 )
 
-data class SanatoriumItemModel(
+data class GuestHouseItemModel(
     val id: Int = DEFAULT_ID,
     val accommodation_type: String,
     val bathrooms: Int,
@@ -18,16 +18,15 @@ data class SanatoriumItemModel(
     val beds: Int,
     val description: String,
     val food_type: String,
-    val housing_amenities: SanatoriumAmenitiesModel,
+    val housing_amenities: GuestHouseAmenitiesModel,
     val housing_name: String,
     val housing_type: String,
     val image: String,
     val location: String,
     val price_per_night: String,
-    val room_amenities: SanatoriumRoomAmenitiesModel
+    val room_amenities: GuestRoomAmenitiesModel
 )
-
-data class SanatoriumAmenitiesModel(
+data class GuestHouseAmenitiesModel(
     val air_conditioner: Boolean,
     val airport_transfer: Boolean,
     val atm_on_site: Boolean,
@@ -104,7 +103,7 @@ data class SanatoriumAmenitiesModel(
     val wine_champagne: Boolean
 )
 
-data class SanatoriumRoomAmenitiesModel(
+data class GuestRoomAmenitiesModel(
     val accessible_to_disabled_guests: Boolean,
     val air_conditioner: Boolean,
     val bath_or_shower: Boolean,

@@ -1,14 +1,14 @@
-package com.example.meyman.domain.models
+package com.example.meyman.domain.utils.models
 
 import com.example.meyman.core.DEFAULT_ID
 
-data class TravelHotelModel(
+data class TravelHostelsModel(
     val count: Int,
     val next: String,
     val previous: String,
-    val results: List<Hotel>
+    val results: List<Hostel>
 ) {
-    data class Hotel(
+    data class Hostel(
         val id: Int = DEFAULT_ID,
         val accommodation_type: String,
         val bathrooms: Int,

@@ -1,4 +1,4 @@
-package com.example.meyman.domain.models
+package com.example.meyman.domain.utils.models
 
 data class TravelServiceSearchModel(
     val count: Int,
