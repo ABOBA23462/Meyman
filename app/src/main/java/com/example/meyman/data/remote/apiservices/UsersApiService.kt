@@ -4,7 +4,7 @@ import com.example.meyman.data.remote.dtos.UserDto
 import com.example.meyman.data.remote.dtos.UsernameDto
 import retrofit2.http.GET
 
-interface UserApiService {
+interface UsersApiService {
 
     @GET("api/users/users/")
     fun fetchUsername(): UserDto<UsernameDto>
