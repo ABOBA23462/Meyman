@@ -1,4 +1,6 @@
 package com.example.meyman.core.base
 
-class BaseViewModel {
+import androidx.lifecycle.ViewModel
+
+class BaseViewModel: ViewModel() {
 }

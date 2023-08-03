@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface SearchApiService {
 
-    @GET("api/travel_search/")
+    @GET("travel_search/")
     fun fetchServiceSearch(): SearchDto<SearchItemDto>
 }

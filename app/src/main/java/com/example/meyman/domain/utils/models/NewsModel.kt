@@ -1,6 +1,7 @@
 package com.example.meyman.domain.utils.models
 
-import com.example.meyman.core.DEFAULT_ID
+import com.example.meyman.core.Constant
+
 
 data class NewsModel(
     val count: Int,
@@ -10,7 +11,7 @@ data class NewsModel(
 )
 
 data class NewsItemModel(
-    val id: Int = DEFAULT_ID,
+    val id: Int = Constant.DEFAULT_ID,
     val author_fullname: String,
     val content: String,
     val image: String,
@@ -21,7 +22,7 @@ data class NewsItemModel(
 )
 
 data class News(
-    val id: Int = DEFAULT_ID,
+    val id: Int = Constant.DEFAULT_ID,
     val author_fullname: String,
     val content: String,
     val image: String,

@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ReviewApiService {
 
-    @GET("api/review/review/")
+    @GET("review/review/")
     fun fetchReview(): ReviewDto<ReviewItemDto>
 }

@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface SanatoriumsApiService {
 
-    @GET("api/travel/sanatoriums/")
+    @GET("travel/sanatoriums/")
     fun fetchSanatoriums(): SanatoriumDto<TravelItemDto>
 }

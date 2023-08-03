@@ -1,6 +1,6 @@
 package com.example.meyman.domain.utils.models
 
-import com.example.meyman.core.DEFAULT_ID
+import com.example.meyman.core.Constant
 
 data class UserModel(
     val count: Int,
@@ -10,7 +10,7 @@ data class UserModel(
 )
 
 data class UsernameModel(
-    val id: Int = DEFAULT_ID,
+    val id: Int = Constant.DEFAULT_ID,
     val avatar: String,
     val date_joined: String,
     val email: String,

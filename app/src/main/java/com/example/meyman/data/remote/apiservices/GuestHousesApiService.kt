@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface GuestHousesApiService {
 
-    @GET("api/travel/guest-houses/")
+    @GET("travel/guest-houses/")
     fun fetchGustHouses(): GuestHouseDto<TravelItemDto>
 }

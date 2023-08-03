@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface UsernameApiService {
 
-    @GET("api/users/users/")
+    @GET("users/users/")
     fun fetchUsername(): Response<UsernameDto>
 }

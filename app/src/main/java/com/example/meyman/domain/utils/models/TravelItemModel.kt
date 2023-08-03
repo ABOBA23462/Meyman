@@ -1,11 +1,10 @@
 package com.example.meyman.domain.utils.models
 
-import com.example.meyman.core.DEFAULT_ID
-import com.example.meyman.domain.models.HousingAmenitiesModel
+import com.example.meyman.core.Constant
 import com.example.meyman.domain.models.RoomAmenitiesModel
 
 data class TravelItemModel(
-    val id: Int = DEFAULT_ID,
+    val id: Int = Constant.DEFAULT_ID,
     val accommodation_type: String,
     val bathrooms: Int,
     val bed_type: String,

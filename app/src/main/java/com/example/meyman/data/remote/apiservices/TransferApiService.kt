@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface TransferApiService {
 
-    @GET("api/travel_transfer/")
+    @GET("travel_transfer/")
     fun fetchTransfer(): TransferDto<TransferItemDto>
 }

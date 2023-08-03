@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface HotelApiService {
 
-    @GET("api/travel/hotels/")
+    @GET("travel/hotels/")
     fun fetchHotel(): HotelDto<TravelItemDto>
 }

@@ -1,6 +1,7 @@
 package com.example.meyman.domain.utils.models
 
-import com.example.meyman.core.DEFAULT_ID
+import com.example.meyman.core.Constant
+
 
 data class ReviewModel(
     val count: Int,
@@ -10,7 +11,7 @@ data class ReviewModel(
 )
 
 data class ReviewItemModel(
-    val id: Int = DEFAULT_ID,
+    val id: Int = Constant.DEFAULT_ID,
     val comment: String,
     val formatted_date_added: String,
     val hotel: String,
@@ -18,7 +19,7 @@ data class ReviewItemModel(
     val stars: Int
 )
     data class Review(
-        val id: Int = DEFAULT_ID,
+        val id: Int = Constant.DEFAULT_ID,
         val comment: String,
         val formatted_date_added: String,
         val hotel: String,

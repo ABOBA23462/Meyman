@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface NewsApiService {
 
-    @GET("api/news/news/")
+    @GET("news/news/")
     fun fetchNewsDto(): NewsDto<NewsItemDto>
 }

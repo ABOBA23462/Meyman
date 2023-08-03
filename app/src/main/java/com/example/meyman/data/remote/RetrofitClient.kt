@@ -1,5 +1,6 @@
 package com.example.meyman.data.remote
 
+import com.example.meyman.core.Constant
 import com.example.meyman.data.remote.apiservices.ApartmentApiService
 import com.example.meyman.data.remote.apiservices.GuestHousesApiService
 import com.example.meyman.data.remote.apiservices.HostelsApiService
@@ -23,7 +24,7 @@ class RetrofitClient {
         .writeTimeout(30, TimeUnit.SECONDS).build()
 
     val retrofitClient = Retrofit.Builder()
-        .baseUrl("http://127.0.0.1:8000/")
+        .baseUrl(Constant.BASE_URL)
         .client(okHttpClient)
         .build()
 

@@ -1,7 +1,7 @@
 package com.example.meyman.data.remote.dtos
 
 import android.os.Parcelable
-import com.example.meyman.domain.models.HousingAmenitiesModel
+import com.example.meyman.domain.utils.models.HousingAmenitiesModel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
