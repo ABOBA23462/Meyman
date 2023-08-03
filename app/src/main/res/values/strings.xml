@@ -56,4 +56,5 @@
     <string name="no_prepayment_required">Предоплата не требуется \n платите на месте</string>
     <string name="from_0_som">от 0 сом.</string>
     <string name="including_taxes_and_fees">Включая налоги и сборы</string>
+    <string name="phone_number">Номер телефона</string>
 </resources>

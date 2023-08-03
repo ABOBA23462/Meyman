@@ -1,15 +1,15 @@
 package com.example.meyman.data.remote
 
-import com.example.meyman.data.remote.apiservices.ApartmentApiServer
-import com.example.meyman.data.remote.apiservices.GuestHousesApiServer
-import com.example.meyman.data.remote.apiservices.HostelsApiServer
-import com.example.meyman.data.remote.apiservices.HotelApiServer
-import com.example.meyman.data.remote.apiservices.NewsApiServer
-import com.example.meyman.data.remote.apiservices.ReviewApiServer
-import com.example.meyman.data.remote.apiservices.SanatoriumsApiServer
-import com.example.meyman.data.remote.apiservices.SearchApiServer
-import com.example.meyman.data.remote.apiservices.TransferApiServer
-import com.example.meyman.data.remote.apiservices.UsernameApiServer
+import com.example.meyman.data.remote.apiservices.ApartmentApiService
+import com.example.meyman.data.remote.apiservices.GuestHousesApiService
+import com.example.meyman.data.remote.apiservices.HostelsApiService
+import com.example.meyman.data.remote.apiservices.HotelApiService
+import com.example.meyman.data.remote.apiservices.NewsApiService
+import com.example.meyman.data.remote.apiservices.ReviewApiService
+import com.example.meyman.data.remote.apiservices.SanatoriumsApiService
+import com.example.meyman.data.remote.apiservices.SearchApiService
+import com.example.meyman.data.remote.apiservices.TransferApiService
+import com.example.meyman.data.remote.apiservices.UsernameApiService
 import com.example.meyman.data.remote.apiservices.UsersApiServer
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -29,44 +29,44 @@ class RetrofitClient {
         .client(okHttpClient)
         .build()
 
-    fun provideApartmentApiService(): ApartmentApiServer {
-        return retrofitClient.create(ApartmentApiServer::class.java)
+    fun provideApartmentApiService(): ApartmentApiService {
+        return retrofitClient.create(ApartmentApiService::class.java)
     }
 
-    fun provideGuestHousesApiServer(): GuestHousesApiServer {
-        return retrofitClient.create(GuestHousesApiServer::class.java)
+    fun provideGuestHousesApiServer(): GuestHousesApiService {
+        return retrofitClient.create(GuestHousesApiService::class.java)
     }
 
-    fun provideHostelsApiServer(): HostelsApiServer {
-        return retrofitClient.create(HostelsApiServer::class.java)
+    fun provideHostelsApiServer(): HostelsApiService {
+        return retrofitClient.create(HostelsApiService::class.java)
     }
 
-    fun provideHotelApiServer(): HotelApiServer {
-        return retrofitClient.create(HotelApiServer::class.java)
+    fun provideHotelApiServer(): HotelApiService {
+        return retrofitClient.create(HotelApiService::class.java)
     }
 
-    fun provideNewsApiServer(): NewsApiServer {
-        return retrofitClient.create(NewsApiServer::class.java)
+    fun provideNewsApiServer(): NewsApiService {
+        return retrofitClient.create(NewsApiService::class.java)
     }
 
-    fun provideReviewApiServer(): ReviewApiServer {
-        return retrofitClient.create(ReviewApiServer::class.java)
+    fun provideReviewApiServer(): ReviewApiService {
+        return retrofitClient.create(ReviewApiService::class.java)
     }
 
-    fun provideSanatoriumsApiServer(): SanatoriumsApiServer {
-        return retrofitClient.create(SanatoriumsApiServer::class.java)
+    fun provideSanatoriumsApiServer(): SanatoriumsApiService {
+        return retrofitClient.create(SanatoriumsApiService::class.java)
     }
 
-    fun provideSearchApiServer(): SearchApiServer {
-        return retrofitClient.create(SearchApiServer::class.java)
+    fun provideSearchApiServer(): SearchApiService {
+        return retrofitClient.create(SearchApiService::class.java)
     }
 
-    fun provideTransferApiServer(): TransferApiServer {
-        return retrofitClient.create(TransferApiServer::class.java)
+    fun provideTransferApiServer(): TransferApiService {
+        return retrofitClient.create(TransferApiService::class.java)
     }
 
-    fun provideUsernameApiServer(): UsernameApiServer {
-        return retrofitClient.create(UsernameApiServer::class.java)
+    fun provideUsernameApiServer(): UsernameApiService {
+        return retrofitClient.create(UsernameApiService::class.java)
     }
 
     fun provideUsersApiServer(): UsersApiServer {

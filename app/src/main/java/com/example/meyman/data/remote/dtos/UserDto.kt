@@ -1,6 +1,8 @@
 package com.example.meyman.data.remote.dtos
 
 import android.os.Parcelable
+import com.example.meyman.domain.utils.models.UserModel
+import com.example.meyman.domain.utils.models.UsernameModel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -11,6 +13,13 @@ data class UserDto<T>(
     val results: List<UsernameDto>
 ) : Parcelable
 
+fun UserDto<UsernameDto>.toDomain() = UserModel(
+    count,
+    next,
+    previous,
+    results = results.map { it.toDomain() }
+)
+
 @Parcelize
 data class UsernameDto(
     val avatar: String,
@@ -20,3 +29,12 @@ data class UsernameDto(
     val id: Int,
     val last_name: String
 ) : Parcelable
+
+fun UsernameDto.toDomain() = UsernameModel(
+    id,
+    avatar,
+    date_joined,
+    email,
+    first_name,
+    last_name
+)

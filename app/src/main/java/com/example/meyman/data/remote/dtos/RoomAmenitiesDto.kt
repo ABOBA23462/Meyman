@@ -1,6 +1,7 @@
 package com.example.meyman.data.remote.dtos
 
 import android.os.Parcelable
+import com.example.meyman.domain.models.RoomAmenitiesModel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -48,3 +49,48 @@ data class RoomAmenitiesDto(
     val washing_machine: Boolean,
     val work_desk: Boolean
 ): Parcelable
+
+fun RoomAmenitiesDto.toDomain() = RoomAmenitiesModel(
+    accessible_to_disabled_guests,
+    air_conditioner,
+    bath_or_shower,
+    bidet,
+    bottled_water,
+    cable_satellite_tv,
+    city_view,
+    clothes_hanger,
+    coffee_teapot,
+    complimentary_toiletries,
+    connecting_rooms_available,
+    dryer,
+    electric_kettle,
+    flat_screen_tv,
+    folding_bed,
+    fridge,
+    garden_view,
+    hair_dryer,
+    heating,
+    high_toilet,
+    housing,
+    id,
+    iron,
+    kitchen_utensils,
+    laptop_safe_box,
+    linen,
+    microwave,
+    minibar,
+    private_bathroom,
+    room_cleaning,
+    room_service,
+    safe,
+    sitting_area,
+    sofa_bed,
+    telephone,
+    toilet_paper,
+    toilet_with_handles,
+    tv,
+    wake_up_service,
+    wardrobe,
+    washing_machine,
+    work_desk
+)
