@@ -9,11 +9,10 @@ import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.SanatoriumsApiService
 import com.example.meyman.data.remote.apiservices.SearchApiService
 import com.example.meyman.data.remote.apiservices.TransferApiService
+import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
-import com.example.meyman.data.remote.apiservices.UsersApiServer
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
@@ -25,7 +24,6 @@ class RetrofitClient {
 
     val retrofitClient = Retrofit.Builder()
         .baseUrl("http://127.0.0.1:8000/")
-        .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
 
@@ -69,7 +67,7 @@ class RetrofitClient {
         return retrofitClient.create(UsernameApiService::class.java)
     }
 
-    fun provideUsersApiServer(): UsersApiServer {
-        return retrofitClient.create(UsersApiServer::class.java)
+    fun provideUsersApiServer(): UsersApiService {
+        return retrofitClient.create(UsersApiService::class.java)
     }
 }
