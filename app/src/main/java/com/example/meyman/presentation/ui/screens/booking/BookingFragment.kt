@@ -1,18 +1,15 @@
 package com.example.meyman.presentation.ui.screens.booking
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.meyman.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BookingFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = BookingFragment()
-    }
 
     private lateinit var viewModel: BookingViewModel
 
@@ -21,12 +18,6 @@ class BookingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_booking, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BookingViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

@@ -93,13 +93,18 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
 
-// Logging
+    // Logging
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
-//Coil
+    // Coil
     implementation("io.coil-kt:coil:2.3.0")
     implementation("io.coil-kt:coil-svg:1.2.0")
 
+    // ViewBindingPropertyDelegate
+    def view_binding_property_delegate = "1.5.3"
+
+    // noinspection GradleDependency
+    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:$view_binding_property_delegate")
 
     // Room
     def room_version = "2.5.2"
@@ -107,5 +112,9 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
+
+    // Google Sign-in api
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
+
 
 }

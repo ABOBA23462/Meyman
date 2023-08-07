@@ -1,7 +1,10 @@
 package com.example.meyman.presentation.ui.screens.favorite
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class FavoriteViewModel : ViewModel() {
+@HiltViewModel
+class FavoriteViewModel @Inject constructor() : ViewModel() {
     // TODO: Implement the ViewModel
 }

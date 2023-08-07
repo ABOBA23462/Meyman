@@ -1,32 +1,28 @@
 package com.example.meyman.presentation.ui.screens.profile.guest
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
+import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.databinding.FragmentGuestProfileBinding
+import com.example.meyman.presentation.ui.screens.sign.`in`.SignInFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class GuestProfileFragment : Fragment() {
+@AndroidEntryPoint
+class GuestProfileFragment : BaseFragment<FragmentGuestProfileBinding, GuestProfileViewModel>(R.layout.fragment_guest_profile) {
 
-    companion object {
-        fun newInstance() = GuestProfileFragment()
+    override val binding by viewBinding(FragmentGuestProfileBinding::bind)
+    override val viewModel: GuestProfileViewModel by viewModels()
+
+    override fun initialize() {
+        super.initialize()
     }
 
-    private lateinit var viewModel: GuestProfileViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_guest_profile, container, false)
+    override fun setupSubscribes() = with(binding) {
+        btnSignIn.setOnClickListener {
+            val bottomSheetFragment = SignInFragment()
+            bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+          bottomSheetFragment.dialog?.window?.setBackgroundDrawableResource(R.drawable.rounder)
+        }
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GuestProfileViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

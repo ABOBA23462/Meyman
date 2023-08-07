@@ -4,7 +4,7 @@
     <string name="login_to_get_started">Чтобы начать, войдите в аккаунт или создайте новый</string>
     <string name="sign_in">Войти</string>
     <string name="personal_information">Личная информация</string>
-    <string name="save">сохранить</string>
+    <string name="save">Сохранить</string>
     <string name="mail">Почта</string>
     <string name="surname">Фамилия</string>
     <string name="name">Имя</string>
@@ -57,4 +57,8 @@
     <string name="from_0_som">от 0 сом.</string>
     <string name="including_taxes_and_fees">Включая налоги и сборы</string>
     <string name="phone_number">Номер телефона</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="email_address">Адрес электронной почты</string>
+    <string name="sign_in_through_google">Войти через Google</string>
+    <string name="edit">Редактировать</string>
 </resources>

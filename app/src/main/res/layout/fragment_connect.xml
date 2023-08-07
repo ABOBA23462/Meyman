@@ -6,12 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.screens.connect.ConnectFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/line1_hor"
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="24dp" />
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/blue1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_back"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="16dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/connect_with_us"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/line2_hor"
@@ -26,26 +49,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="12dp" />
-
-    <ImageView
-        android:id="@+id/iv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/arrow_back"
-        app:layout_constraintStart_toEndOf="@id/line1_vert"
-        app:layout_constraintTop_toBottomOf="@id/line1_hor" />
-
-    <TextView
-        android:id="@+id/tv_connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="1.5dp"
-        android:text="@string/connect_with_us"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/iv_back"
-        app:layout_constraintTop_toBottomOf="@id/line1_hor" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,7 +71,8 @@
                 android:src="@drawable/email"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tv_email"
@@ -90,7 +94,8 @@
                 android:src="@drawable/chevron_right"
                 app:layout_constraintBottom_toBottomOf="@id/iv_email_icon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_email_icon" />
+                app:layout_constraintTop_toTopOf="@id/iv_email_icon"
+                tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,7 +113,8 @@
                 android:src="@drawable/whatsapp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tv_whatsapp"
@@ -130,7 +136,8 @@
                 android:src="@drawable/chevron_right"
                 app:layout_constraintBottom_toBottomOf="@id/iv_whatsapp_icon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_whatsapp_icon" />
+                app:layout_constraintTop_toTopOf="@id/iv_whatsapp_icon"
+                tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

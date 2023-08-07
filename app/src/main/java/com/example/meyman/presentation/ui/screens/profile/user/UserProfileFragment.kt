@@ -1,32 +1,30 @@
 package com.example.meyman.presentation.ui.screens.profile.user
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
+import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.databinding.FragmentUserProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class UserProfileFragment : Fragment() {
+@AndroidEntryPoint
+class UserProfileFragment : BaseFragment<FragmentUserProfileBinding, UserProfileViewModel>(R.layout.fragment_user_profile) {
 
-    companion object {
-        fun newInstance() = UserProfileFragment()
+    override val binding by viewBinding(FragmentUserProfileBinding::bind)
+    override val viewModel: UserProfileViewModel by viewModels()
+
+    override fun initialize() {
+        super.initialize()
     }
 
-    private lateinit var viewModel: UserProfileViewModel
+    override fun setupSubscribes() = with(binding) {
+        btnUserChange.setOnClickListener {
+//            findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToChangeUserProfileFragment())
+        }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_user_profile, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
-        // TODO: Use the ViewModel
+        clCall.setOnClickListener {
+//            findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToConnectFragment())
+        }
     }
 
 }

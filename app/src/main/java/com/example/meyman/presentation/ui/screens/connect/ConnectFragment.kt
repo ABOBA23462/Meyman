@@ -1,32 +1,51 @@
 package com.example.meyman.presentation.ui.screens.connect
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.content.Intent
+import android.net.Uri
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
+import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.databinding.FragmentConnectBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class ConnectFragment : Fragment() {
+@AndroidEntryPoint
+class ConnectFragment :
+    BaseFragment<FragmentConnectBinding, ConnectViewModel>(R.layout.fragment_connect) {
 
-    companion object {
-        fun newInstance() = ConnectFragment()
+    override val binding by viewBinding(FragmentConnectBinding::bind)
+    override val viewModel: ConnectViewModel by viewModels()
+
+    private val email = "ibragimyusupov531@gmail.com"
+    private val whatsappNumber = "+996990905959"
+    private val uriTextEmail = "mailto:$email"
+    private val uriTextWhatsapp = "https://wa.me/$whatsappNumber"
+    private val uriEmail = Uri.parse(uriTextEmail)
+    private val uriWhatsapp = Uri.parse(uriTextWhatsapp)
+
+
+    override fun initialize() {
+        super.initialize()
     }
 
-    private lateinit var viewModel: ConnectViewModel
+    override fun setupSubscribes() = with(binding) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_connect, container, false)
-    }
+        val emileIntent = Intent(Intent.ACTION_SENDTO)
+        val whatsappIntent = Intent(Intent.ACTION_VIEW, uriWhatsapp)
+        emileIntent.data = uriEmail
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ConnectViewModel::class.java)
-        // TODO: Use the ViewModel
+        ivBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        clEmail.setOnClickListener {
+            startActivity(emileIntent)
+        }
+
+        clWhatsapp.setOnClickListener {
+            startActivity(whatsappIntent)
+        }
     }
 
 }

@@ -34,7 +34,7 @@ class RetrofitClient {
 
     fun provideGuestHousesApiServer(): GuestHousesApiService {
         return retrofitClient.create(GuestHousesApiService::class.java)
-    }
+     }
 
     fun provideHostelsApiServer(): HostelsApiService {
         return retrofitClient.create(HostelsApiService::class.java)

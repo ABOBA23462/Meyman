@@ -1,32 +1,31 @@
 package com.example.meyman.presentation.ui.screens.profile.user.change
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
+import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.databinding.FragmentChangeUserProfileBinding
 
-class ChangeUserProfileFragment : Fragment() {
+import dagger.hilt.android.AndroidEntryPoint
 
-    companion object {
-        fun newInstance() = ChangeUserProfileFragment()
+@AndroidEntryPoint
+class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding, ChangeUserProfileViewModel>(R.layout.fragment_change_user_profile) {
+
+    override val binding by viewBinding(FragmentChangeUserProfileBinding::bind)
+    override val viewModel: ChangeUserProfileViewModel by viewModels()
+
+    override fun initialize() {
+        super.initialize()
     }
 
-    private lateinit var viewModel: ChangeUserProfileViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_change_user_profile, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ChangeUserProfileViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun setupSubscribes() = with(binding) {
+        ivBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+        tvSave.setOnClickListener {
+            findNavController().navigate(ChangeUserProfileFragmentDirections.actionChangeUserProfileFragmentToUserProfileFragment2())
+        }
     }
 
 }
