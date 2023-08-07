@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ui.screens.profile.user.UserProfileFragment">
 
     <ImageView
@@ -58,127 +58,115 @@
         app:layout_constraintStart_toStartOf="@id/iv_profile_icon"
         app:layout_constraintTop_toBottomOf="@id/iv_profile_icon" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_notification"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#00000000"
-        app:layout_constraintStart_toEndOf="@id/line1_vert"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/line2_hor">
 
-        <ImageView
-            android:id="@+id/iv_notification_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/notification_2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_call"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
 
-        <TextView
-            android:id="@+id/tv_notification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/notification"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_notification_icon"
-            app:layout_constraintStart_toEndOf="@id/iv_notification_icon"
-            app:layout_constraintTop_toTopOf="@id/iv_notification_icon" />
+            <ImageView
+                android:id="@+id/iv_call_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/call_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/iv_chevron_right1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/chevron_right"
-            app:layout_constraintBottom_toBottomOf="@id/iv_notification_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_notification_icon"
-            tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/tv_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:text="@string/connect_with_us"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
+                app:layout_constraintStart_toEndOf="@id/iv_call_icon"
+                app:layout_constraintTop_toTopOf="@id/iv_call_icon" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/iv_chevron_right2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/chevron_right"
+                app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_call_icon"
+                tools:ignore="ContentDescription" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_call"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#00000000"
-        app:layout_constraintStart_toEndOf="@id/line1_vert"
-        app:layout_constraintTop_toBottomOf="@id/line3_hor">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/iv_call_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/call_2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_rent_out_housing"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
 
-        <TextView
-            android:id="@+id/tv_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/connect_with_us"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
-            app:layout_constraintStart_toEndOf="@id/iv_call_icon"
-            app:layout_constraintTop_toTopOf="@id/iv_call_icon" />
+            <ImageView
+                android:id="@+id/iv_rent_out_housing_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14.5dp"
+                android:src="@drawable/add_object"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/iv_chevron_right2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/chevron_right"
-            app:layout_constraintBottom_toBottomOf="@id/iv_call_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_call_icon"
-            tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/tv_rent_out_housing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:text="@string/rent_out_housing"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_rent_out_housing_icon"
+                app:layout_constraintStart_toEndOf="@id/iv_rent_out_housing_icon"
+                app:layout_constraintTop_toTopOf="@id/iv_rent_out_housing_icon" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_regist_mine_object"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#00000000"
-        app:layout_constraintStart_toEndOf="@id/line1_vert"
-        app:layout_constraintTop_toBottomOf="@id/line4_hor">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_rent_car"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
 
-        <ImageView
-            android:id="@+id/iv_object_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14.5dp"
-            android:src="@drawable/add_object"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/iv_rent_car_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11.5dp"
+                android:src="@drawable/add_car"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/tv_regist_mine_object"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="@string/regist_mine_object"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_object_icon"
-            app:layout_constraintStart_toEndOf="@id/iv_object_icon"
-            app:layout_constraintTop_toTopOf="@id/iv_object_icon" />
+            <TextView
+                android:id="@+id/tv_rent_car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:text="@string/rent_car"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_rent_car_icon"
+                app:layout_constraintStart_toEndOf="@id/iv_rent_car_icon"
+                app:layout_constraintTop_toTopOf="@id/iv_rent_car_icon" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/line1_hor"

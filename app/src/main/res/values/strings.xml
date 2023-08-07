@@ -16,7 +16,8 @@
     <string name="sign_in_account">Войдите в аккаунт</string>
     <string name="call_of_registration">Чтобы приступить к управлению бронированиями и без труда спланировать следущую поездку.</string>
     <string name="sign_in_or_log_in">Войти или зарегестрироваться</string>
-    <string name="regist_mine_object">Зарегистрировать свой объект</string>
+    <string name="rent_out_housing">Сдать жилье на Meyman</string>
+    <string name="rent_car">Сдать автомобиль на Meyman</string>
     <string name="log_in">Зарегистрироваться</string>
     <string name="password">Пароль</string>
     <string name="forgot_password">Забыл пароль?</string>

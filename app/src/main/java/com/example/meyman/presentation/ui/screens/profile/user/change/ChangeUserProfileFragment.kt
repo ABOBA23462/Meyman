@@ -24,8 +24,8 @@ class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding,
             findNavController().navigateUp()
         }
         tvSave.setOnClickListener {
-            findNavController().navigate(ChangeUserProfileFragmentDirections.actionChangeUserProfileFragmentToUserProfileFragment2())
+            // Сохранение изменений и переход на экран профиля пользователя
+//            findNavController().navigate(ChangeUserProfileFragmentDirections.actionChangeUserProfileFragmentToUserProfileFragment2())
         }
     }
-
 }

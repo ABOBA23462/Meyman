@@ -36,11 +36,15 @@ class SignInFragment : BottomSheetDialogFragment() {
 
     private fun setupSubscribes() = with(binding) {
 
+        var signIn = true
+
         tvSignUp.setOnClickListener {
+            signIn = false
             tvSignUp.setTextColor(ContextCompat.getColor(requireContext() ,R.color.blue1))
             tvSignIn.setTextColor(ContextCompat.getColor(requireContext() ,R.color.black))
             tilEmail.visibility = View.GONE
             tilPassword.visibility = View.GONE
+            tvForgotPassword.visibility = View.GONE
             tilRegEmail.visibility = View.VISIBLE
             tilRegUserName.visibility = View.VISIBLE
             tilRegUserSurname.visibility = View.VISIBLE
@@ -48,6 +52,7 @@ class SignInFragment : BottomSheetDialogFragment() {
             tilRegPassword.visibility = View.VISIBLE
         }
         tvSignIn.setOnClickListener {
+            signIn = true
             tvSignUp.setTextColor(ContextCompat.getColor(requireContext() ,R.color.black))
             tvSignIn.setTextColor(ContextCompat.getColor(requireContext() ,R.color.blue1))
             tilEmail.visibility = View.VISIBLE
@@ -57,6 +62,20 @@ class SignInFragment : BottomSheetDialogFragment() {
             tilRegUserSurname.visibility = View.GONE
             tilConfirmPassword.visibility = View.GONE
             tilRegPassword.visibility = View.GONE
+            tvForgotPassword.visibility = View.VISIBLE
+
+        }
+
+        btnSignIn.setOnClickListener {
+            //Реализовать показ диалоговое окно при успешном входе или регистрации
+        }
+
+        cvSignInFromGoogle.setOnClickListener {
+            // Реализовать вход через Google аккаунт
+        }
+
+        tvForgotPassword.setOnClickListener {
+            // Реализовать переход в фрагмент изменения пароля
         }
     }
 }

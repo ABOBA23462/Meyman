@@ -19,12 +19,22 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding, UserProfile
 
     override fun setupSubscribes() = with(binding) {
         btnUserChange.setOnClickListener {
+            // Переход на экран редактирования профиля пользователя
 //            findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToChangeUserProfileFragment())
         }
 
         clCall.setOnClickListener {
+            // Переход на экран связи
 //            findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToConnectFragment())
         }
-    }
 
+        clRentOutHousing.setOnClickListener {
+            // Реализовать переход на экран сдачи жилья
+
+        }
+
+        clRentCar.setOnClickListener {
+            // Реализовать переход на экран сдачи авто
+        }
+    }
 }
