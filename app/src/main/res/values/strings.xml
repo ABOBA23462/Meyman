@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Meyman</string>
-    <string name="booking">Бронирования</string>
+    <string name="bookings">Бронирования</string>
+    <string name="booking">Бронирование</string>
     <string name="login_to_get_started">Чтобы начать, войдите в аккаунт или создайте новый</string>
     <string name="sign_in">Войти</string>
     <string name="personal_information">Личная информация</string>
@@ -62,4 +63,31 @@
     <string name="email_address">Адрес электронной почты</string>
     <string name="sign_in_through_google">Войти через Google</string>
     <string name="edit">Редактировать</string>
+    <string name="free_cancellation_anytime">Бесплатная отмена в любое время</string>
+    <string name="_10">10</string>
+    <string name="amazing">Замечательно</string>
+    <string name="address">Проспект Манаса 16, Бишкек</string>
+    <string name="room_name">Представительский номер с кроватью размера “queen-size”</string>
+    <string name="square">Площадь:</string>
+    <string name="_26_m">26 m²</string>
+    <string name="bed_size">Двухместная кровать “queen-size” и диван</string>
+    <string name="wifi">WiFi</string>
+    <string name="conditioner">Кондиционер</string>
+    <string name="dryer">Фен</string>
+    <string name="bathroom">Ванная комната</string>
+    <string name="city_view">Вид на город</string>
+    <string name="tv">Телевизор</string>
+    <string name="period">13 июля, чт - 14 июля, пт</string>
+    <string name="check_in">Заезд:</string>
+    <string name="check_in_date">с 15:00 до 00:00</string>
+    <string name="check_out">Выезд:</string>
+    <string name="check_out_date">с 00:00 до 12:00</string>
+    <string name="breakfast_included">Завтрак включен</string>
+    <string name="payment_on_the_spot">оплата на месте</string>
+    <string name="_1_1">1 гость, 1 ночь</string>
+    <string name="Including_taxes_and_fees">Включая налоги и сборы</string>
+    <string name="com">сом.</string>
+    <string name="summ">12 520</string>
+    <string name="contact_details">Контактные данные</string>
+    <string name="book">Забронировать</string>
 </resources>

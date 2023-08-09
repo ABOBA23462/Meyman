@@ -18,7 +18,7 @@
             android:id="@+id/tv_booking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/booking"
+            android:text="@string/bookings"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/line1_vert"
