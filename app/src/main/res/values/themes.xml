@@ -14,4 +14,9 @@
     <style name="SpinnerButtonStyle" parent="Widget.AppCompat.Spinner">
         <item name="android:tint">@color/white</item>
     </style>
+
+    <style name="textCaps" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>
