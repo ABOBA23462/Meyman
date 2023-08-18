@@ -13,20 +13,28 @@ import com.example.meyman.data.remote.apiservices.TransferApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
 
     private val okHttpClient = OkHttpClient().newBuilder()
+        .addInterceptor(provideLoggingInterceptor())
+        .callTimeout(30, TimeUnit.SECONDS)
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS).build()
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .build()
 
     val retrofitClient = Retrofit.Builder()
         .baseUrl(Constant.BASE_URL)
         .client(okHttpClient)
         .build()
+
+    private fun provideLoggingInterceptor() =
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
 
     fun provideApartmentApiService(): ApartmentApiService {
         return retrofitClient.create(ApartmentApiService::class.java)

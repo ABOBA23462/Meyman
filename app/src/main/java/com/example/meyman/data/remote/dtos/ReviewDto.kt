@@ -2,7 +2,6 @@ package com.example.meyman.data.remote.dtos
 
 import android.os.Parcelable
 import com.example.meyman.domain.utils.models.ReviewItemModel
-import com.example.meyman.domain.utils.models.ReviewModel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -13,12 +12,12 @@ data class ReviewDto<T>(
     val results: List<ReviewItemDto>
 ) : Parcelable
 
-fun ReviewDto<Any?>.toDomain() = ReviewModel(
-    count,
-    next,
-    previous,
-    results = results.map { it.toDomain() }
-)
+//fun ReviewDto<Any?>.toDomain() = ReviewModel(
+//    count,
+//    next,
+//    previous,
+//    results = results.map { it.toDomain() }
+//)
 
 @Parcelize
 data class ReviewItemDto(

@@ -3,18 +3,16 @@ package com.example.meyman.data.remote.dtos
 import android.os.Parcelable
 import com.example.meyman.domain.utils.models.HotelModel
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
+import kotlinx.serialization.SerialName
 
-@Parcelize
 data class HotelDto<T>(
+    @SerialName("count")
     val count: Int,
+    @SerialName("next")
     val next: String,
+    @SerialName("previous")
     val previous: String,
-    val results: List<TravelItemDto>
-) : Parcelable
-
-fun HotelDto<TravelItemDto>.toDomain() = HotelModel(
-    count,
-    next,
-    previous,
-    results = results.map { it.toDomain() }
+    @SerialName("results")
+    val results: List<T>
 )
