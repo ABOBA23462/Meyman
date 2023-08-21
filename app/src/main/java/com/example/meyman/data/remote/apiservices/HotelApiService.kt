@@ -1,9 +1,7 @@
 package com.example.meyman.data.remote.apiservices
 
-import com.example.meyman.data.remote.dtos.HotelDto
-import com.example.meyman.data.remote.dtos.TravelItemDto
-import com.example.meyman.data.remote.dtos2.HotelsDto
-import com.example.meyman.data.remote.dtos2.ResultDto
+import com.example.meyman.data.remote.dtos.HotelsDto
+import com.example.meyman.data.remote.dtos.ResultsItem
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -11,7 +9,6 @@ import retrofit2.http.Query
 interface HotelApiService {
 
     @GET("travel/hotels/")
-
     suspend fun getHotelResult(
         @Query("housing_type") housing_type: String = "",
 
@@ -26,15 +23,15 @@ interface HotelApiService {
         @Query("housing_amenities") housing_amenities: String = "",
 
         //выезд
-        @Query("page") page: String = "",
+        @Query("page") page: Int ?= null,
 
         //рейтинг
         @Query("rating_range") rating_range: String = "",
 
         //удобства
-        @Query("page_size") page_size: String = "",
-    ): HotelsDto<ResultDto>
+        @Query("page_size") page_size: Int ?= null,
+    ): HotelsDto
 
     @GET("travel/hotels/{id}")
-    suspend fun fetchHotel(@Path("id") id: Int): ResultDto
+    suspend fun fetchHotel(@Path("id") id: Int): ResultsItem
 }

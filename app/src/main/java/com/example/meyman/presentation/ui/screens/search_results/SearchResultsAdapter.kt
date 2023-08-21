@@ -1,6 +1,5 @@
 package com.example.meyman.presentation.ui.screens.search_results
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -17,7 +16,7 @@ class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHold
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(dataItem: ResultUI) {
-          binding.tvHotel.text = dataItem.housing_name
+          binding.tvHotel.text = dataItem.housingName
             binding.tvLocation.text = dataItem.description
             println(binding.tvHotel)
 
@@ -41,7 +40,6 @@ class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHold
             override fun areItemsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
                 return oldItem.id == newItem.id
             }
-
             override fun areContentsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
                 return oldItem == newItem
             }

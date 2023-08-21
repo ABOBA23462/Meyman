@@ -1,63 +1,23 @@
 package com.example.meyman.presentation.models
 
+import com.example.meyman.data.remote.dtos.HousingImagesItem
 import com.example.meyman.domain.utils.models.ResultModel
+import com.squareup.moshi.Json
 
 data class ResultUI(
-    val accommodation_type: String,
-    val address: String,
-    val average_rating: Double,
-    val breakfast_cost_usd: Any,
-    val breakfast_included: Boolean,
-    val breakfast_offered: Boolean,
-    val breakfast_type: List<Any>,
-    val check_in_time_end: Int,
-    val check_in_time_start: Int,
-    val check_out_time_end: Int,
-    val check_out_time_start: Int,
-    val children_allowed: Boolean,
-    val description: String,
-    val food_type: String,
-    val housing_amenities: List<String>,
-//    val housing_images: List<HousingImageUI>,
-    val housing_name: String,
-    val housing_type: String,
-    val id: Int,
-    val parking: String,
-    val parking_cost_usd: Any,
-    val parking_location: String,
-    val pet_fee: Boolean,
-    val pets_allowed: Boolean,
-    val region: String,
-    val slug: String,
-    val stars: Int
+    @Json(name = "description")
+    val description: String = "",
+    @Json(name = "id")
+    val id: Int = 0,
+    @Json(name = "housing_images")
+    val housingImages: List<HousingImagesItem>?,
+    @Json(name = "housing_name")
+    val housingName: String = ""
 )
 
 fun ResultModel.toUI() = ResultUI(
-    accommodation_type,
-    address,
-    average_rating,
-    breakfast_cost_usd,
-    breakfast_included,
-    breakfast_offered,
-    breakfast_type,
-    check_in_time_end,
-    check_in_time_start,
-    check_out_time_end,
-    check_out_time_start,
-    children_allowed,
     description,
-    food_type,
-    housing_amenities,
-//    housing_images,
-    housing_name,
-    housing_type,
     id,
-    parking,
-    parking_cost_usd,
-    parking_location,
-    pet_fee,
-    pets_allowed,
-    region,
-    slug,
-    stars
+    housingImages,
+    housingName
 )

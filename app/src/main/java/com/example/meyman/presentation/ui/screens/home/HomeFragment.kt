@@ -51,12 +51,12 @@ class HomeFragment : Fragment() {
         )
 
         val adapter = CustomSpinnerAdapter(requireContext(), R.layout.spinner_item_layout, spinnerItem)
-        binding.spinner.adapter = adapter
+        binding.spinLanguages.adapter = adapter
 
         val adapter2 = CustomSpinnerAdapter2(requireContext(), R.layout.spinner_item2_layout, spinnerItem2)
-        binding.spinner2.adapter = adapter2
+        binding.spinValuta.adapter = adapter2
 
-        binding.materialCardView3.setOnClickListener {
+        binding.mcvOptions.setOnClickListener {
             val bottomSheetFragment = DashboardFragment()
             bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
         }

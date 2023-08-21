@@ -12,6 +12,7 @@ import com.example.meyman.data.remote.apiservices.SearchApiService
 import com.example.meyman.data.remote.apiservices.TransferApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
+import com.example.meyman.data.remote.interceptor.TokenInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,6 +22,7 @@ class RetrofitClient {
 
     private val okHttpClient = OkHttpClient().newBuilder()
         .addInterceptor(provideLoggingInterceptor())
+        .addInterceptor(TokenInterceptor())
         .callTimeout(30, TimeUnit.SECONDS)
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)

@@ -1,11 +1,11 @@
 package com.example.meyman.data.remote.apiservices
 
 import com.example.meyman.data.remote.dtos.ApartmentDto
-import com.example.meyman.data.remote.dtos2.ResultDto
+import com.example.meyman.data.remote.dtos.TravelItemDto
 import retrofit2.http.GET
 
 interface ApartmentApiService {
 
     @GET("travel/apartment/")
-    fun fetchApartment(): ApartmentDto<ResultDto>
+    fun fetchApartment(): ApartmentDto<TravelItemDto>
 }

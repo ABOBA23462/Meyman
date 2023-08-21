@@ -57,7 +57,6 @@ class SearchResultsFragment : Fragment() {
 //                                binding.progressBar.isVisible = true
                         }
                         is UIState.Success -> {
-                            Log.e("data", it.data.toString())
 //                                binding.progressBar.isVisible = false
                             reviewAdapter.submitList(it.data)
                         }
