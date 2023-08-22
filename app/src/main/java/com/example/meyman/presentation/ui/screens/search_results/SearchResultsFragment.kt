@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.meyman.data.remote.WebSocketClient
 import com.example.meyman.databinding.FragmentSearchResultsBinding
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,6 +22,8 @@ class SearchResultsFragment : Fragment() {
     private lateinit var binding: FragmentSearchResultsBinding
     private val viewModel: SearchResultViewModel by viewModels()
     private val reviewAdapter = SearchResultsAdapter()
+    private val webSocketClient = WebSocketClient()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +38,8 @@ class SearchResultsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initialize()
         setupSubscribes()
+
+        webSocketClient.connectWebSocket()
     }
 
     private fun initialize() {
