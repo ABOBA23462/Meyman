@@ -1,14 +1,14 @@
 package com.example.meyman.data.remote.apiservices
 
+import com.example.meyman.data.remote.dtos.HotelByIdDto
 import com.example.meyman.data.remote.dtos.HotelsDto
-import com.example.meyman.data.remote.dtos.ResultsItem
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface HotelApiService {
 
-    @GET("travel/hotels/")
+    @GET("/api/travel/housing")
     suspend fun getHotelResult(
         @Query("housing_type") housing_type: String = "",
 
@@ -32,6 +32,9 @@ interface HotelApiService {
         @Query("page_size") page_size: Int ?= null,
     ): HotelsDto
 
-    @GET("travel/hotels/{id}")
-    suspend fun fetchHotel(@Path("id") id: Int): ResultsItem
+    @GET("/api/travel/housing/{id}")
+    suspend fun getHotelById(
+        @Path("id") id: Int
+    ): HotelByIdDto
+
 }

@@ -2,6 +2,7 @@ package com.example.meyman.data.remote
 
 import com.example.meyman.core.Constant
 import com.example.meyman.data.remote.apiservices.ApartmentApiService
+import com.example.meyman.data.remote.apiservices.ChooseRoomService
 import com.example.meyman.data.remote.apiservices.GuestHousesApiService
 import com.example.meyman.data.remote.apiservices.HostelsApiService
 import com.example.meyman.data.remote.apiservices.HotelApiService
@@ -80,5 +81,9 @@ class RetrofitClient {
 
     fun provideUsersApiServer(): UsersApiService {
         return retrofitClient.create(UsersApiService::class.java)
+    }
+
+    fun provideChooseRoom() : ChooseRoomService{
+        return retrofitClient.create(ChooseRoomService::class.java)
     }
 }

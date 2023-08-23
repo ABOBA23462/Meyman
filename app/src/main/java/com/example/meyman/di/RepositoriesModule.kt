@@ -1,6 +1,7 @@
 package com.example.meyman.di
 
 import com.example.meyman.data.repositories.ApartmentRepositoryImpl
+import com.example.meyman.data.repositories.ChooseRoomRepositoryImpl
 import com.example.meyman.data.repositories.GuestHousesRepositoryImpl
 import com.example.meyman.data.repositories.HostelsRepositoryImpl
 import com.example.meyman.data.repositories.HotelRepositoryImpl
@@ -10,6 +11,7 @@ import com.example.meyman.data.repositories.SanatoriumsRepositoryImpl
 import com.example.meyman.data.repositories.SearchRepositoryImpl
 import com.example.meyman.data.repositories.TransferRepositoryImpl
 import com.example.meyman.domain.repositories.ApartmentRepository
+import com.example.meyman.domain.repositories.ChooseRoomRepository
 import com.example.meyman.domain.repositories.GuestHousesRepository
 import com.example.meyman.domain.repositories.HostelRepository
 import com.example.meyman.domain.repositories.HotelRepository
@@ -53,4 +55,7 @@ interface RepositoriesModule {
 
     @Binds
     fun provideTransferRepository(repositoryImpl: TransferRepositoryImpl): TransferRepository
+
+    @Binds
+    fun provideChooseRepository(repositoryImpl: ChooseRoomRepositoryImpl): ChooseRoomRepository
 }

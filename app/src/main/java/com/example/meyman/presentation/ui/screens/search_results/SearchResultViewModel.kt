@@ -32,13 +32,13 @@ class SearchResultViewModel @Inject constructor(
             fetchAnimeUseCase.invoke().collect {
                 when (it) {
                     is Either.Left -> {
-                        Log.e("df", "fetchHotel: $it", )
+                        Log.e("ololo", "fetchHotel: $it", )
                         it.message?.let { error ->
                             _hotelState.value = UIState.Error(error)
                         }
                     }
                     is Either.Right -> {
-                        Log.e("df", it.data.toString())
+                        Log.e("ololo", it.data.toString())
 
                         it.data?.let {
 

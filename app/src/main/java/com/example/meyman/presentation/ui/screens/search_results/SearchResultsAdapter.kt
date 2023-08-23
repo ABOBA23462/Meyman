@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.meyman.databinding.ItemSearchResultBinding
 import com.example.meyman.presentation.models.ResultUI
 
-class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHolder>(
-    diffUtil
-) {
+class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
