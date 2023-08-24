@@ -5,9 +5,7 @@ import com.example.meyman.data.remote.apiservices.SearchApiService
 import com.example.meyman.data.remote.dtos.toDomain
 import com.example.meyman.domain.repositories.SearchRepository
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 class SearchRepositoryImpl @Inject constructor(
     private val searchApiService: SearchApiService
 ) : BaseRepository(), SearchRepository {

@@ -5,9 +5,7 @@ import com.example.meyman.data.remote.apiservices.NewsApiService
 import com.example.meyman.data.remote.dtos.toDomain
 import com.example.meyman.domain.repositories.NewsRepository
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 class NewsRepositoryImpl @Inject constructor(
     private val newsApiService: NewsApiService
 ) : BaseRepository(), NewsRepository {

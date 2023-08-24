@@ -24,6 +24,10 @@ object AppModule {
 
     @Singleton
     @Provides
+    fun provideRoomsApiService() = retrofitClient.provideRoomsApiServer()
+
+    @Singleton
+    @Provides
     fun provideHostelsApiService() = retrofitClient.provideHostelsApiServer()
 
     @Singleton

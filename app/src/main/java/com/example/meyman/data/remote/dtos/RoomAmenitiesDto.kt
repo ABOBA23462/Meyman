@@ -1,10 +1,7 @@
 package com.example.meyman.data.remote.dtos
 
-import android.os.Parcelable
 import com.example.meyman.domain.models.RoomAmenitiesModel
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class RoomAmenitiesDto(
     val accessible_to_disabled_guests: Boolean,
     val air_conditioner: Boolean,
@@ -48,7 +45,7 @@ data class RoomAmenitiesDto(
     val wardrobe: Boolean,
     val washing_machine: Boolean,
     val work_desk: Boolean
-): Parcelable
+)
 
 fun RoomAmenitiesDto.toDomain() = RoomAmenitiesModel(
     accessible_to_disabled_guests,

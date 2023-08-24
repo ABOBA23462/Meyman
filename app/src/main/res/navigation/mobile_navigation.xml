@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/searchResultsFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/roomPageFragment"
         android:name="com.example.meyman.presentation.ui.screens.room_page.RoomPageFragment"
         android:label="fragment_room_page"
-        tools:layout="@layout/fragment_room_page" />
+        tools:layout="@layout/fragment_room_page" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/facilitiesFragment"
         android:name="com.example.meyman.presentation.ui.screens.room_page.tablayout.facilities.FacilitiesFragment"
@@ -47,5 +51,9 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.meyman.presentation.ui.screens.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_roomPageFragment"
+            app:destination="@id/roomPageFragment" />
+    </fragment>
 </navigation>

@@ -4,13 +4,12 @@ import android.os.Parcelable
 import com.example.meyman.domain.utils.models.ReviewItemModel
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class ReviewDto<T>(
     val count: Int,
     val next: String,
     val previous: String,
     val results: List<ReviewItemDto>
-) : Parcelable
+)
 
 //fun ReviewDto<Any?>.toDomain() = ReviewModel(
 //    count,
@@ -19,7 +18,6 @@ data class ReviewDto<T>(
 //    results = results.map { it.toDomain() }
 //)
 
-@Parcelize
 data class ReviewItemDto(
     val comment: String,
     val formatted_date_added: String,
@@ -27,7 +25,7 @@ data class ReviewItemDto(
     val id: Int,
     val news: Int,
     val stars: Int
-) : Parcelable
+)
 
 fun ReviewItemDto.toDomain() = ReviewItemModel(
     id,

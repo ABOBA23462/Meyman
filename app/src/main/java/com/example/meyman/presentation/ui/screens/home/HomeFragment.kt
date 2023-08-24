@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
 import com.example.meyman.R
@@ -59,6 +60,12 @@ class HomeFragment : Fragment() {
         binding.mcvOptions.setOnClickListener {
             val bottomSheetFragment = DashboardFragment()
             bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+        }
+
+        val id = 4
+
+        binding.btnSearch.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToRoomPageFragment(id))
         }
     }
 

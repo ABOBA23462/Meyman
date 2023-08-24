@@ -7,7 +7,6 @@ import com.example.meyman.domain.repositories.ApartmentRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class ApartmentRepositoryImpl @Inject constructor(
     private val apartmentApiService: ApartmentApiService
 ) : BaseRepository(), ApartmentRepository {

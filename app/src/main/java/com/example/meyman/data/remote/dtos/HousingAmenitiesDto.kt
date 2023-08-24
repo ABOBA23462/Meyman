@@ -4,7 +4,6 @@ import android.os.Parcelable
 import com.example.meyman.domain.utils.models.HousingAmenitiesModel
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class HousingAmenitiesDto(
     val air_conditioner: Boolean,
     val airport_transfer: Boolean,
@@ -80,7 +79,7 @@ data class HousingAmenitiesDto(
     val transfer_paid: Boolean,
     val wifi: Boolean,
     val wine_champagne: Boolean
-): Parcelable
+)
 
 fun HousingAmenitiesDto.toDomain() = HousingAmenitiesModel(
     air_conditioner,

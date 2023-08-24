@@ -5,13 +5,12 @@ import com.example.meyman.domain.utils.models.NewsItemModel
 import com.example.meyman.domain.utils.models.NewsModel
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class NewsDto<T>(
     val count: Int,
     val next: String,
     val previous: String,
     val results: List<NewsItemDto>
-) : Parcelable
+)
 
 fun NewsDto<NewsItemDto>.toDomain() = NewsModel(
     count,
@@ -21,7 +20,6 @@ fun NewsDto<NewsItemDto>.toDomain() = NewsModel(
 )
 
 
-@Parcelize
 data class NewsItemDto(
     val author_fullname: String,
     val content: String,
@@ -31,7 +29,7 @@ data class NewsItemDto(
     val link: String,
     val published_date: String,
     val title: String
-) : Parcelable
+)
 
 fun NewsItemDto.toDomain() = NewsItemModel(
     id,
