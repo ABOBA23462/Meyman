@@ -1,50 +1,51 @@
 package com.example.meyman.data.remote.dtos.rooms
 
 import com.example.meyman.domain.utils.models.rooms.ResultsItemModel
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
 data class ResultsItemDto(
-    @Json(name = "king_bed")
+    @SerializedName("king_bed")
     val kingBed: Int = 0,
-    @Json(name = "room_amenities")
+    @SerializedName ("room_amenities")
     val roomAmenities: List<String>?,
-    @Json(name = "queen_bed")
+    @SerializedName ("queen_bed")
     val queenBed: Int = 0,
-    @Json(name = "max_guest_capacity")
+    @SerializedName ("max_guest_capacity")
     val maxGuestCapacity: Int = 0,
-    @Json(name = "smoking_allowed")
+    @SerializedName ("smoking_allowed")
     val smokingAllowed: Boolean = false,
-    @Json(name = "housing")
+    @SerializedName ("housing")
     val housing: Int = 0,
-    @Json(name = "bed_type")
+    @SerializedName ("bed_type")
     val bedType: String = "",
-    @Json(name = "room_area")
+    @SerializedName ("room_area")
     val roomArea: Int = 0,
-    @Json(name = "without_card")
+    @SerializedName ("without_card")
     val withoutCard: Boolean = false,
-    @Json(name = "num_rooms")
+    @SerializedName ("num_rooms")
     val numRooms: Int = 0,
-    @Json(name = "bedrooms")
+    @SerializedName ("bedrooms")
     val bedrooms: String = "",
-    @Json(name = "room_name")
+    @SerializedName ("room_name")
     val roomName: String = "",
-    @Json(name = "free_cancellation")
+    @SerializedName ("free_cancellation")
     val freeCancellation: Boolean = false,
-    @Json(name = "single_bed")
+    @SerializedName ("single_bed")
     val singleBed: Int = 0,
-    @Json(name = "sofa_bed")
+    @SerializedName ("sofa_bed")
     val sofaBed: Int = 0,
-    @Json(name = "price_per_night")
+    @SerializedName ("price_per_night")
     val pricePerNight: String = "",
-    @Json(name = "room_images")
+    @SerializedName ("room_images")
     val roomImages: List<RoomImagesItemDto>?,
-    @Json(name = "payment")
+    @SerializedName ("payment")
     val payment: String = "",
-    @Json(name = "id")
+    @SerializedName ("id")
     val id: Int = 0,
-    @Json(name = "double_bed")
+    @SerializedName ("double_bed")
     val doubleBed: Int = 0,
-    @Json(name = "policy")
+    @SerializedName ("policy")
     val policy: String = ""
 )
 

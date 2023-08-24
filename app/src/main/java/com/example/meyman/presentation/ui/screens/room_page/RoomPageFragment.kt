@@ -52,5 +52,4 @@ class RoomPageFragment : BaseFragment<FragmentRoomPageBinding, RoomPageViewModel
             }
         )
     }
-
 }

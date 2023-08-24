@@ -1,12 +1,13 @@
 package com.example.meyman.data.remote.dtos.rooms
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 
-data class RoomsDto<T>(@Json(name = "next")
+data class RoomsDto<T>(@SerializedName("next")
                     val next: Int = 0,
-                       @Json(name = "previous")
+                       @SerializedName ("previous")
                     val previous: Int = 0,
-                       @Json(name = "count")
+                       @SerializedName ("count")
                     val count: Int = 0,
-                       @Json(name = "results")
+                       @SerializedName ("results")
                     val results: List<T>)
