@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.ChooseRoomUseCase
 import com.example.meyman.domain.utils.Either
 import com.example.meyman.domain.utils.models.ChooseRoomModel
+import com.example.meyman.domain.utils.models.ResultDomain
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,7 +19,7 @@ class ChooseRoomViewModel @Inject constructor(
     private val chooseRoomUseCase: ChooseRoomUseCase
 ): ViewModel() {
 
-    private val _chooseRoomState = MutableStateFlow<UIState<List<ChooseRoomModel>>>(UIState.Loading())
+    private val _chooseRoomState = MutableStateFlow<UIState<List<ResultDomain>>>(UIState.Loading())
     val chooseRoomState get() = _chooseRoomState.asStateFlow()
 
     fun getChooseRoomState(){

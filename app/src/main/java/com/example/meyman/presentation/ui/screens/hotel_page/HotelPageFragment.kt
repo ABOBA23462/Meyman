@@ -22,7 +22,7 @@ class HotelPageFragment :
 
     override val binding by viewBinding(FragmentHotelPageBinding::bind)
     override val viewModel: HotelPageViewModel by viewModels()
-    private var id: Int = 2
+//    private var id: Int = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.viewPager.adapter = ViewPagerAdapter(this@HotelPageFragment)
@@ -53,7 +53,7 @@ class HotelPageFragment :
     }
 
     private fun callHotelApi() {
-        viewModel.getHotelById(id)
+        viewModel.getHotelById(id = 1)
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.hotelValue.collect {

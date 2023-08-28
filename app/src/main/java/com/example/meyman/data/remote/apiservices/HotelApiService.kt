@@ -2,6 +2,7 @@ package com.example.meyman.data.remote.apiservices
 
 import com.example.meyman.data.remote.dtos.HotelByIdDto
 import com.example.meyman.data.remote.dtos.HotelsDto
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -31,7 +32,6 @@ interface HotelApiService {
         //удобства
         @Query("page_size") page_size: Int ?= null,
     ): HotelsDto
-
     @GET("/api/travel/housing/{id}")
     suspend fun getHotelById(
         @Path("id") id: Int
