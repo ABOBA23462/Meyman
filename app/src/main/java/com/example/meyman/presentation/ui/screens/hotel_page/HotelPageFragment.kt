@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.databinding.FragmentHotelPageBinding
+import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +23,6 @@ class HotelPageFragment :
 
     override val binding by viewBinding(FragmentHotelPageBinding::bind)
     override val viewModel: HotelPageViewModel by viewModels()
-//    private var id: Int = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.viewPager.adapter = ViewPagerAdapter(this@HotelPageFragment)
@@ -49,19 +49,26 @@ class HotelPageFragment :
                 }
             }
         }.attach()
+
         callHotelApi()
     }
 
     private fun callHotelApi() {
         viewModel.getHotelById(id = 1)
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.hotelValue.collect {
                     Log.e("ololo", "HotelPageFragment: ${it}", )
-//                    binding.progressBar.visibility = View.GONE
-//                    binding.tvHotelName.text = it
-//                    binding.tvRatingScore.text = it.stars.toString()
-//                    binding.tvAddress.text = it.address
+                    when(it){
+                        is UIState.Empty ->{}
+                        is UIState.Error ->{
+                            Log.e("ololo", "callHotelApi-error: ${it.error}", )
+                        }
+                        is UIState.Loading ->{}
+                        is UIState.Success ->{
+                            Log.e("ololo", "callHotelApi-success: ${it.data}", )
+                        }
+                    }
                 }
             }
         }

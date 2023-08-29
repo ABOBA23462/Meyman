@@ -1,6 +1,7 @@
 package com.example.meyman.data.remote.dtos
 
 import com.example.meyman.domain.utils.models.HotelByIdModel
+import com.example.meyman.domain.utils.models.RoomImageDomain
 import com.google.gson.annotations.SerializedName
 
 data class HotelByIdDto(
@@ -33,7 +34,7 @@ data class HotelByIdDto(
     @SerializedName("stars") val stars: Int
 )
 
-fun HotelByIdDto.toDomain() = HotelByIdModel(
+fun HotelByIdDto.toHotelByIdDomain() = HotelByIdModel(
     address,
     airport_transfer,
     average_rating,
@@ -45,7 +46,7 @@ fun HotelByIdDto.toDomain() = HotelByIdModel(
     check_out_time_start,
     free_internet,
     hotel_wide_internet,
-    housing_images,
+    housing_images.map { it.toHousingImageDomain() },
     housing_name,
     id,
     in_room_internet,
@@ -70,17 +71,21 @@ data class Room(
     @SerializedName("price_per_night") val price_per_night: String,
     @SerializedName("room_amenities") val room_amenities: List<String>,
     @SerializedName("room_area") val room_area: Int,
-    @SerializedName("room_images") val room_images: List<RoomImage>
+    @SerializedName("room_images") val room_images: List<RoomImageData>
 )
 
 fun Room.toRoomDomain() = com.example.meyman.domain.utils.models.Room(
-    bed_type, max_guest_capacity, num_rooms, price_per_night, room_amenities, room_area, room_images
+    bed_type, max_guest_capacity, num_rooms, price_per_night, room_amenities, room_area, room_images.map { it.toRoomImageDomain() }
 )
 
 data class HousingImage(
     @SerializedName("housing") val housing: Int,
-    @SerializedName("id") val id: Int,
-    @SerializedName("image") val image: String
+    @SerializedName("id_housing") val id: Int,
+    @SerializedName("image_housing") val image: String
+)
+
+fun HousingImage.toHousingImageDomain() = com.example.meyman.domain.utils.models.HousingImage(
+    housing, id, image
 )
 
 data class Review(
@@ -89,7 +94,7 @@ data class Review(
     @SerializedName("comment") val comment: String,
     @SerializedName("date_added") val date_added: String,
     @SerializedName("food_rating") val food_rating: Int,
-    @SerializedName("housing") val housing: Int,
+    @SerializedName("housing_review") val housing: Int,
     @SerializedName("location_rating") val location_rating: Int,
     @SerializedName("staff_rating") val staff_rating: Int,
     @SerializedName("user") val user: Int,
@@ -109,8 +114,15 @@ fun Review.toReviewDomain() = com.example.meyman.domain.utils.models.Review(
     value_for_money_rating
 )
 
-//data class RoomImage(
-//    val id: Int,
-//    val image: String,
-//    val room: Int
-//)
+data class RoomImageData(
+    @SerializedName("id_room")
+    val id: Int,
+    @SerializedName("image_room")
+    val image: String,
+    @SerializedName("room")
+    val room: Int
+)
+
+fun RoomImageData.toRoomImageDomain() = RoomImageDomain(
+    id, image, room
+)

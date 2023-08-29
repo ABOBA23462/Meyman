@@ -3,6 +3,7 @@ package com.example.meyman.data.repositories
 import com.example.meyman.core.base.BaseRepository
 import com.example.meyman.data.remote.apiservices.HotelApiService
 import com.example.meyman.data.remote.dtos.toDomain
+import com.example.meyman.data.remote.dtos.toHotelByIdDomain
 import com.example.meyman.domain.repositories.HotelRepository
 import javax.inject.Inject
 
@@ -15,7 +16,7 @@ class HotelRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getHotelById(id: Int) = doRequest {
-        hotelApiService.getHotelById(id = id).toDomain()
+        hotelApiService.getHotelById(id).toHotelByIdDomain()
     }
 
 }

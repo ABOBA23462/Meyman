@@ -1,7 +1,5 @@
 package com.example.meyman.domain.utils.models
 
-import com.example.meyman.data.remote.dtos.RoomImage
-
 data class ChooseRoomModel(
     val count: Int,
     val next: Any,
@@ -17,10 +15,10 @@ data class ResultDomain(
     val price_per_night: String,
     val room_amenities: List<String>,
     val room_area: Int,
-    val room_images: List<RoomImageDomain>
+    val room_images: List<RoomImage>
 )
 
-data class RoomImageDomain(
+data class RoomImage(
     val id: Int,
     val image: String,
     val room: Int

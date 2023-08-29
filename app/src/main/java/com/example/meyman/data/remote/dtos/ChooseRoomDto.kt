@@ -42,6 +42,6 @@ data class RoomImage(
 )
 
 
-fun RoomImage.toDomain() = RoomImageDomain(
+fun RoomImage.toDomain() = com.example.meyman.domain.utils.models.RoomImage(
     id, image, room
 )

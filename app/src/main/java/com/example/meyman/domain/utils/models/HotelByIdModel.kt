@@ -37,7 +37,7 @@ data class Room(
     val price_per_night: String,
     val room_amenities: List<String>,
     val room_area: Int,
-    val room_images: List<com.example.meyman.domain.utils.models.RoomImage>
+    val room_images: List<RoomImageDomain>
 )
 
 data class HousingImage(
@@ -46,7 +46,7 @@ data class HousingImage(
     val image: String
 )
 
-data class RoomImage(
+data class RoomImageDomain(
     val id: Int,
     val image: String,
     val room: Int

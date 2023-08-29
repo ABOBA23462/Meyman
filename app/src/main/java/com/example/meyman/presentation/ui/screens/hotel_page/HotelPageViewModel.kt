@@ -6,8 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.HotelByIdUseCase
 import com.example.meyman.domain.utils.Either
 import com.example.meyman.domain.utils.models.HotelByIdModel
+import com.example.meyman.presentation.models.HotelByIdUI
+import com.example.meyman.presentation.models.toHotelByIdUI
+import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -18,20 +20,24 @@ class HotelPageViewModel @Inject constructor(
     private val hotelByIdUseCase: HotelByIdUseCase
 ) : ViewModel() {
 
-    private val _hotelValue = MutableStateFlow<Either<String, HotelByIdModel>>(Either.Left())
+    private val _hotelValue = MutableStateFlow<UIState<HotelByIdUI>>(UIState.Loading())
     val hotelValue = _hotelValue.asStateFlow()
 
-    fun getHotelById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
+    fun getHotelById(id: Int) = viewModelScope.launch{
         hotelByIdUseCase(id).collect {
             when (it) {
                 is Either.Left -> {
-                    Log.e("ololo", "error: $it")
-                    _hotelValue.value = Either.Left(it.message)
+                    _hotelValue.value = UIState.Error(it.message.toString())
+                    Log.e("ololo", "HotelPageViewModel-left: $it")
                 }
 
                 is Either.Right -> {
-                    Log.e("ololo", "HotelPageViewModel: $it")
-                    _hotelValue.value = Either.Right(it.data)
+                    it.data?.let {
+                        _hotelValue.value = UIState.Success(
+                            it.toHotelByIdUI()
+                        )
+                    }
+                    Log.e("ololo", "HotelPageViewModel-right: $it")
                 }
             }
         }
