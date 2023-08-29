@@ -65,7 +65,6 @@ class HomeFragment : Fragment() {
         val id = 4
 
         binding.btnSearch.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToRoomPageFragment(id))
         }
     }
 

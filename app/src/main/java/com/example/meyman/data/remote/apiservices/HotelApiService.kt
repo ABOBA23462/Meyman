@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface HotelApiService {
 
-    @GET("travel/hotels/")
+    @GET("housing/")
     suspend fun getHotelResult(
         @Query("housing_type") housing_type: String = "",
 
@@ -32,6 +32,6 @@ interface HotelApiService {
         @Query("page_size") page_size: Int ?= null,
     ): HotelsDto
 
-    @GET("travel/hotels/{id}")
+    @GET("housing/{id}/")
     suspend fun fetchHotel(@Path("id") id: Int): ResultsItem
 }

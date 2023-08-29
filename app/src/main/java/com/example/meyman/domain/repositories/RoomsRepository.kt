@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface RoomsRepository {
 
-    suspend fun fetchRooms(): Flow<Either<String, List<ResultsItemModel>>>
-
+//     fun fetchRooms(): Flow<Either<String, List<ChooseRoomModel>>>
     fun fetchDetailRooms(id: Int): Flow<Resource<ResultsItemModel>>
 }

@@ -13,13 +13,7 @@ class RoomsRepositoryImpl @Inject constructor(
     private val service: RoomsApiService
 ) : BaseRepository(), RoomsRepository {
 
-    override suspend fun fetchRooms() = doRequest {
-        service.fetchRooms().results.map{
-            it.toDomain()
-        }
-    }
-
-    override fun fetchDetailRooms(id: Int): Flow<Resource<ResultsItemModel>> = doRequests {
+    override  fun fetchDetailRooms(id: Int) = doRequests {
         service.fetchDetailRoom(id).toDomain()
     }
 }

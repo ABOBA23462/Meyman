@@ -42,13 +42,14 @@ class ReviewFragment : Fragment() {
         }
 
         private fun setupSubscribes() {
-            subscribeToFetchAnime()
+            subscribeToFetchReview()
         }
 
-        private fun subscribeToFetchAnime() {
+        private fun subscribeToFetchReview() {
+            viewModel.getReviewState()
             viewLifecycleOwner.lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                    viewModel.animeState.collect {
+                    viewModel.reviewState.collect {
                         when (it) {
                             is UIState.Error -> {
 //                                binding.progressBar.isVisible = false
@@ -57,7 +58,7 @@ class ReviewFragment : Fragment() {
 //                                binding.progressBar.isVisible = true
                             }
                             is UIState.Success -> {
-                                Log.e("data", it.data.toString())
+                                Log.e("lox23", it.data.toString())
 //                                binding.progressBar.isVisible = false
                                 reviewAdapter.submitList(it.data)
                             }

@@ -6,27 +6,26 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meyman.databinding.ItemReviewBinding
-import com.example.meyman.presentation.models.ReviewItemUI
+import com.example.meyman.presentation.models.review.ResultsReviewItemUI
 
-class ReviewAdapter: ListAdapter<ReviewItemUI, ReviewAdapter.ViewHolder>(
+class ReviewAdapter : ListAdapter<ResultsReviewItemUI, ReviewAdapter.ViewHolder>(
     diffUtil
 ) {
 
     inner class ViewHolder(private val binding: ItemReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        fun onBind(result: ResultsReviewItemUI) = with(binding) {
+            tvDescription.text = result.comment
+        }
 //        init {
 //            itemView.setOnClickListener {
-//                getItem(absoluteAdapterPosition)?.let { it1 -> onItemClick(it1) }
+//                getItem(absoluteAdapterPosition)?.let { it1 -> onItemClick(it1.id) }
 //            }
 //        }
-
-        fun onBind(reviewItem: ReviewItemUI) {
-            binding.tvDescription.text = reviewItem.comment.toString()
-            println(binding.tvDescription)
-
-        }
     }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -41,14 +40,13 @@ class ReviewAdapter: ListAdapter<ReviewItemUI, ReviewAdapter.ViewHolder>(
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<ReviewItemUI>() {
-            override fun areItemsTheSame(oldItem: ReviewItemUI, newItem: ReviewItemUI): Boolean {
-                return oldItem.id == newItem.id
+        val diffUtil = object : DiffUtil.ItemCallback<ResultsReviewItemUI>() {
+            override fun areItemsTheSame(oldItem: ResultsReviewItemUI, newItem: ResultsReviewItemUI): Boolean {
+                return oldItem.user == newItem.user
             }
-
-            override fun areContentsTheSame(oldItem: ReviewItemUI, newItem: ReviewItemUI): Boolean {
+            override fun areContentsTheSame(oldItem: ResultsReviewItemUI, newItem: ResultsReviewItemUI): Boolean {
                 return oldItem == newItem
             }
         }
     }
-    }
+}

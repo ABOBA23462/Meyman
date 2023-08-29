@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/roomsFragment">
 
     <fragment
         android:id="@+id/roomPageFragment"
@@ -52,8 +52,26 @@
         android:id="@+id/homeFragment"
         android:name="com.example.meyman.presentation.ui.screens.home.HomeFragment"
         android:label="HomeFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/roomsFragment"
+        android:name="com.example.meyman.presentation.ui.screens.hotel_page.rooms.RoomsFragment"
+        android:label="fragment_rooms"
+        tools:layout="@layout/fragment_rooms" >
         <action
-            android:id="@+id/action_homeFragment_to_roomPageFragment"
+            android:id="@+id/action_roomsFragment_to_roomPageFragment"
             app:destination="@id/roomPageFragment" />
+        <action
+            android:id="@+id/action_roomsFragment_to_roomBookingFragment"
+            app:destination="@id/roomBookingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomBookingFragment"
+        android:name="com.example.meyman.presentation.ui.screens.room_page.booking.RoomBookingFragment"
+        android:label="fragment_room_booking"
+        tools:layout="@layout/fragment_room_booking" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

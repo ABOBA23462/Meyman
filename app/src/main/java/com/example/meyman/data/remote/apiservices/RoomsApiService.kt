@@ -1,17 +1,17 @@
 package com.example.meyman.data.remote.apiservices
 
+import com.example.meyman.data.remote.dtos.ChooseRoomDto
 import com.example.meyman.data.remote.dtos.rooms.ResultsItemDto
-import com.example.meyman.data.remote.dtos.rooms.RoomsDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface RoomsApiService {
 
-    @GET("travel/rooms")
-    fun fetchRooms(): RoomsDto<ResultsItemDto>
+    @GET("rooms/")
+    suspend fun fetchRooms(): ChooseRoomDto
 
-    @GET("travel/room/{id}")
-    fun fetchDetailRoom(
+    @GET("rooms/{id}/")
+     fun fetchDetailRoom(
         @Path("id") id: Int
     ): ResultsItemDto
 }

@@ -1,11 +1,12 @@
 package com.example.meyman.presentation.ui.screens.room_page.tablayout.review
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchReviewUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.presentation.models.ReviewItemUI
-import com.example.meyman.presentation.models.toUI
+import com.example.meyman.presentation.models.review.ResultsReviewItemUI
+import com.example.meyman.presentation.models.review.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,32 +18,26 @@ import javax.inject.Inject
 class ReviewViewModel @Inject constructor(
     private val fetchReviewUseCase: FetchReviewUseCase
 ) : ViewModel() {
+    private val _reviewState = MutableStateFlow<UIState<List<ResultsReviewItemUI>>>(UIState.Loading())
+    val reviewState get() = _reviewState.asStateFlow()
 
-    private val _reviewState = MutableStateFlow<UIState<List<ReviewItemUI>>>(UIState.Loading())
-    val animeState get() = _reviewState.asStateFlow()
-
-    init {
-        fetchAnime()
-    }
-
-    private fun fetchAnime() {
+    fun getReviewState(){
         viewModelScope.launch {
-            fetchReviewUseCase().collect {
-                when (it) {
+            fetchReviewUseCase.invoke().collect{
+                when(it){
                     is Either.Left -> {
-                        it.message?.let { error ->
-                            _reviewState.value = UIState.Error(error)
-                        }
+                        _reviewState.value = UIState.Error(it.message!!)
+                        Log.e("lox", "getChooseRoomState: ${it.message}", )
                     }
                     is Either.Right -> {
-                        it.data?.let {
-                            _reviewState.value = UIState.Success(it.map { review ->
-                                review.toUI()
-                            })
-                        }
+                        _reviewState.value = UIState.Success(it.data!!.map { it.toUI() })
+                        Log.e("lox", "getChooseRoomState: ${it.data}", )
                     }
+
+                    else -> {}
                 }
             }
         }
     }
+
 }
