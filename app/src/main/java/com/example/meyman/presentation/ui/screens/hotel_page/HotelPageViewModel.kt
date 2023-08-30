@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.HotelByIdUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.domain.utils.models.HotelByIdModel
 import com.example.meyman.presentation.models.HotelByIdUI
-import com.example.meyman.presentation.models.toHotelByIdUI
+import com.example.meyman.presentation.models.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -34,7 +33,7 @@ class HotelPageViewModel @Inject constructor(
                 is Either.Right -> {
                     it.data?.let {
                         _hotelValue.value = UIState.Success(
-                            it.toHotelByIdUI()
+                            it.toUI()
                         )
                     }
                     Log.e("ololo", "HotelPageViewModel-right: $it")

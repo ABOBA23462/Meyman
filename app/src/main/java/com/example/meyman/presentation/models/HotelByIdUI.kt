@@ -4,7 +4,6 @@ import com.example.meyman.domain.utils.models.HotelByIdModel
 import com.example.meyman.domain.utils.models.HousingImage
 import com.example.meyman.domain.utils.models.Review
 import com.example.meyman.domain.utils.models.Room
-import com.example.meyman.domain.utils.models.RoomImage
 import com.example.meyman.domain.utils.models.RoomImageDomain
 import com.google.gson.annotations.SerializedName
 
@@ -65,7 +64,7 @@ data class HotelByIdUI(
     val stars: Int
 )
 
-fun HotelByIdModel.toHotelByIdUI() = HotelByIdUI(
+fun HotelByIdModel.toUI() = HotelByIdUI(
     address,
     airport_transfer,
     average_rating,
@@ -77,7 +76,7 @@ fun HotelByIdModel.toHotelByIdUI() = HotelByIdUI(
     check_out_time_start,
     free_internet,
     hotel_wide_internet,
-    housing_images.map { it.toHousingImageUI() },
+    housing_images.map { it.toUI() },
     housing_name,
     id,
     in_room_internet,
@@ -88,9 +87,9 @@ fun HotelByIdModel.toHotelByIdUI() = HotelByIdUI(
     pool,
     poolside_bar,
     restaurant,
-    reviews.map { it.toReviewUI() },
+    reviews.map { it.toUI() },
     room_service,
-    rooms.map { it.roomUI() },
+    rooms.map { it.toUI() },
     spa_services,
     stars
 )
@@ -104,7 +103,7 @@ data class HousingImageUI(
     val image: String
 )
 
-fun HousingImage.toHousingImageUI() = HousingImageUI(
+fun HousingImage.toUI() = HousingImageUI(
     housing, id, image
 )
 
@@ -131,7 +130,7 @@ data class ReviewUI(
     val value_for_money_rating: Int
 )
 
-fun Review.toReviewUI() = ReviewUI(
+fun Review.toUI() = ReviewUI(
     cleanliness_rating,
     comfort_rating,
     comment,
@@ -161,14 +160,14 @@ data class RoomUI(
     val room_images: List<RoomImageUI>
 )
 
-fun Room.roomUI() = RoomUI(
+fun Room.toUI() = RoomUI(
     bed_type,
     max_guest_capacity,
     num_rooms,
     price_per_night,
     room_amenities,
     room_area,
-    room_images.map { it.toRoomImageUI() }
+    room_images.map { it.toUI() }
 )
 
 data class RoomImageUI(
@@ -180,6 +179,6 @@ data class RoomImageUI(
     val room: Int
 )
 
-fun RoomImageDomain.toRoomImageUI() = RoomImageUI(
+fun RoomImageDomain.toUI() = RoomImageUI(
     id, image, room
 )

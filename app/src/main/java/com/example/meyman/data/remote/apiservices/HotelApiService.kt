@@ -32,7 +32,7 @@ interface HotelApiService {
         //удобства
         @Query("page_size") page_size: Int ?= null,
     ): HotelsDto
-    @GET("api/travel/housing/{id}/")
+    @GET("housing/{id}/")
     suspend fun getHotelById(
         @Path("id") id: Int
     ): HotelByIdDto
