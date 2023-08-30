@@ -61,4 +61,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideChooseRoomApiService() = retrofitClient.provideChooseRoom()
+
+    @Singleton
+    @Provides
+    fun provideBookingApiService() = retrofitClient.provideBooking()
 }

@@ -93,4 +93,14 @@
         android:name="com.example.meyman.presentation.ui.screens.chooseRoom.ChooseRoomFragment"
         android:label="fragment_choose_room"
         tools:layout="@layout/fragment_choose_room" />
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.meyman.presentation.ui.screens.booking.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
+    <fragment
+        android:id="@+id/bookingDetailFragment"
+        android:name="com.example.meyman.presentation.ui.screens.booking.booking_detail.BookingDetailFragment"
+        android:label="fragment_booking_detail"
+        tools:layout="@layout/fragment_booking_detail" />
 </navigation>

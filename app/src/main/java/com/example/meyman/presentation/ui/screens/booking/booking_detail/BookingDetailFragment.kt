@@ -1,32 +1,60 @@
 package com.example.meyman.presentation.ui.screens.booking.booking_detail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.meyman.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.example.meyman.databinding.FragmentBookingDetailBinding
+import com.example.meyman.presentation.state.UIState
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class BookingDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = BookingDetailFragment()
-    }
-
-    private lateinit var viewModel: BookingDetailViewModel
+    private lateinit var binding: FragmentBookingDetailBinding
+    private val viewModel: BookingDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_booking_detail, container, false)
+        binding = FragmentBookingDetailBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BookingDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        callDetailApi()
+    }
+
+    private fun callDetailApi() {
+        viewModel.getBookingById(id)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.bookingDetail.collect {
+                    Log.e("ololo", "BookingDetailFragment: ${it}")
+                    when (it) {
+                        is UIState.Empty -> {}
+                        is UIState.Error -> {
+                            Log.e("ololo", "BookingDetailFragment-error: ${it.error}")
+                        }
+
+                        is UIState.Loading -> {}
+                        is UIState.Success -> {
+                            Log.e("ololo", "BookingDetailFragment-success: ${it.data}")
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
