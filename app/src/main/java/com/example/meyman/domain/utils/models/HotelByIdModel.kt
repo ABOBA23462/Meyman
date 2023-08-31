@@ -31,7 +31,7 @@ data class HotelByIdModel(
 )
 
 data class Room(
-    val bed_type: List<String>,
+    val bed_type: String,
     val max_guest_capacity: Int,
     val num_rooms: Int,
     val price_per_night: String,

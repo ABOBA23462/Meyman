@@ -35,6 +35,6 @@ interface HotelApiService {
     @GET("housing/{id}/")
     suspend fun getHotelById(
         @Path("id") id: Int
-    ): HotelByIdDto
+    ): Response<HotelByIdDto>
 
 }

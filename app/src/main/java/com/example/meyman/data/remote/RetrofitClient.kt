@@ -15,9 +15,12 @@ import com.example.meyman.data.remote.apiservices.TransferApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
 import com.example.meyman.data.remote.interceptor.TokenInterceptor
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
@@ -31,8 +34,11 @@ class RetrofitClient {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
 
+    val gson = GsonBuilder().setLenient().create()
+
     val retrofitClient = Retrofit.Builder()
         .baseUrl(Constant.BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttpClient)
         .build()
 

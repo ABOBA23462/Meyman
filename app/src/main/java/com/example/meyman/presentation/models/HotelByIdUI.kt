@@ -145,7 +145,7 @@ fun Review.toUI() = ReviewUI(
 
 data class RoomUI(
     @SerializedName("bed_type")
-    val bed_type: List<String>,
+    val bed_type: String,
     @SerializedName("max_guest_capacity")
     val max_guest_capacity: Int,
     @SerializedName("num_rooms")

@@ -8,6 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface HotelRepository {
 
     suspend fun fetchHotel(): Flow<Either<String, List<ResultModel>?>>
-    suspend fun getHotelById(id: Int): Flow<Either<String, HotelByIdModel>>
+    suspend fun getHotelById(id: Int): Flow<Either<String, HotelByIdModel?>>
 
 }
