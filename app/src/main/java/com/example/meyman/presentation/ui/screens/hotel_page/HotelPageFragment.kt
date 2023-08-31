@@ -12,6 +12,7 @@ import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.databinding.FragmentHotelPageBinding
 import com.example.meyman.presentation.state.UIState
+import com.example.meyman.presentation.ui.screens.hotel_page.tabLayout.HotelPageViewPagerAdapter
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +26,7 @@ class HotelPageFragment :
     override val viewModel: HotelPageViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.viewPager.adapter = ViewPagerAdapter(this@HotelPageFragment)
+        binding.viewPager.adapter = HotelPageViewPagerAdapter(this@HotelPageFragment)
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->
             when (pos) {
                 0 -> {
@@ -67,6 +68,11 @@ class HotelPageFragment :
                         is UIState.Loading ->{}
                         is UIState.Success ->{
                             Log.e("ololo", "callHotelApi-success: ${it.data}", )
+                            with(binding){
+                                tvTitle.text = it.data.address
+                                tvRatingScore.text = it.data.stars.toString()
+                                tvHotelName.text = it.data.housing_name
+                            }
                         }
                     }
                 }
