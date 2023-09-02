@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/hotelPageFragment">
+    app:startDestination="@id/acceptAccountFragment">
 
     <fragment
         android:id="@+id/roomPageFragment"
@@ -103,4 +103,24 @@
         android:name="com.example.meyman.presentation.ui.screens.booking.booking_detail.BookingDetailFragment"
         android:label="fragment_booking_detail"
         tools:layout="@layout/fragment_booking_detail" />
+    <fragment
+        android:id="@+id/acceptAccountFragment"
+        android:name="com.example.meyman.presentation.ui.screens.acceptAccount.AcceptAccountFragment"
+        android:label="fragment_accept_account"
+        tools:layout="@layout/fragment_accept_account" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password"
+        android:name="com.example.meyman.presentation.ui.screens.forgot_password.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment" />
+    <fragment
+        android:id="@+id/acceptCodeFragment"
+        tools:layout="@layout/fragment_accept_code"
+        android:name="com.example.meyman.presentation.ui.screens.forgot_password.acceptCode.AcceptCodeFragment"
+        android:label="AcceptCodeFragment" />
+    <fragment
+        android:id="@+id/updatePasswordFragment"
+        tools:layout="@layout/fragment_update_password"
+        android:name="com.example.meyman.presentation.ui.screens.forgot_password.updatePassword.UpdatePasswordFragment"
+        android:label="UpdatePasswordFragment" />
 </navigation>

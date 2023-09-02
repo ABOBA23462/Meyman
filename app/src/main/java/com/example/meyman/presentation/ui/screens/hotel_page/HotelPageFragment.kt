@@ -8,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
+import coil.load
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.databinding.FragmentHotelPageBinding
