@@ -33,8 +33,6 @@ class ReviewViewModel @Inject constructor(
                         _reviewState.value = UIState.Success(it.data!!.map { it.toUI() })
                         Log.e("lox", "getChooseRoomState: ${it.data}", )
                     }
-
-                    else -> {}
                 }
             }
         }

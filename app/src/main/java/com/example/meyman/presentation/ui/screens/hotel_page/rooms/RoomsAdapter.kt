@@ -5,17 +5,20 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
-import com.example.meyman.databinding.ItemPhotoRoomsBinding
 import com.example.meyman.databinding.ItemRoomBinding
 import com.example.meyman.presentation.models.ResultRoomUI
-import com.example.meyman.presentation.models.RoomImageUI
 
-class RoomsAdapter( val onItemClick: (id: String) -> Unit,
+class RoomsAdapter( val onItemClick: (id: Int) -> Unit,
                     val onButtonClick: (id: Int) -> Unit,) : ListAdapter<ResultRoomUI, RoomsAdapter.ViewHolder>(
     diffUtil
 ) {
+
+    private lateinit var adapter: PhotoAdapter
+
     fun ImageView.setImage(uri: String) {
         Glide.with(this)
             .load(uri)
@@ -28,16 +31,18 @@ class RoomsAdapter( val onItemClick: (id: String) -> Unit,
         fun onBind(result: ResultRoomUI) = with(binding) {
             tvPrice.text = result.price_per_night
             tvGuests.text = result.num_rooms.toString()
-            tvSquare.text = result.room_area.toString()
-            tvHotelAmenities.text = result.bed_type
-            tvTitle.text = result.room_amenities.toString()
+            tvSquare.text = "${result.room_area} m²"
+            tvHotelAmenities.text = "Двухместная кровать  и диван "
+            adapter = PhotoAdapter()
+            rcPhotos.adapter = adapter
+            val snapHelper: SnapHelper = PagerSnapHelper()
+            snapHelper.attachToRecyclerView(rcPhotos)
+            result.room_images.let { adapter.submitList(it) }
+
         }
         init {
             itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition)?.let { it1 -> onItemClick(it1.id.toString()) }
-            }
-            binding.btnBooking.setOnClickListener {
-                onButtonClick.invoke(absoluteAdapterPosition)
+                getItem(absoluteAdapterPosition)?.let { it1 -> onItemClick(it1.id) }
             }
         }
     }

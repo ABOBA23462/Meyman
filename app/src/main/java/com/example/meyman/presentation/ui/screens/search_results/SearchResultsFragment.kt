@@ -61,6 +61,8 @@ class SearchResultsFragment : Fragment() {
 //                                binding.progressBar.isVisible = false
                             reviewAdapter.submitList(it.data)
                         }
+
+                        else -> {}
                     }
                 }
             }

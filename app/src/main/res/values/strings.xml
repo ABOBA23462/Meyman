@@ -90,4 +90,5 @@
     <string name="summ">12 520</string>
     <string name="contact_details">Контактные данные</string>
     <string name="book">Забронировать</string>
+    <string name="name_and_surname">Имя и фамилия</string>
 </resources>

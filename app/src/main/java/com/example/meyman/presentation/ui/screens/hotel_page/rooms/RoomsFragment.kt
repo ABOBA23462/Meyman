@@ -35,7 +35,6 @@ class RoomsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initialize()
         setupSubscribes()
-        println("bliyat suka nahui, proekt gorit bliyat")
     }
 
     private fun initialize() {
@@ -44,10 +43,11 @@ class RoomsFragment : Fragment() {
 
     private fun setupSubscribes() {
         subscribeToFetchRooms()
+
     }
 
-    private fun onItemClick(id: String) {
-        findNavController().navigate(RoomsFragmentDirections.actionRoomsFragmentToRoomPageFragment(id.toInt()))
+    private fun onItemClick(id: Int) {
+        findNavController().navigate(RoomsFragmentDirections.actionRoomsFragmentToRoomPageFragment(id + 1))
     }
     private fun onButtonClick(id: Int) {
         findNavController().navigate(RoomsFragmentDirections.actionRoomsFragmentToRoomBookingFragment(id))
@@ -70,6 +70,8 @@ class RoomsFragment : Fragment() {
                         is UIState.Success -> {
 //                                binding.progressBar.isVisible = false
                             adapter.submitList(it.data)
+                            val itemCount = adapter.itemCount ?: 0
+                            binding.textView.text = "$itemCount варианта"
                         }
 
                         else -> {}

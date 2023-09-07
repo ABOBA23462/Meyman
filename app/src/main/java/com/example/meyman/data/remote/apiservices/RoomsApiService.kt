@@ -1,9 +1,11 @@
 package com.example.meyman.data.remote.apiservices
 
 import com.example.meyman.data.remote.dtos.ChooseRoomDto
-import com.example.meyman.data.remote.dtos.rooms.ResultsItemDto
+import com.example.meyman.data.remote.dtos.rooms.ResultsRoomsItemDto
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import java.util.concurrent.CompletableFuture
 
 interface RoomsApiService {
 
@@ -11,7 +13,7 @@ interface RoomsApiService {
     suspend fun fetchRooms(): ChooseRoomDto
 
     @GET("rooms/{id}/")
-     fun fetchDetailRoom(
+    suspend fun fetchDetailRoom(
         @Path("id") id: Int
-    ): ResultsItemDto
+    ): Response<ResultsRoomsItemDto>
 }

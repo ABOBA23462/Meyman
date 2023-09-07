@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
     android:background="@color/white_80"
     android:padding="10dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="@color/white"
         android:elevation="20dp"
+        android:layout_gravity="center_horizontal"
         app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,15 +26,20 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_photos"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="208dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:cardCornerRadius="16dp">
 
-                <ImageView
-                    android:id="@+id/vp_photos"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rc_photos"
                     android:orientation="horizontal"
                     tools:listitem="@layout/item_photo_rooms"
                     android:layout_width="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:layout_height="208dp"
                     android:scaleType="centerCrop" />
 
@@ -223,30 +230,9 @@
                 app:layout_constraintStart_toStartOf="@+id/tv_price"
                 app:layout_constraintTop_toBottomOf="@+id/tv_price" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv1"
-                android:layout_width="match_parent"
-                android:layout_height="83dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/paying_taxes_and_fees">
-
-                <Button
-                    android:id="@+id/btn_booking"
-                    android:layout_width="336dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounder_button"
-                    android:backgroundTint="@color/blue1"
-                    android:text="Забронировать"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-            </androidx.cardview.widget.CardView>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

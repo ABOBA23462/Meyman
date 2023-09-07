@@ -75,81 +75,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_photo"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/iv_first"
-                            android:layout_width="166dp"
-                            android:layout_height="120dp"
-                            android:background="@color/gray3"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="ContentDescription" />
-
-
-                        <ImageView
-                            android:id="@+id/iv_second"
-                            android:layout_width="166dp"
-                            android:layout_height="120dp"
-                            android:layout_marginStart="5dp"
-                            android:background="@color/gray3"
-                            app:layout_constraintStart_toEndOf="@id/iv_first"
-                            app:layout_constraintTop_toTopOf="@id/iv_first"
-                            tools:ignore="ContentDescription" />
-
-                        <ImageView
-                            android:id="@+id/iv_third"
-                            android:layout_width="110dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@color/gray3"
-                            app:layout_constraintStart_toStartOf="@id/iv_first"
-                            app:layout_constraintTop_toBottomOf="@id/iv_first"
-                            tools:ignore="ContentDescription" />
-
-                        <ImageView
-                            android:id="@+id/iv_fourth"
-                            android:layout_width="110dp"
-                            android:layout_height="120dp"
-                            android:layout_marginStart="5dp"
-                            android:background="@color/gray3"
-                            app:layout_constraintStart_toEndOf="@id/iv_third"
-                            app:layout_constraintTop_toTopOf="@id/iv_third"
-                            tools:ignore="ContentDescription" />
-
-                        <FrameLayout
-                            android:id="@+id/fl_more_img"
-                            android:layout_width="108dp"
-                            android:layout_height="120dp"
-                            android:layout_marginStart="5dp"
-                            app:layout_constraintStart_toEndOf="@id/iv_fourth"
-                            app:layout_constraintTop_toTopOf="@id/iv_third">
-
-                            <ImageView
-                                android:id="@+id/iv_fifth"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@color/white"
-                                tools:ignore="ContentDescription,ImageContrastCheck" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#33626262" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="+5"
-                                android:textColor="@color/white"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,TextContrastCheck" />
-                        </FrameLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        tools:listitem="@layout/item_room"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
@@ -223,132 +155,13 @@
                     app:layout_constraintTop_toTopOf="@id/iv_hotel_amenities"
                     tools:ignore="TextContrastCheck" />
 
-                <ImageView
-                    android:id="@+id/iv_wifi"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_room_amenities"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="23dp"
-                    android:src="@drawable/wifi"
-                    app:layout_constraintStart_toStartOf="@id/iv_hotel_amenities"
-                    app:layout_constraintTop_toBottomOf="@id/iv_hotel_amenities"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tv_wifi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/wifi"
-                    android:textColor="@color/gray3"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_wifi"
-                    app:layout_constraintStart_toEndOf="@id/iv_wifi"
-                    app:layout_constraintTop_toTopOf="@id/iv_wifi" />
-
-                <ImageView
-                    android:id="@+id/iv_conditioner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:src="@drawable/conditioner"
-                    app:layout_constraintStart_toEndOf="@id/tv_wifi"
-                    app:layout_constraintTop_toTopOf="@id/iv_wifi"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tv_conditioner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/conditioner"
-                    android:textColor="@color/gray3"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_conditioner"
-                    app:layout_constraintStart_toEndOf="@id/iv_conditioner"
-                    app:layout_constraintTop_toTopOf="@id/iv_conditioner" />
-
-                <ImageView
-                    android:id="@+id/iv_dryer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:src="@drawable/dryer"
-                    app:layout_constraintStart_toEndOf="@id/tv_conditioner"
-                    app:layout_constraintTop_toTopOf="@id/iv_wifi"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tv_dryer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/dryer"
-                    android:textColor="@color/gray3"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_dryer"
-                    app:layout_constraintStart_toEndOf="@id/iv_dryer"
-                    app:layout_constraintTop_toTopOf="@id/iv_dryer" />
-
-                <ImageView
-                    android:id="@+id/iv_bathroom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/bathroom"
-                    app:layout_constraintStart_toStartOf="@id/iv_wifi"
-                    app:layout_constraintTop_toBottomOf="@id/iv_wifi"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tv_bathroom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/bathroom"
-                    android:textColor="@color/gray3"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_bathroom"
-                    app:layout_constraintStart_toEndOf="@id/iv_bathroom"
-                    app:layout_constraintTop_toTopOf="@id/iv_bathroom" />
-
-                <ImageView
-                    android:id="@+id/iv_city_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:src="@drawable/city_view"
-                    app:layout_constraintStart_toEndOf="@id/tv_bathroom"
-                    app:layout_constraintTop_toTopOf="@id/iv_bathroom"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tv_city_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/city_view"
-                    android:textColor="@color/gray3"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_city_view"
-                    app:layout_constraintStart_toEndOf="@id/iv_city_view"
-                    app:layout_constraintTop_toTopOf="@id/iv_city_view" />
-
-                <ImageView
-                    android:id="@+id/iv_TV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:paddingTop="2dp"
-                    android:src="@drawable/tv"
-                    app:layout_constraintStart_toEndOf="@id/tv_city_view"
-                    app:layout_constraintTop_toTopOf="@id/iv_bathroom"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/tv_TV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/tv"
-                    android:textColor="@color/gray3"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_TV"
-                    app:layout_constraintStart_toEndOf="@id/iv_TV"
-                    app:layout_constraintTop_toTopOf="@id/iv_TV" />
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    app:layout_constraintTop_toBottomOf="@id/iv_hotel_amenities"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -387,7 +200,7 @@
             android:layout_gravity="center"
             android:background="@drawable/rounder_button"
             android:backgroundTint="@color/blue1"
-            android:text="Выбрать номер от 12 520 сом."
+            android:text="Забронировать номер от 12 520 сом."
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />

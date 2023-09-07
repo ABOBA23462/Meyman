@@ -1,5 +1,7 @@
 package com.example.meyman.domain.utils.models
 
+import com.google.gson.annotations.SerializedName
+
 
 data class ChooseRoomModel(
     val count: Int,
@@ -9,7 +11,7 @@ data class ChooseRoomModel(
 )
 
 data class ResultDomain(
-    val bed_type: String,
+    val bedType: List<String>?,
     val id: Int,
     val max_guest_capacity: Int,
     val num_rooms: Int,
