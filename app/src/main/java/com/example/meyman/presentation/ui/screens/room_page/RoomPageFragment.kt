@@ -76,9 +76,8 @@ class RoomPageFragment :
                             val snapHelper: SnapHelper = PagerSnapHelper()
                             snapHelper.attachToRecyclerView(binding.rvPhoto)
                             it.data.roomImages?.let { adapter.submitList(it) }
-                            adapterAmenities = RoomAmenitiesAdapter()
+                            adapterAmenities = RoomAmenitiesAdapter(it.data.roomAmenities!!)
                             binding.rvRoomAmenities.adapter = adapterAmenities
-//                            it.data.roomAmenities?.let { adapterAmenities.submitList(it) }
                         }
                     }
                 }
