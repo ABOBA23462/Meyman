@@ -47,7 +47,6 @@ class SignInFragment : BottomSheetDialogFragment() {
             tvForgotPassword.visibility = View.GONE
             tilRegEmail.visibility = View.VISIBLE
             tilRegUserName.visibility = View.VISIBLE
-            tilRegUserSurname.visibility = View.VISIBLE
             tilConfirmPassword.visibility = View.VISIBLE
             tilRegPassword.visibility = View.VISIBLE
         }
@@ -59,7 +58,6 @@ class SignInFragment : BottomSheetDialogFragment() {
             tilPassword.visibility = View.VISIBLE
             tilRegEmail.visibility = View.GONE
             tilRegUserName.visibility = View.GONE
-            tilRegUserSurname.visibility = View.GONE
             tilConfirmPassword.visibility = View.GONE
             tilRegPassword.visibility = View.GONE
             tvForgotPassword.visibility = View.VISIBLE
