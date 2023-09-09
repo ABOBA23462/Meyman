@@ -51,7 +51,8 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
                         is UIState.Success -> {
                             onSuccess(result.data)
                         }
-                        is UIState.Empty->{
+
+                        is UIState.Empty -> {
 
                         }
                     }

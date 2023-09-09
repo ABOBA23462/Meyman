@@ -1,16 +1,14 @@
 package com.example.meyman.presentation.ui.screens.search_results
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
-import com.example.meyman.R
 import com.example.meyman.databinding.FragmentSearchResultsBinding
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,13 +33,8 @@ class SearchResultsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initialize()
         setupSubscribes()
 
-    }
-
-    private fun initialize() {
-        binding.rvSearchResults.adapter = reviewAdapter
     }
 
     private fun setupSubscribes() {
@@ -56,14 +49,18 @@ class SearchResultsFragment : Fragment() {
                         is UIState.Error -> {
 //                                binding.progressBar.isVisible = false
                         }
+
                         is UIState.Loading -> {
 //                                binding.progressBar.isVisible = true
                         }
+
                         is UIState.Success -> {
 //                                binding.progressBar.isVisible = false
+                            binding.rvSearchResults.adapter = reviewAdapter
                             reviewAdapter.submitList(it.data)
                         }
-                        is UIState.Empty->{}
+
+                        is UIState.Empty -> {}
 
                     }
                 }

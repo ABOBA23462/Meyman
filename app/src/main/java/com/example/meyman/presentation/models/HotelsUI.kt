@@ -1,17 +1,17 @@
-package com.example.meyman.data.remote.dtos
+package com.example.meyman.presentation.models
 
 import com.example.meyman.domain.utils.models.HotelsHousingImage
 import com.example.meyman.domain.utils.models.HotelsModel
 import com.google.gson.annotations.SerializedName
 
-data class HotelsDto(
+data class HotelsUI(
     @SerializedName("count") val count: Int,
     @SerializedName("next") val next: Any,
     @SerializedName("previous") val previous: Any,
     @SerializedName("results") val results: List<HotelsResult>
 )
 
-fun HotelsDto.toDomain() = HotelsModel(count, next, previous, results.map { it.toDomain() })
+fun HotelsModel.toUI() = HotelsUI(count, next, previous, results.map { it.toUI() })
 
 data class HotelsHousingImage(
     @SerializedName("housing") val housing: Int,
@@ -19,7 +19,7 @@ data class HotelsHousingImage(
     @SerializedName("image") val image: String
 )
 
-fun HotelsHousingImage.toDomain() = HotelsHousingImage(
+fun HotelsHousingImage.toUI() = com.example.meyman.presentation.models.HotelsHousingImage(
     housing, id, image
 )
 
@@ -41,7 +41,7 @@ data class HotelsResult(
     @SerializedName("gym") val gym: Boolean,
     @SerializedName("hotel_wide_internet") val hotel_wide_internet: Boolean,
     @SerializedName("housing_image") val housing_image: String,
-    @SerializedName("housing_images") val housing_images: List<HotelsHousingImage>,
+    @SerializedName("housing_images") val housing_images: List<com.example.meyman.presentation.models.HotelsHousingImage>,
     @SerializedName("housing_name") val housing_name: String,
     @SerializedName("id") val id: Int,
     @SerializedName("in_room_internet") val in_room_internet: Boolean,
@@ -61,7 +61,7 @@ data class HotelsResult(
     @SerializedName("user") val user: Int
 )
 
-fun HotelsResult.toDomain() = com.example.meyman.domain.utils.models.HotelsResult(
+fun com.example.meyman.domain.utils.models.HotelsResult.toUI() = HotelsResult(
     address,
     airport_transfer,
     average_rating,
@@ -79,7 +79,7 @@ fun HotelsResult.toDomain() = com.example.meyman.domain.utils.models.HotelsResul
     gym,
     hotel_wide_internet,
     housing_image,
-    housing_images.map { it.toDomain() },
+    housing_images.map { it.toUI() },
     housing_name,
     id,
     in_room_internet,
@@ -91,9 +91,9 @@ fun HotelsResult.toDomain() = com.example.meyman.domain.utils.models.HotelsResul
     pool,
     poolside_bar,
     restaurant,
-    reviews.map { it.toDomain() },
+    reviews.map { it.toUI() },
     room_service,
-    rooms.map { it.toDomain() },
+    rooms.map { it.toUI() },
     spa_services,
     stars,
     user
@@ -112,7 +112,7 @@ data class HotelsReview(
     @SerializedName("value_for_money_rating") val value_for_money_rating: Int
 )
 
-fun HotelsReview.toDomain() = com.example.meyman.domain.utils.models.HotelsReview(
+fun com.example.meyman.domain.utils.models.HotelsReview.toUI() = HotelsReview(
     cleanliness_rating,
     comfort_rating,
     comment,
@@ -142,7 +142,7 @@ data class HotelsRoom(
     @SerializedName("room_name") val room_name: String
 )
 
-fun HotelsRoom.toDomain() = com.example.meyman.domain.utils.models.HotelsRoom(
+fun com.example.meyman.domain.utils.models.HotelsRoom.toUI() = HotelsRoom(
     Free_cancellation_anytime,
     bathroom,
     bed_type,
@@ -155,7 +155,7 @@ fun HotelsRoom.toDomain() = com.example.meyman.domain.utils.models.HotelsRoom(
     price_per_night,
     room_amenities,
     room_area,
-    room_images.map { it.toDomain() },
+    room_images.map { it.toUI() },
     room_name
 )
 
@@ -165,6 +165,6 @@ data class HotelsRoomImage(
     @SerializedName("room") val room: Int
 )
 
-fun HotelsRoomImage.toDomain() = com.example.meyman.domain.utils.models.HotelsRoomImage(
+fun com.example.meyman.domain.utils.models.HotelsRoomImage.toUI() = HotelsRoomImage(
     id, image, room
 )

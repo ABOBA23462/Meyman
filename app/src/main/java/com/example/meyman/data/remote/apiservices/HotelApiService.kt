@@ -12,26 +12,30 @@ interface HotelApiService {
     @GET("api/travel/housing")
     suspend fun getHotelResult(
         @Query("housing_type") housing_type: String = "",
-
         @Query("accommodation_type") accommodation_type: String = "",
-
         @Query("food_type") food_type: String = "",
-
-        //звездочки
         @Query("stars") stars: String = "",
-
-        //заезд
-        @Query("housing_amenities") housing_amenities: String = "",
-
-        //выезд
-        @Query("page") page: Int ?= null,
-
-        //рейтинг
+        @Query("free_internet") free_internet: String = "",
+        @Query("restaurant") restaurant: String = "",
+        @Query("airport_transfer") airport_transfer: String = "",
+        @Query("car_rental") car_rental: String = "",
+        @Query("gym") gym: String = "",
+        @Query("children_playground") children_playground: String = "",
+        @Query("park") park: String = "",
+        @Query("spa_services") spa_services: String = "",
+        @Query("bar") bar: String = "",
+        @Query("pool") pool: String = "",
+        @Query("room_service") room_service: String = "",
+        @Query("poolside_bar") poolside_bar: String = "",
+        @Query("cafe") cafe: String = "",
+        @Query("in_room_internet") in_room_internet: String = "",
+        @Query("hotel_wide_internet") hotel_wide_internet: String = "",
         @Query("rating_range") rating_range: String = "",
-
-        //удобства
-        @Query("page_size") page_size: Int ?= null,
+        @Query("ordering") ordering: String = "",
+        @Query("limit") limit: Int = 0,
+        @Query("offset") offset: Int = 0
     ): HotelsDto
+
     @GET("housing/{id}/")
     suspend fun getHotelById(
         @Path("id") id: Int

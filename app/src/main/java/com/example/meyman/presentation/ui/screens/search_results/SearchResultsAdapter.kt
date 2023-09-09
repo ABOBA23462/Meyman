@@ -6,16 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meyman.databinding.ItemSearchResultBinding
-import com.example.meyman.presentation.models.ResultUI
+import com.example.meyman.presentation.models.HotelsResult
 
-class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHolder>(diffUtil) {
+class SearchResultsAdapter : ListAdapter<HotelsResult, SearchResultsAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(dataItem: ResultUI) {
-          binding.tvHotel.text = dataItem.housingName
-            binding.tvLocation.text = dataItem.description
+        fun onBind(dataItem: HotelsResult) {
+          binding.tvHotel.text = dataItem.housing_image
+            binding.tvLocation.text = dataItem.address
             println(binding.tvHotel)
 
         }
@@ -34,11 +34,11 @@ class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHold
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<ResultUI>() {
-            override fun areItemsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<HotelsResult>() {
+            override fun areItemsTheSame(oldItem: HotelsResult, newItem: HotelsResult): Boolean {
                 return oldItem.id == newItem.id
             }
-            override fun areContentsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
+            override fun areContentsTheSame(oldItem: HotelsResult, newItem: HotelsResult): Boolean {
                 return oldItem == newItem
             }
         }
