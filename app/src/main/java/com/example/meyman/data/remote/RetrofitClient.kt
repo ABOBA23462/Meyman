@@ -2,6 +2,8 @@ package com.example.meyman.data.remote
 
 import com.example.meyman.core.Constant
 import com.example.meyman.data.remote.apiservices.ApartmentApiService
+import com.example.meyman.data.remote.apiservices.BookingApiService
+import com.example.meyman.data.remote.apiservices.ChooseRoomService
 import com.example.meyman.data.remote.apiservices.GuestHousesApiService
 import com.example.meyman.data.remote.apiservices.HostelsApiService
 import com.example.meyman.data.remote.apiservices.HotelApiService
@@ -14,6 +16,8 @@ import com.example.meyman.data.remote.apiservices.TransferApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
 import com.example.meyman.data.remote.interceptor.TokenInterceptor
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -31,8 +35,11 @@ class RetrofitClient {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
 
+    val gson = GsonBuilder().setLenient().create()
+
     val retrofitClient = Retrofit.Builder()
         .baseUrl(Constant.BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -86,5 +93,13 @@ class RetrofitClient {
 
     fun provideUsersApiServer(): UsersApiService {
         return retrofitClient.create(UsersApiService::class.java)
+    }
+
+    fun provideChooseRoom() : ChooseRoomService{
+        return retrofitClient.create(ChooseRoomService::class.java)
+    }
+
+    fun provideBooking() : BookingApiService{
+        return retrofitClient.create(BookingApiService::class.java)
     }
 }

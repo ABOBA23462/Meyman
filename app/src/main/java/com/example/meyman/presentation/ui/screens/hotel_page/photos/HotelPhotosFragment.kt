@@ -1,32 +1,47 @@
 package com.example.meyman.presentation.ui.screens.hotel_page.photos
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
+import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.databinding.FragmentHotelPhotosBinding
+import com.example.meyman.presentation.ui.screens.hotel_page.photos.tabLayout.ViewPagerHotelPhotos
+import com.google.android.material.tabs.TabLayoutMediator
 
-class HotelPhotosFragment : Fragment() {
+class HotelPhotosFragment :
+    BaseFragment<FragmentHotelPhotosBinding, HotelPhotosViewModel>(R.layout.fragment_hotel_photos) {
 
-    companion object {
-        fun newInstance() = HotelPhotosFragment()
+    override val binding by viewBinding(FragmentHotelPhotosBinding::bind)
+    override val viewModel: HotelPhotosViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.viewPager.adapter = ViewPagerHotelPhotos(this@HotelPhotosFragment)
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->
+            when (pos) {
+                0 -> {
+                    tab.text = "Все фото"
+                }
+
+                1 -> {
+                    tab.text = "Номера"
+                }
+
+                2 -> {
+                    tab.text = "Ресторан"
+                }
+
+                3 -> {
+                    tab.text = "Фитнес центр"
+                }
+
+                4 -> {
+                    tab.text = "Конференц-зал"
+                }
+            }
+        }.attach()
     }
 
-    private lateinit var viewModel: HotelPhotosViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_hotel_photos, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HotelPhotosViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

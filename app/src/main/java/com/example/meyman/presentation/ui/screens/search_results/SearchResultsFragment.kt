@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.example.meyman.R
 import com.example.meyman.databinding.FragmentSearchResultsBinding
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,8 +63,8 @@ class SearchResultsFragment : Fragment() {
 //                                binding.progressBar.isVisible = false
                             reviewAdapter.submitList(it.data)
                         }
+                        is UIState.Empty->{}
 
-                        else -> {}
                     }
                 }
             }
