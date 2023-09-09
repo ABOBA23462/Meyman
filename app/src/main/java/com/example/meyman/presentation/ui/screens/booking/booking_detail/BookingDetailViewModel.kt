@@ -4,10 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.BookingDetailsUseCase
-import com.example.meyman.domain.usecases.HotelByIdUseCase
 import com.example.meyman.domain.utils.Either
 import com.example.meyman.presentation.models.BookingUI
-import com.example.meyman.presentation.models.HotelByIdUI
 import com.example.meyman.presentation.models.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +22,7 @@ class BookingDetailViewModel @Inject constructor(
     private val _bookingDetailValue = MutableStateFlow<UIState<BookingUI>>(UIState.Loading())
     val bookingDetail = _bookingDetailValue.asStateFlow()
 
-    fun getBookingById(id: Int) = viewModelScope.launch{
+    fun getBookingById(id: Int) = viewModelScope.launch {
         bookingDetailsUseCase(id).collect {
             when (it) {
                 is Either.Left -> {

@@ -61,7 +61,7 @@ data class HotelsResult(
     @SerializedName("user") val user: Int
 )
 
-fun HotelsResult.toDomain() = com.example.meyman.domain.utils.models.HotelsResult(
+fun HotelsResult.toDomain() = com.example.meyman.domain.utils.models.HotelsResultDomain(
     address,
     airport_transfer,
     average_rating,

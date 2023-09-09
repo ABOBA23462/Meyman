@@ -4,7 +4,7 @@ data class HotelsModel(
     val count: Int,
     val next: Any,
     val previous: Any,
-    val results: List<HotelsResult>
+    val results: List<HotelsResultDomain>
 )
 
 data class HotelsHousingImage(
@@ -13,7 +13,7 @@ data class HotelsHousingImage(
     val image: String
 )
 
-data class HotelsResult(
+data class HotelsResultDomain(
     val address: String,
     val airport_transfer: Boolean,
     val average_rating: Double,

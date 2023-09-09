@@ -15,7 +15,7 @@ class HotelRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getHotelById(id: Int) = doRequest {
-        hotelApiService.getHotelById(id).body()?.toDomain()
+        hotelApiService.getHotelById(id).toDomain()
     }
 
 }

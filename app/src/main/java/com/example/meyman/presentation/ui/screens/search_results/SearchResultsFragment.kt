@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.example.meyman.R
 import com.example.meyman.databinding.FragmentSearchResultsBinding
+import com.example.meyman.presentation.models.HotelsResult
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -19,7 +23,7 @@ class SearchResultsFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchResultsBinding
     private val viewModel: SearchResultViewModel by viewModels()
-    private val reviewAdapter = SearchResultsAdapter()
+    private val reviewAdapter = SearchResultsAdapter(this::onClick)
 
 
     override fun onCreateView(
@@ -33,12 +37,12 @@ class SearchResultsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupSubscribes()
+        subscribeToFetchHotel()
 
     }
 
-    private fun setupSubscribes() {
-        subscribeToFetchHotel()
+    private fun onClick(hotelsResult: HotelsResult) {
+        findNavController().navigate(R.id.hotelPageFragment, bundleOf("id" to hotelsResult.id))
     }
 
     private fun subscribeToFetchHotel() {
@@ -67,4 +71,5 @@ class SearchResultsFragment : Fragment() {
             }
         }
     }
+
 }

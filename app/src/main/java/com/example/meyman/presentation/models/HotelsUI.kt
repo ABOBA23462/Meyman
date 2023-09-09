@@ -2,6 +2,7 @@ package com.example.meyman.presentation.models
 
 import com.example.meyman.domain.utils.models.HotelsHousingImage
 import com.example.meyman.domain.utils.models.HotelsModel
+import com.example.meyman.domain.utils.models.HotelsResultDomain
 import com.google.gson.annotations.SerializedName
 
 data class HotelsUI(
@@ -61,7 +62,7 @@ data class HotelsResult(
     @SerializedName("user") val user: Int
 )
 
-fun com.example.meyman.domain.utils.models.HotelsResult.toUI() = HotelsResult(
+fun HotelsResultDomain.toUI() = HotelsResult(
     address,
     airport_transfer,
     average_rating,

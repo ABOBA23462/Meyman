@@ -1,8 +1,7 @@
 package com.example.meyman.data.remote.apiservices
 
-import com.example.meyman.data.remote.dtos.HotelByIdDto
 import com.example.meyman.data.remote.dtos.HotelsDto
-import retrofit2.Response
+import com.example.meyman.data.remote.dtos.HotelsResult
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -39,6 +38,6 @@ interface HotelApiService {
     @GET("housing/{id}/")
     suspend fun getHotelById(
         @Path("id") id: Int
-    ): Response<HotelByIdDto>
+    ): HotelsResult
 
 }
