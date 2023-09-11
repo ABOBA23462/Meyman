@@ -6,6 +6,7 @@ import com.example.meyman.data.remote.apiservices.GuestHousesApiService
 import com.example.meyman.data.remote.apiservices.HostelsApiService
 import com.example.meyman.data.remote.apiservices.HotelApiService
 import com.example.meyman.data.remote.apiservices.NewsApiService
+import com.example.meyman.data.remote.apiservices.RegisterApiService
 import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.RoomsApiService
 import com.example.meyman.data.remote.apiservices.SanatoriumsApiService
@@ -86,5 +87,8 @@ class RetrofitClient {
 
     fun provideUsersApiServer(): UsersApiService {
         return retrofitClient.create(UsersApiService::class.java)
+
+    } fun provideRegisterApiServer(): RegisterApiService {
+        return retrofitClient.create(RegisterApiService::class.java)
     }
 }

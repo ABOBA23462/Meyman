@@ -73,8 +73,6 @@ class RoomsFragment : Fragment() {
                             val itemCount = adapter.itemCount ?: 0
                             binding.textView.text = "$itemCount варианта"
                         }
-
-                        else -> {}
                     }
                 }
             }

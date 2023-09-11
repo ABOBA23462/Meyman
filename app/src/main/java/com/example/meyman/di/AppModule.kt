@@ -61,4 +61,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideUsernameApiService() = retrofitClient.provideUsernameApiServer()
+    @Singleton
+    @Provides
+    fun provideRegisterApiService() = retrofitClient.provideRegisterApiServer()
 }
