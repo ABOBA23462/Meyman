@@ -4,14 +4,16 @@ import com.example.meyman.domain.utils.models.AnswerRegisterModel
 import com.google.gson.annotations.SerializedName
 
 data class AnswerRegisterDto(
-    @SerializedName("user_type")
-    val userType: String = "",
     @SerializedName("email")
-    val email: String = "",
+    val email: String,
     @SerializedName("username")
-    val username: String = ""
+    val username: String,
+    @SerializedName("user_type")
+    val userType: String,
+    @SerializedName("password")
+    val password: String
 )
 
 fun AnswerRegisterDto.toDomain() = AnswerRegisterModel(
-    userType, email, username
+    email = email, username =  username, userType = userType, password = password
 )

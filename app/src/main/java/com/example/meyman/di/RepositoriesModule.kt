@@ -6,6 +6,7 @@ import com.example.meyman.data.repositories.GuestHousesRepositoryImpl
 import com.example.meyman.data.repositories.HostelsRepositoryImpl
 import com.example.meyman.data.repositories.HotelRepositoryImpl
 import com.example.meyman.data.repositories.NewsRepositoryImpl
+import com.example.meyman.data.repositories.RegisterRepositoryImpl
 import com.example.meyman.data.repositories.ReviewRepositoryImpl
 import com.example.meyman.data.repositories.RoomsRepositoryImpl
 import com.example.meyman.data.repositories.SanatoriumsRepositoryImpl
@@ -17,6 +18,7 @@ import com.example.meyman.domain.repositories.GuestHousesRepository
 import com.example.meyman.domain.repositories.HostelRepository
 import com.example.meyman.domain.repositories.HotelRepository
 import com.example.meyman.domain.repositories.NewsRepository
+import com.example.meyman.domain.repositories.RegisterRepository
 import com.example.meyman.domain.repositories.ReviewRepository
 import com.example.meyman.domain.repositories.RoomsRepository
 import com.example.meyman.domain.repositories.SanatoriumsRepository
@@ -36,7 +38,7 @@ interface RepositoriesModule {
 
     @Binds
     fun provideGuestHousesRepository(repositoryImpl: GuestHousesRepositoryImpl): GuestHousesRepository
-    
+
     @Binds
     fun provideChooseRoomsRepository(repositoryImpl: ChooseRoomRepositoryImpl): ChooseRoomRepository
 
@@ -63,4 +65,7 @@ interface RepositoriesModule {
 
     @Binds
     fun provideTransferRepository(repositoryImpl: TransferRepositoryImpl): TransferRepository
+
+    @Binds
+    fun provideRegisterRepository(repositoryImpl: RegisterRepositoryImpl): RegisterRepository
 }

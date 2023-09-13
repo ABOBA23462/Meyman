@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -39,6 +40,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        val receivedBundle = arguments
+//        val roomNum = receivedBundle?.getString("room", "1")
+//        val adultNum = receivedBundle?.getString("adult", "1")
+//        val childNum = receivedBundle?.getString("child", "1")
+//
+//        binding.tvOptions1.text = "$roomNum номер"
+//        binding.tvOptions2.text = "$adultNum взрослых"
+//        binding.tvOptions1.text = "$childNum детей"
+//        Toast.makeText(requireContext(), "$roomNum + $adultNum + $childNum", Toast.LENGTH_SHORT).show()
+
         val spinnerItem = listOf(
             SpinnerItem("Russian", R.drawable.rasha2),
             SpinnerItem("English", R.drawable.languages)
@@ -61,8 +72,6 @@ class HomeFragment : Fragment() {
             val bottomSheetFragment = DashboardFragment()
             bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
         }
-
-        val id = 4
 
         binding.btnSearch.setOnClickListener {
         }

@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,8 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.meyman.R
+import com.example.meyman.data.remote.dtos.RegisterDto
 import com.example.meyman.databinding.FragmentSignInBinding
-import com.example.meyman.domain.utils.models.RegisterDomain
 import com.example.meyman.presentation.base.Resource
 import com.example.meyman.presentation.models.toUI
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -79,7 +78,7 @@ class SignInFragment : BottomSheetDialogFragment() {
             val password = binding.etRegPassword.text.toString()
             val usertype = "client"
             Log.d("MyApp", "Email: $email, UserName: $username, Password: $password")
-            val model = RegisterDomain(password, usertype, email, username)
+            val model = RegisterDto(email, username, usertype, password)
             Log.d("qwerty", "$model")
             viewLifecycleOwner.lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -90,7 +89,7 @@ class SignInFragment : BottomSheetDialogFragment() {
                             }
 
                             is Resource.Error -> {
-                                Log.e("ololo", "setupSubscribes: " + it.message)
+                                Log.e("ololo", "setupSubscribes11111: " + it.message)
 
                             }
 
