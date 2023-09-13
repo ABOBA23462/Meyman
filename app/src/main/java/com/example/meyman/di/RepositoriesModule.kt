@@ -67,5 +67,8 @@ interface RepositoriesModule {
     fun provideTransferRepository(repositoryImpl: TransferRepositoryImpl): TransferRepository
 
     @Binds
+    fun provideBooking(repositoryImpl: BookingRepositoryImpl): BookingRepository
+
+    @Binds
     fun provideRegisterRepository(repositoryImpl: RegisterRepositoryImpl): RegisterRepository
 }

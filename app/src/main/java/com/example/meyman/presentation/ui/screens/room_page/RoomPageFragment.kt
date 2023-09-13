@@ -68,7 +68,7 @@ class RoomPageFragment :
                         is UIState.Loading -> {}
                         is UIState.Success -> {
                             Log.e("ololo", "RPAS: ${it.data}")
-                            binding.tvRoomName.text = it.data.pricePerNight
+                            binding.tvTitle.text = it.data.pricePerNight
                             binding.tvRoomSquare.text = "${it.data.roomArea} m²"
                             binding.tvHotelAmenities.text = "Двухместная кровать ${it.data.bedType} и диван "
                             adapter = PhotoPageAdapter()
@@ -79,6 +79,8 @@ class RoomPageFragment :
                             adapterAmenities = RoomAmenitiesAdapter(it.data.roomAmenities!!)
                             binding.rvRoomAmenities.adapter = adapterAmenities
                         }
+
+                        is UIState.Empty -> {}
                     }
                 }
             }

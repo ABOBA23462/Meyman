@@ -8,4 +8,6 @@ sealed class UIState<T> {
 
     class Success<T>(val data: T) : UIState<T>()
 
+    class Empty<T>: UIState<T>()
+
 }
