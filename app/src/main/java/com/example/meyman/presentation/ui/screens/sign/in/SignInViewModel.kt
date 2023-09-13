@@ -9,5 +9,5 @@ import javax.inject.Inject
 @HiltViewModel
 class SignInViewModel @Inject constructor( private val registerUseCase : FetchRegisterUseCase) : ViewModel() {
 
-    fun getRegisterState(registerDomain: RegisterDto) = registerUseCase(registerDomain)
+   suspend fun getRegisterState(registerDomain: RegisterDto) = registerUseCase(registerDomain)
 }

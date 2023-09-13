@@ -7,5 +7,5 @@ import javax.inject.Inject
 class FetchRegisterUseCase @Inject constructor(
     private  val registerRepository: RegisterRepository
 ) {
-    operator fun invoke(registerDomain: RegisterDto) = registerRepository.fetchRegister(registerDomain)
+    operator suspend fun invoke(registerDto: RegisterDto) = registerRepository.fetchRegister(registerDto)
 }

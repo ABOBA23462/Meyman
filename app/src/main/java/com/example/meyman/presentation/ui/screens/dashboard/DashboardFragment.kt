@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.meyman.R
 import com.example.meyman.databinding.FragmentDashboardBinding
 import com.example.meyman.presentation.ui.screens.home.HomeFragment
@@ -64,15 +65,11 @@ class DashboardFragment : BottomSheetDialogFragment() {
             childNum--
         }
         btnApply.setOnClickListener {
-//            val bundle = Bundle()
-//            val transaction = fragmentManager?.beginTransaction()
-//            bundle.putString("room", tvRoomNum.text.toString())
-//            bundle.putString("adult", tvAdultNum.toString())
-//            bundle.putString("child", tvChildNum.toString())
-//            val homeFrag = HomeFragment()
-//            homeFrag.arguments = bundle
-//            transaction?.replace(R.layout.fragment_home, homeFrag)
-//            transaction?.commit()
+            val bundle = Bundle()
+            bundle.putString("room", tvRoomNum.text.toString())
+            bundle.putString("adult", tvAdultNum.toString())
+            bundle.putString("child", tvChildNum.toString())
+            findNavController().navigate(R.id.homeFragment, bundle)
         }
     }
 }

@@ -5,13 +5,18 @@ import com.example.meyman.data.remote.apiservices.RegisterApiService
 import com.example.meyman.data.remote.dtos.RegisterDto
 import com.example.meyman.data.remote.dtos.toDomain
 import com.example.meyman.domain.repositories.RegisterRepository
+import com.example.meyman.domain.utils.models.AnswerRegisterModel
+import com.example.meyman.presentation.base.Resource
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class RegisterRepositoryImpl @Inject constructor(
     private val registerApiService: RegisterApiService,
 ) : BaseRepository(), RegisterRepository {
-            override  fun fetchRegister(registerDomain: RegisterDto) =
-        doRequests {
-            registerApiService.fetchRegister(registerDomain).toDomain()
+            override suspend  fun fetchRegister(registerDto: RegisterDto): Flow<Resource<AnswerRegisterModel>> =
+        flow {
+            emit(Resource.Success(registerApiService.fetchRegister(registerDto).toDomain()))
+//            registerApiService.fetchRegister(registerDto).toDomain()
         }
 }
