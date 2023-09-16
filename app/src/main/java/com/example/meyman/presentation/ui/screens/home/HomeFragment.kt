@@ -1,44 +1,48 @@
 package com.example.meyman.presentation.ui.screens.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
 import com.example.meyman.R
 import com.example.meyman.databinding.FragmentHomeBinding
+import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.adapter.CustomSpinnerAdapter
 import com.example.meyman.presentation.ui.screens.adapter.CustomSpinnerAdapter2
 import com.example.meyman.presentation.ui.screens.dashboard.DashboardFragment
+import com.example.meyman.presentation.ui.screens.home.adapter.AdvertisingAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
+    private val viewModel: HomeViewModel by viewModels()
+    private val adapter = AdvertisingAdapter()
 
-    private val binding get() = _binding!!
-
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        return root
-
+     binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initialize()
+        setupSubscribes()
 
 //        val receivedBundle = arguments
 //        val roomNum = receivedBundle?.getString("room", "1")
@@ -77,8 +81,38 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun initialize() {
+        binding.rvRecomend.adapter = adapter
     }
-}
+
+    private fun setupSubscribes() {
+        subscribeToFetchAdvertising()
+    }
+
+    private fun subscribeToFetchAdvertising() {
+            viewModel.getChooseRoomState()
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                    viewModel.advertisingState.collect {
+                        when (it) {
+                            is UIState.Error -> {
+//                                binding.progressBar.isVisible = false
+                            }
+
+                            is UIState.Loading -> {
+//                                binding.progressBar.isVisible = true
+                            }
+
+                            is UIState.Success -> {
+//                                binding.progressBar.isVisible = false
+                                adapter.submitList(it.data)
+                            }
+
+                            is UIState.Empty -> {}
+
+                        }
+                    }
+                }
+            }
+        }
+    }

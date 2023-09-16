@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.ChooseRoomUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.domain.utils.models.ChooseRoomModel
-import com.example.meyman.domain.utils.models.ResultDomain
 import com.example.meyman.presentation.models.ResultRoomUI
+import com.example.meyman.presentation.models.auth.toUI
 import com.example.meyman.presentation.models.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -40,5 +39,4 @@ class ChooseRoomViewModel @Inject constructor(
             }
         }
     }
-
 }

@@ -37,6 +37,12 @@
         <action
             android:id="@+id/action_guestProfileFragment_to_connectFragment"
             app:destination="@id/connectFragment" />
+        <action
+            android:id="@+id/action_guestProfileFragment_to_verifyAccountFragment"
+            app:destination="@id/verifyAccountFragment" />
+        <action
+            android:id="@+id/action_guestProfileFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/connectFragment"
@@ -93,4 +99,9 @@
         android:name="com.example.meyman.presentation.ui.screens.profile.user.UserProfileFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/verifyAccountFragment"
+        android:name="com.example.meyman.presentation.ui.screens.sign.in.verifyAccount.VerifyAccountFragment"
+        android:label="fragment_verify_account"
+        tools:layout="@layout/fragment_verify_account" />
 </navigation>

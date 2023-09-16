@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.meyman.databinding.ItemChooseRoomsBinding
-import com.example.meyman.domain.utils.models.ChooseRoomModel
-import com.example.meyman.domain.utils.models.ResultDomain
 import com.example.meyman.presentation.models.ResultRoomUI
 
 class ChooseRoomAdapter : Adapter<ChooseRoomAdapter.ChooseRoomViewHolder>() {

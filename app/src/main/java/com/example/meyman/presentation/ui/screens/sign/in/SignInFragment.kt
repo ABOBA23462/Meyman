@@ -1,5 +1,6 @@
 package com.example.meyman.presentation.ui.screens.sign.`in`
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,17 +13,23 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.meyman.R
-import com.example.meyman.data.remote.dtos.RegisterDto
+import com.example.meyman.data.remote.dtos.auth.LoginDto
+import com.example.meyman.data.remote.dtos.auth.RegisterDto
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentSignInBinding
 import com.example.meyman.presentation.base.Resource
-import com.example.meyman.presentation.models.toUI
+import com.example.meyman.presentation.models.auth.toUI
+import com.example.meyman.presentation.ui.screens.sign.`in`.verifyAccount.VerifyAccountFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignInFragment : BottomSheetDialogFragment() {
 
+    @Inject
+    lateinit var userPreferencesData: UserDataPreferencesHelper
     private lateinit var binding: FragmentSignInBinding
     private val viewModel: SignInViewModel by viewModels()
 
@@ -38,9 +45,11 @@ class SignInFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupSubscribes()
-
+        register()
+        login()
     }
 
+    @SuppressLint("ResourceType")
     private fun setupSubscribes() = with(binding) {
 
         var signIn = true
@@ -71,41 +80,76 @@ class SignInFragment : BottomSheetDialogFragment() {
             tilRegPassword.visibility = View.GONE
             tvForgotPassword.visibility = View.VISIBLE
         }
+    }
 
-        btnRegister.setOnClickListener {
-            val email = binding.etRegEmail.text.toString()
-            val username = binding.etRegUserName.text.toString()
-            val password = binding.etRegPassword.text.toString()
-            val usertype = "client"
-            Log.d("MyApp", "Email: $email, UserName: $username, Password: $password")
-            val model = RegisterDto(email, username, usertype, password)
-            Log.d("qwerty", "$model")
+    private fun login() = with(binding) {
+        val bundle = Bundle()
+        btnSignIn.setOnClickListener {
+            val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
+            val model = LoginDto(password, email)
             viewLifecycleOwner.lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    viewModel.getRegisterState(model).collect {
+                    viewModel.getLoginState(model).collect {
                         when (it) {
                             is Resource.Loading -> {
-
                             }
 
                             is Resource.Error -> {
                                 Log.e("ololo", "setupSubscribes11111: " + it.message)
-
                             }
 
                             is Resource.Success -> {
                                 val list = it.data?.toUI()
+                                userPreferencesData.apply {
+                                    isAuthorized = true
+                                    accessToken = it.data!!.tokens.access
+                                    refreshToken = it.data.tokens.refresh
+                                }
                                 Log.e("MyApp", "setupSubscribes: $list")
-                                findNavController().navigate(R.id.action_guestProfileFragment_to_connectFragment)
+                                dismiss()
+                                findNavController().navigate(R.id.action_guestProfileFragment_to_userProfileFragment)
+                                bundle.putString("email", etRegEmail.text.toString())
+                                val verifyFragment = VerifyAccountFragment()
+                                verifyFragment.arguments = bundle
                             }
                         }
                     }
                 }
             }
         }
+    }
 
-        tvForgotPassword.setOnClickListener {
-            // Реализовать переход в фрагмент изменения пароля
+    private fun register() = with(binding) {
+        btnRegister.setOnClickListener {
+            val email = binding.etRegEmail.text.toString().trim()
+            val username = binding.etRegUserName.text.toString().trim()
+            val password = binding.etRegPassword.text.toString().trim()
+            val usertype = "client"
+            val model = RegisterDto(email, username, usertype, password)
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.getRegisterState(model).collect {
+                        when (it) {
+                            is Resource.Loading -> {
+                            }
+
+                            is Resource.Error -> {
+                                Log.e("ololo", "setupSubscribes11111: " + it.message)
+                            }
+
+                            is Resource.Success -> {
+                                val list = it.data?.toUI()
+//                                    preferences.saveAuthSeen()
+//                                    preferences.saveUserIn()
+                                Log.e("MyApp", "setupSubscribes: $list")
+                                dismiss()
+                                findNavController().navigate(R.id.action_guestProfileFragment_to_verifyAccountFragment)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

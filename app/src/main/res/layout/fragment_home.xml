@@ -357,6 +357,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 android:orientation="horizontal"
+                app:spanCount="2"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/tv_recomend"
                 tools:listitem="@layout/item_recomedation" />

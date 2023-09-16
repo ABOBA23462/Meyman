@@ -2,8 +2,6 @@ package com.example.meyman.presentation.ui.screens.room_page.tablayout
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.meyman.presentation.ui.screens.booking.BookingFragment
-import com.example.meyman.presentation.ui.screens.connect.ConnectFragment
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.childrenAndExtraBeds.ChildrenAndExtraBedsFragment
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.conditions.ConditionsFragment
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.facilities.FacilitiesFragment

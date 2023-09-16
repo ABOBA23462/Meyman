@@ -16,19 +16,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApartmentApiService() = retrofitClient.provideApartmentApiService()
-
-    @Singleton
-    @Provides
-    fun provideGuestHousesApiService() = retrofitClient.provideGuestHousesApiServer()
-
-    @Singleton
-    @Provides
     fun provideRoomsApiService() = retrofitClient.provideRoomsApiServer()
 
-    @Singleton
-    @Provides
-    fun provideHostelsApiService() = retrofitClient.provideHostelsApiServer()
 
     @Singleton
     @Provides
@@ -36,24 +25,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNewsApiService() = retrofitClient.provideNewsApiServer()
-
-    @Singleton
-    @Provides
     fun provideReviewApiService() = retrofitClient.provideReviewApiServer()
-
-    @Singleton
-    @Provides
-    fun provideSanatoriumsApiService() = retrofitClient.provideSanatoriumsApiServer()
-
-    @Singleton
-    @Provides
-    fun provideSearchApiService() = retrofitClient.provideSearchApiServer()
-
-    @Singleton
-    @Provides
-    fun provideTransferApiService() = retrofitClient.provideTransferApiServer()
-
+    
     @Singleton
     @Provides
     fun provideUsersApiService() = retrofitClient.provideUsersApiServer()
@@ -73,4 +46,16 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRegisterApiService() = retrofitClient.provideRegisterApiServer()
+
+    @Singleton
+    @Provides
+    fun provideVerifyAccountApiService() = retrofitClient.provideVerifyAccount()
+
+    @Singleton
+    @Provides
+    fun provideLoginApiService() = retrofitClient.provideLogin()
+
+    @Singleton
+    @Provides
+    fun provideAdvertisingApiService() = retrofitClient.provideAdvertising()
 }

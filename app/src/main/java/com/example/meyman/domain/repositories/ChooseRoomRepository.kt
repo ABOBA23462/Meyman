@@ -7,5 +7,4 @@ import kotlinx.coroutines.flow.Flow
 interface ChooseRoomRepository {
 
     suspend fun getChooseRepository(): Flow<Either<String, List<ResultDomain>>>
-
 }

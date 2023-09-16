@@ -18,7 +18,7 @@ class ConnectFragment :
     override val viewModel: ConnectViewModel by viewModels()
 
     private val email = "ibragimyusupov531@gmail.com"
-    private val whatsappNumber = "+996990905959"
+    private val whatsappNumber = "+996704450155"
     private val uriTextEmail = "mailto:$email"
     private val uriTextWhatsapp = "https://wa.me/$whatsappNumber"
     private val uriEmail = Uri.parse(uriTextEmail)

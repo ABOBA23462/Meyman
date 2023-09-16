@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchHotelUseCase
 import com.example.meyman.domain.utils.Either
 import com.example.meyman.presentation.models.ResultUI
+import com.example.meyman.presentation.models.auth.toUI
 import com.example.meyman.presentation.models.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel

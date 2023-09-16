@@ -1,23 +1,18 @@
 package com.example.meyman.data.remote
 
 import com.example.meyman.core.Constant
-import com.example.meyman.data.remote.apiservices.ApartmentApiService
+import com.example.meyman.data.remote.apiservices.AdvertisingApiService
 import com.example.meyman.data.remote.apiservices.BookingApiService
 import com.example.meyman.data.remote.apiservices.ChooseRoomService
-import com.example.meyman.data.remote.apiservices.GuestHousesApiService
-import com.example.meyman.data.remote.apiservices.HostelsApiService
 import com.example.meyman.data.remote.apiservices.HotelApiService
-import com.example.meyman.data.remote.apiservices.NewsApiService
+import com.example.meyman.data.remote.apiservices.LoginApiService
 import com.example.meyman.data.remote.apiservices.RegisterApiService
 import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.RoomsApiService
-import com.example.meyman.data.remote.apiservices.SanatoriumsApiService
-import com.example.meyman.data.remote.apiservices.SearchApiService
-import com.example.meyman.data.remote.apiservices.TransferApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
+import com.example.meyman.data.remote.apiservices.VerifyApiService
 import com.example.meyman.data.remote.interceptor.TokenInterceptor
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,43 +44,16 @@ class RetrofitClient {
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
 
-    fun provideApartmentApiService(): ApartmentApiService {
-        return retrofitClient.create(ApartmentApiService::class.java)
-    }
-
-    fun provideGuestHousesApiServer(): GuestHousesApiService {
-        return retrofitClient.create(GuestHousesApiService::class.java)
-    }
-
-    fun provideHostelsApiServer(): HostelsApiService {
-        return retrofitClient.create(HostelsApiService::class.java)
-    }
-
     fun provideHotelApiServer(): HotelApiService {
         return retrofitClient.create(HotelApiService::class.java)
-    }
-
-    fun provideNewsApiServer(): NewsApiService {
-        return retrofitClient.create(NewsApiService::class.java)
     }
 
     fun provideReviewApiServer(): ReviewApiService {
         return retrofitClient.create(ReviewApiService::class.java)
     }
 
-    fun provideSanatoriumsApiServer(): SanatoriumsApiService {
-        return retrofitClient.create(SanatoriumsApiService::class.java)
-    }
     fun provideRoomsApiServer(): RoomsApiService {
         return retrofitClient.create(RoomsApiService::class.java)
-    }
-
-    fun provideSearchApiServer(): SearchApiService {
-        return retrofitClient.create(SearchApiService::class.java)
-    }
-
-    fun provideTransferApiServer(): TransferApiService {
-        return retrofitClient.create(TransferApiService::class.java)
     }
 
     fun provideUsernameApiServer(): UsernameApiService {
@@ -94,17 +62,30 @@ class RetrofitClient {
 
     fun provideUsersApiServer(): UsersApiService {
         return retrofitClient.create(UsersApiService::class.java)
-
     }
+
     fun provideRegisterApiServer(): RegisterApiService {
         return retrofitClient.create(RegisterApiService::class.java)
     }
 
-    fun provideChooseRoom() : ChooseRoomService{
+    fun provideChooseRoom(): ChooseRoomService {
         return retrofitClient.create(ChooseRoomService::class.java)
     }
 
-    fun provideBooking() : BookingApiService{
+    fun provideBooking(): BookingApiService {
         return retrofitClient.create(BookingApiService::class.java)
+    }
+
+    fun provideVerifyAccount(): VerifyApiService {
+        return retrofitClient.create(VerifyApiService::class.java)
+
+    }
+
+    fun provideLogin(): LoginApiService {
+        return retrofitClient.create(LoginApiService::class.java)
+    }
+
+    fun provideAdvertising(): AdvertisingApiService {
+        return retrofitClient.create(AdvertisingApiService::class.java)
     }
 }
