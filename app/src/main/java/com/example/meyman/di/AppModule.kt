@@ -58,4 +58,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideAdvertisingApiService() = retrofitClient.provideAdvertising()
+
+    @Singleton
+    @Provides
+    fun provideUserProfileApiService() = retrofitClient.provideUserProfile()
 }

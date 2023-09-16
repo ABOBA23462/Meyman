@@ -107,9 +107,6 @@ class HomeFragment : Fragment() {
 //                                binding.progressBar.isVisible = false
                                 adapter.submitList(it.data)
                             }
-
-                            is UIState.Empty -> {}
-
                         }
                     }
                 }

@@ -62,7 +62,6 @@ class HotelPageFragment :
                 viewModel.hotelValue.collect {
                     Log.e("ololo", "HotelPageFragment: ${it}", )
                     when(it){
-                        is UIState.Empty ->{}
                         is UIState.Error ->{
                             Log.e("ololo", "callHotelApi-error: ${it.error}", )
                         }

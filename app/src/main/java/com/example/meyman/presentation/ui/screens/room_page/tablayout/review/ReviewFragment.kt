@@ -62,7 +62,6 @@ class ReviewFragment : Fragment() {
 //                                binding.progressBar.isVisible = false
                                 reviewAdapter.submitList(it.data)
                             }
-                            is UIState.Empty->{}
                         }
                     }
                 }

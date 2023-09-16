@@ -7,6 +7,7 @@ import com.example.meyman.data.repositories.LoginRepositoryImpl
 import com.example.meyman.data.repositories.RegisterRepositoryImpl
 import com.example.meyman.data.repositories.ReviewRepositoryImpl
 import com.example.meyman.data.repositories.RoomsRepositoryImpl
+import com.example.meyman.data.repositories.UserProfileRepositoryImpl
 import com.example.meyman.data.repositories.VerifyAccountRepositoryImpl
 import com.example.meyman.domain.repositories.AdvertisingRepository
 import com.example.meyman.domain.repositories.ChooseRoomRepository
@@ -15,6 +16,7 @@ import com.example.meyman.domain.repositories.LoginRepository
 import com.example.meyman.domain.repositories.RegisterRepository
 import com.example.meyman.domain.repositories.ReviewRepository
 import com.example.meyman.domain.repositories.RoomsRepository
+import com.example.meyman.domain.repositories.UserProfileRepository
 import com.example.meyman.domain.repositories.VerifyAccountRepository
 import dagger.Binds
 import dagger.Module
@@ -48,4 +50,7 @@ interface RepositoriesModule {
 
     @Binds
     fun provideAdvertisingRepository(repositoryImpl: AdvertisingRepositoryImpl): AdvertisingRepository
+
+    @Binds
+    fun provideUserProfileRepository(repositoryImpl: UserProfileRepositoryImpl): UserProfileRepository
 }

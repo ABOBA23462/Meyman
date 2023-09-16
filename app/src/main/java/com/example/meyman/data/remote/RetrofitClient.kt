@@ -9,6 +9,7 @@ import com.example.meyman.data.remote.apiservices.LoginApiService
 import com.example.meyman.data.remote.apiservices.RegisterApiService
 import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.RoomsApiService
+import com.example.meyman.data.remote.apiservices.UserProfileApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
 import com.example.meyman.data.remote.apiservices.VerifyApiService
@@ -24,7 +25,7 @@ class RetrofitClient {
 
     private val okHttpClient = OkHttpClient().newBuilder()
         .addInterceptor(provideLoggingInterceptor())
-        .addInterceptor(TokenInterceptor())
+//        .addInterceptor(TokenInterceptor())
         .callTimeout(30, TimeUnit.SECONDS)
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
@@ -42,7 +43,6 @@ class RetrofitClient {
 
     private fun provideLoggingInterceptor() =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-
 
     fun provideHotelApiServer(): HotelApiService {
         return retrofitClient.create(HotelApiService::class.java)
@@ -87,5 +87,10 @@ class RetrofitClient {
 
     fun provideAdvertising(): AdvertisingApiService {
         return retrofitClient.create(AdvertisingApiService::class.java)
+
+    }
+
+    fun provideUserProfile(): UserProfileApiService {
+        return retrofitClient.create(UserProfileApiService::class.java)
     }
 }

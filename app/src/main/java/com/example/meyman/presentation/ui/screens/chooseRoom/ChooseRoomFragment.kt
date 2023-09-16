@@ -63,9 +63,6 @@ class ChooseRoomFragment : Fragment() {
 //                                binding.progressBar.isVisible = false
                             adapter.addList(it.data)
                         }
-
-                        is UIState.Empty -> {}
-
                     }
                 }
             }
