@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface HotelApiService {
 
-    @GET("api/travel/housing")
+    @GET("api/housing/housing")
     suspend fun getHotelResult(
         @Query("housing_type") housing_type: String = "",
 

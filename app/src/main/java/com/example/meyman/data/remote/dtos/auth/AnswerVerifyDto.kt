@@ -4,12 +4,10 @@ import com.example.meyman.domain.utils.models.AnswerVerifyDomain
 import com.google.gson.annotations.SerializedName
 
 data class AnswerVerifyDto(
-    @SerializedName("verify_code")
-    val verifyCode: String,
-    @SerializedName("email")
-    val email: String
+    @SerializedName("message")
+    val message: String,
 )
 
 fun AnswerVerifyDto.toDomain() = AnswerVerifyDomain(
-    verifyCode, email
+    message
 )
