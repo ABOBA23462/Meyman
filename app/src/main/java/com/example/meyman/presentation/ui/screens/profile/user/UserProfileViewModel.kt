@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchUserProfileUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.presentation.models.profile.UserProfileUI
+import com.example.meyman.presentation.models.profile.ChangeUserProfileUI
 import com.example.meyman.presentation.models.profile.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +18,7 @@ class UserProfileViewModel @Inject constructor(
     private val useCase: FetchUserProfileUseCase
 ) : ViewModel() {
 
-    private val _userProfileState = MutableStateFlow<UIState<UserProfileUI>>(UIState.Loading())
+    private val _userProfileState = MutableStateFlow<UIState<ChangeUserProfileUI>>(UIState.Loading())
     val userProfileState = _userProfileState.asStateFlow()
 
     fun fetchUserProfile(token: String) = viewModelScope.launch {

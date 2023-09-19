@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface AdvertisingApiService {
 
-    @GET("advertising/")
+    @GET("api/advertising/advertising/")
     suspend fun fetchAdvertising(): AdvertisingDto<AdvertisingResultDto>
 }

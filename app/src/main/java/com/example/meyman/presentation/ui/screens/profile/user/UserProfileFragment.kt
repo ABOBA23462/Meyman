@@ -6,8 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.SnapHelper
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.meyman.R
@@ -15,14 +14,13 @@ import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentUserProfileBinding
 import com.example.meyman.presentation.state.UIState
-import com.example.meyman.presentation.ui.screens.room_page.PhotoPageAdapter
-import com.example.meyman.presentation.ui.screens.room_page.RoomAmenitiesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class UserProfileFragment : BaseFragment<FragmentUserProfileBinding, UserProfileViewModel>(R.layout.fragment_user_profile) {
+class UserProfileFragment :
+    BaseFragment<FragmentUserProfileBinding, UserProfileViewModel>(R.layout.fragment_user_profile) {
 
     @Inject
     lateinit var userPreferencesData: UserDataPreferencesHelper
@@ -30,7 +28,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding, UserProfile
     override val viewModel: UserProfileViewModel by viewModels()
 
     override fun initialize() {
-setupSubscribes()
+        setupSubscribes()
         profile()
     }
 
@@ -44,10 +42,14 @@ setupSubscribes()
                         is UIState.Error -> {
                             Log.e("ololo", "RPAE: ${it.error}")
                         }
-                        is UIState.Loading -> {}
+
+                        is UIState.Loading -> {
+
+                        }
+
                         is UIState.Success -> {
                             binding.tvProfileName.text = it.data.username
-                            binding.ivProfileIcon.setImage(it.data.image)
+                            binding.ivProfileIcon.setImage(it.data.image.toString())
                             Log.e("ololo", "RPAS: ${it.data}")
                         }
                     }
@@ -66,7 +68,7 @@ setupSubscribes()
 
         btnUserChange.setOnClickListener {
             // Переход на экран редактирования профиля пользователя
-//            findNavController().navigate(UserProfileFragmentDirections.actionUserProfileFragmentToChangeUserProfileFragment())
+            findNavController().navigate(R.id.action_userProfileFragment_to_changeUserProfileFragment)
         }
 
         clCall.setOnClickListener {

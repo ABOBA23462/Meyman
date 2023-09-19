@@ -2,6 +2,7 @@ package com.example.meyman.presentation.ui.screens.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
 import com.example.meyman.R
@@ -29,7 +31,6 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val adapter = AdvertisingAdapter()
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -78,6 +79,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchResultsFragment)
         }
     }
 
@@ -96,6 +98,7 @@ class HomeFragment : Fragment() {
                     viewModel.advertisingState.collect {
                         when (it) {
                             is UIState.Error -> {
+                                Log.e("homka", "subscribeToFetchAdvertising: ${it.error}" )
 //                                binding.progressBar.isVisible = false
                             }
 
@@ -104,7 +107,7 @@ class HomeFragment : Fragment() {
                             }
 
                             is UIState.Success -> {
-//                                binding.progressBar.isVisible = false
+                                Log.e("homka", "subscribeToFetchAdvertising: ${it.data}" )
                                 adapter.submitList(it.data)
                             }
                         }

@@ -15,18 +15,23 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.meyman.R
 import com.example.meyman.data.remote.dtos.auth.VerifyDto
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentVerifyAccountBinding
 import com.example.meyman.presentation.base.Resource
 import com.example.meyman.presentation.models.auth.toUI
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class VerifyAccountFragment : Fragment() {
 
+    @Inject
+    lateinit var userPreferencesData: UserDataPreferencesHelper
     private lateinit var binding: FragmentVerifyAccountBinding
     private val viewModel: VerifyAccountViewModel by viewModels()
 
@@ -41,10 +46,9 @@ class VerifyAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnAccept.setOnClickListener {
-            customAlertDialog()
             val code = binding.etCode.text.toString()
-            val email = arguments?.getString("email")
-            val model = VerifyDto(code, email.toString())
+            val email = userPreferencesData.userEmail
+            val model = VerifyDto(code, email)
             Log.d("qwerty", "$model")
             Log.d("MyApp", "Email: $email, code: $code")
             if (code.length == 4) {
@@ -64,6 +68,8 @@ class VerifyAccountFragment : Fragment() {
                                 }
                                 is Resource.Success -> {
                                     val list = it.data?.toUI()
+                                    customAlertDialog()
+                                    findNavController().navigate(R.id.action_verifyAccountFragment_to_searchResultsFragment)
                                     Log.e("MyApp", "setupSubscribes: $list")
                                 }
                             }

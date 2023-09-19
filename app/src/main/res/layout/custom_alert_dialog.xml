@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Добро пожаловать, Нурзида!"
+            android:text="@string/welcome"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="Зарегистрировавшись, вы получаете доступ к лучшим предложениям и возможность бронирования онлайн.\nМы рады приветствовать вас!"
+            android:text="@string/advantages"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -39,7 +39,7 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/blue1"
             android:paddingVertical="16dp"
-            android:text="Продолжить"
+            android:text="@string/continues"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"

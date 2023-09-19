@@ -5,6 +5,7 @@ import com.example.meyman.data.repositories.ChooseRoomRepositoryImpl
 import com.example.meyman.data.repositories.HotelRepositoryImpl
 import com.example.meyman.data.repositories.LoginRepositoryImpl
 import com.example.meyman.data.repositories.RegisterRepositoryImpl
+import com.example.meyman.data.repositories.ReservationRepoImpl
 import com.example.meyman.data.repositories.ReviewRepositoryImpl
 import com.example.meyman.data.repositories.RoomsRepositoryImpl
 import com.example.meyman.data.repositories.UserProfileRepositoryImpl
@@ -14,6 +15,7 @@ import com.example.meyman.domain.repositories.ChooseRoomRepository
 import com.example.meyman.domain.repositories.HotelRepository
 import com.example.meyman.domain.repositories.LoginRepository
 import com.example.meyman.domain.repositories.RegisterRepository
+import com.example.meyman.domain.repositories.ReservationRepo
 import com.example.meyman.domain.repositories.ReviewRepository
 import com.example.meyman.domain.repositories.RoomsRepository
 import com.example.meyman.domain.repositories.UserProfileRepository
@@ -53,4 +55,7 @@ interface RepositoriesModule {
 
     @Binds
     fun provideUserProfileRepository(repositoryImpl: UserProfileRepositoryImpl): UserProfileRepository
+
+    @Binds
+    fun provideReservationRepo(repositoryImpl: ReservationRepoImpl): ReservationRepo
 }

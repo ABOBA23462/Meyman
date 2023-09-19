@@ -91,4 +91,13 @@
     <string name="contact_details">Контактные данные</string>
     <string name="book">Забронировать</string>
     <string name="name_and_surname">Имя и фамилия</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="advantages">Зарегистрировавшись, вы получаете доступ к лучшим предложениям и возможность бронирования онлайн.\nМы рады приветствовать вас!</string>
+    <string name="continues">Продолжить</string>
+    <string name="accept_code">Подтверждение кода</string>
+    <string name="we_send_code_on_email">Мы отправили код на вашу электронную почту</string>
+    <string name="didnt_receive_code">Не получили код?</string>
+    <string name="send_again">Отправить снова</string>
+    <string name="confirm">Потвердить</string>
+    <string name="write_code">Напишите код потверждения</string>
 </resources>

@@ -62,4 +62,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideUserProfileApiService() = retrofitClient.provideUserProfile()
+
+    @Singleton
+    @Provides
+    fun provideReservationApi() = retrofitClient.provideReservationApi()
 }

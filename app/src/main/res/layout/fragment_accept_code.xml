@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.screens.acceptAccount.AcceptAccountFragment">
+    tools:context=".presentation.ui.screens.forgot_password.acceptCode.AcceptCodeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Напишите код потверждения"
+            android:text="@string/write_code"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
-            android:text="Мы отправили код на вашу электронную почту"
+            android:text="@string/we_send_code_on_email"
             android:textSize="12sp" />
 
         <EditText
@@ -67,7 +67,7 @@
             android:layout_marginHorizontal="12.5dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/bg_for_et"
-            android:hint="Адрес электронной почты"
+            android:hint="@string/accept_code"
             android:paddingHorizontal="16dp"
             android:paddingVertical="16dp" />
 
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Не получили код?"
+                android:text="@string/didnt_receive_code"
                 android:textSize="12sp" />
 
             <TextView
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="4dp"
-                android:text="Отправить снова"
+                android:text="@string/send_again"
                 android:textColor="@color/blue1"
                 android:textSize="12sp" />
 
@@ -113,7 +113,7 @@
             android:layout_gravity="center"
             android:background="@drawable/rounder_button"
             android:backgroundTint="@color/blue1"
-            android:text="Потвердить"
+            android:text="@string/confirm"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />
