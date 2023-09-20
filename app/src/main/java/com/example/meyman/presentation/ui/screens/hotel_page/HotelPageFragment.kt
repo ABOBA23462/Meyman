@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.meyman.R
@@ -52,23 +53,33 @@ class HotelPageFragment :
             }
         }.attach()
 
-        callHotelApi()
+        val id = arguments?.getInt("id")
+
+        callApi(id)
+        initListener()
     }
 
-    private fun callHotelApi() {
-        viewModel.getHotelById(id = 1)
+    private fun initListener() {
+        binding.ivBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
+
+    private fun callApi(id: Int?) {
+        viewModel.getHotelById(id!!)
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.hotelValue.collect {
                     Log.e("ololo", "HotelPageFragment: ${it}", )
                     when(it){
                         is UIState.Error ->{
                             Log.e("ololo", "callHotelApi-error: ${it.error}", )
                         }
-                        is UIState.Loading ->{}
-                        is UIState.Success ->{
-                            Log.e("ololo", "callHotelApi-success: ${it.data}", )
-                            with(binding){
+
+                        is UIState.Loading -> {}
+                        is UIState.Success -> {
+                            Log.e("ololo", "callHotelApi-success: ${it.data}")
+                            with(binding) {
                                 tvTitle.text = it.data.address
                                 tvRatingScore.text = it.data.stars.toString()
                                 tvHotelName.text = it.data.housing_name

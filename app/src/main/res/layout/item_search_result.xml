@@ -62,17 +62,26 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_hotel"
                 tools:ignore="ContentDescription" />
 
-            <TextView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/tv_hotel_grade_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@color/yellow"
-                android:text="@string/_10_0"
-                android:textColor="@color/white"
+                android:backgroundTint="@color/yellow"
+                app:cardCornerRadius="6dp"
                 app:layout_constraintBottom_toTopOf="@+id/iv_location"
                 app:layout_constraintStart_toStartOf="@id/guideline_vertical"
-                app:layout_constraintTop_toBottomOf="@+id/iv_hotel_star_rating" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_hotel_star_rating">
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_10_0"
+                android:layout_marginVertical="2dp"
+                android:layout_marginHorizontal="5dp"
+                android:textColor="@color/white"/>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_hotel_grade"

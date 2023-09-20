@@ -5,19 +5,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.meyman.databinding.ItemSearchResultBinding
-import com.example.meyman.presentation.models.ResultUI
+import com.example.meyman.presentation.models.HotelsResult
 
-class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHolder>(diffUtil) {
+class SearchResultsAdapter(private val onClick: (HotelsResult) -> Unit) : ListAdapter<HotelsResult, SearchResultsAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(dataItem: ResultUI) {
-          binding.tvHotel.text = dataItem.housingName
-            binding.tvLocation.text = dataItem.description
+        fun onBind(dataItem: HotelsResult) {
+            binding.tvHotel.text = dataItem.housing_name
+            binding.tvLocation.text = dataItem.address
+            binding.ivSearchResult.load("http://meyman.tw1.ru" + dataItem.housing_image)
+            binding.tvRating.text = dataItem.stars.toString()
             println(binding.tvHotel)
 
+            itemView.setOnClickListener {
+                onClick(dataItem)
+            }
         }
     }
 
@@ -34,11 +40,12 @@ class SearchResultsAdapter : ListAdapter<ResultUI, SearchResultsAdapter.ViewHold
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<ResultUI>() {
-            override fun areItemsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<HotelsResult>() {
+            override fun areItemsTheSame(oldItem: HotelsResult, newItem: HotelsResult): Boolean {
                 return oldItem.id == newItem.id
             }
-            override fun areContentsTheSame(oldItem: ResultUI, newItem: ResultUI): Boolean {
+
+            override fun areContentsTheSame(oldItem: HotelsResult, newItem: HotelsResult): Boolean {
                 return oldItem == newItem
             }
         }

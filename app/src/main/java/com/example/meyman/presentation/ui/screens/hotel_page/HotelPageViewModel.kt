@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.HotelByIdUseCase
 import com.example.meyman.domain.utils.Either
+import com.example.meyman.presentation.models.HotelsResult
 import com.example.meyman.presentation.models.HotelByIdUI
 import com.example.meyman.presentation.models.auth.toUI
 import com.example.meyman.presentation.models.toUI
@@ -20,10 +21,10 @@ class HotelPageViewModel @Inject constructor(
     private val hotelByIdUseCase: HotelByIdUseCase
 ) : ViewModel() {
 
-    private val _hotelValue = MutableStateFlow<UIState<HotelByIdUI>>(UIState.Loading())
+    private val _hotelValue = MutableStateFlow<UIState<HotelsResult>>(UIState.Loading())
     val hotelValue = _hotelValue.asStateFlow()
 
-    fun getHotelById(id: Int) = viewModelScope.launch{
+    fun getHotelById(id: Int) = viewModelScope.launch {
         hotelByIdUseCase(id).collect {
             when (it) {
                 is Either.Left -> {
@@ -33,9 +34,7 @@ class HotelPageViewModel @Inject constructor(
 
                 is Either.Right -> {
                     it.data?.let {
-                        _hotelValue.value = UIState.Success(
-                            it.toUI()
-                        )
+                        _hotelValue.value = UIState.Success(it.toUI())
                     }
                     Log.e("ololo", "HotelPageViewModel-right: $it")
                 }

@@ -11,16 +11,11 @@ class HotelRepositoryImpl @Inject constructor(
 ) : BaseRepository(), HotelRepository {
 
     override suspend fun fetchHotel() = doRequest {
-        hotelApiService.getHotelResult().results?.map { it.toDomain() }
+        hotelApiService.getHotelResult().results.map { it.toDomain() }
     }
 
     override suspend fun getHotelById(id: Int) = doRequest {
-        hotelApiService.getHotelById(id).body()?.toDomain()
+        hotelApiService.getHotelById(id).toDomain()
     }
 
 }
-
-// override suspend fun getHotelById(id: Int): Flow<Either<String, HotelByIdModel>> = flow {
-//        emit(Either.Right(hotelApiService.getHotelById(id).toHotelByIdDomain()))
-//        Log.e("ololo", "getHotelById: ${hotelApiService.getHotelById(id)}", )
-//    }

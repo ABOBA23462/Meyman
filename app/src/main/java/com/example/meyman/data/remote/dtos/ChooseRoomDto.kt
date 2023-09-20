@@ -2,7 +2,6 @@ package com.example.meyman.data.remote.dtos
 
 import com.example.meyman.domain.utils.models.ChooseRoomModel
 import com.example.meyman.domain.utils.models.ResultDomain
-import com.example.meyman.domain.utils.models.RoomImageDomain
 import com.google.gson.annotations.SerializedName
 
 data class ChooseRoomDto(
