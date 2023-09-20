@@ -9,6 +9,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
@@ -61,6 +62,8 @@ class UserProfileFragment :
     fun ImageView.setImage(uri: String) {
         Glide.with(this)
             .load(uri)
+            .diskCacheStrategy(DiskCacheStrategy.NONE) // Для тестирования
+            .skipMemoryCache(true)
             .into(this)
     }
 

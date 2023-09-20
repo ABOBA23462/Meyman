@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meyman.databinding.ItemBookingBinding
-import com.example.meyman.presentation.models.ResultsBookingUI
 import com.example.meyman.presentation.models.reservation.ReservationResultUI
 
 class ReservationAdapter : ListAdapter<ReservationResultUI, ReservationAdapter.BookingViewHolder>(diffUtil) {

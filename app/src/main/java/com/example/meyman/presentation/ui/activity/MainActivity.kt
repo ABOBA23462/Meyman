@@ -67,12 +67,17 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_booking -> {
-                    navController.navigate(R.id.roomBookingFragment)
+                    navController.navigate(R.id.reservationFragment)
                     true
                 }
 
                 R.id.navigation_prof -> {
-                    navController.navigate(R.id.guestProfileFragment)
+                    if (userPreferencesData.isAuthorized == true) {
+                        navController.navigate(R.id.userProfileFragment)
+                    }else{
+                        navController.navigate(R.id.guestProfileFragment)
+
+                    }
                     true
                 }
 
