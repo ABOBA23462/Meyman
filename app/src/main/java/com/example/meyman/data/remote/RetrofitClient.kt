@@ -7,6 +7,7 @@ import com.example.meyman.data.remote.apiservices.HotelApiService
 import com.example.meyman.data.remote.apiservices.LoginApiService
 import com.example.meyman.data.remote.apiservices.RegisterApiService
 import com.example.meyman.data.remote.apiservices.ResetPasswordApiService
+import com.example.meyman.data.remote.apiservices.ReservationApi
 import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.RoomsApiService
 import com.example.meyman.data.remote.apiservices.UserProfileApiService
@@ -94,5 +95,9 @@ class RetrofitClient {
 
     }    fun provideResetPassword(): ResetPasswordApiService {
         return retrofitClient.create(ResetPasswordApiService::class.java)
+    }
+
+    fun provideReservationApi(): ReservationApi {
+        return retrofitClient.create(ReservationApi::class.java)
     }
 }

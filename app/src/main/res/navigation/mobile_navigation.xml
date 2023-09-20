@@ -100,6 +100,8 @@
         android:name="com.example.meyman.presentation.ui.screens.hotel_page.photos.fitness.HotelFitnessFragment"
         android:label="fragment_hotel_fitness"
         tools:layout="@layout/fragment_hotel_fitness" />
+        tools:layout="@layout/fragment_search_results" />
+
     <fragment
         android:id="@+id/roomsFragment"
         android:name="com.example.meyman.presentation.ui.screens.hotel_page.rooms.RoomsFragment"
@@ -120,6 +122,9 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_roomBookingFragment_to_reservationFragment"
+            app:destination="@id/reservationFragment" />
     </fragment>
     <fragment
         android:id="@+id/reviewAddFragment"
@@ -145,6 +150,36 @@
         android:id="@+id/verifyAccountFragment"
         android:name="com.example.meyman.presentation.ui.screens.sign.in.verifyAccount.VerifyAccountFragment"
         android:label="fragment_verify_account"
+        tools:layout="@layout/fragment_verify_account" >
+        <action
+            android:id="@+id/action_verifyAccountFragment_to_searchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeUserProfileFragment"
+        android:name="com.example.meyman.presentation.ui.screens.profile.user.change.ChangeUserProfileFragment"
+        android:label="fragment_change_user_profile"
+        tools:layout="@layout/fragment_change_user_profile" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.meyman.presentation.ui.screens.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_searchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.meyman.presentation.ui.screens.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+    </fragment>
+    <fragment
+        android:id="@+id/reservationFragment"
+        android:name="com.example.meyman.presentation.ui.screens.booking.ReservationFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
         tools:layout="@layout/fragment_verify_account" >
         <action
             android:id="@+id/action_verifyAccountFragment_to_searchResultsFragment"

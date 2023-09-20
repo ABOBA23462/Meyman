@@ -4,6 +4,7 @@ import com.example.meyman.data.repositories.AdvertisingRepositoryImpl
 import com.example.meyman.data.repositories.HotelRepositoryImpl
 import com.example.meyman.data.repositories.LoginRepositoryImpl
 import com.example.meyman.data.repositories.RegisterRepositoryImpl
+import com.example.meyman.data.repositories.ReservationRepoImpl
 import com.example.meyman.data.repositories.ResetPasswordRepositoryImpl
 import com.example.meyman.data.repositories.ReviewRepositoryImpl
 import com.example.meyman.data.repositories.RoomsRepositoryImpl
@@ -13,6 +14,7 @@ import com.example.meyman.domain.repositories.AdvertisingRepository
 import com.example.meyman.domain.repositories.HotelRepository
 import com.example.meyman.domain.repositories.LoginRepository
 import com.example.meyman.domain.repositories.RegisterRepository
+import com.example.meyman.domain.repositories.ReservationRepo
 import com.example.meyman.domain.repositories.ResetPasswordRepository
 import com.example.meyman.domain.repositories.ReviewRepository
 import com.example.meyman.domain.repositories.RoomsRepository
@@ -26,7 +28,7 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 interface RepositoriesModule {
-    
+
     @Binds
     fun provideHotelRepository(repositoryImpl: HotelRepositoryImpl): HotelRepository
 
@@ -47,6 +49,9 @@ interface RepositoriesModule {
 
     @Binds
     fun provideUserProfileRepository(repositoryImpl: UserProfileRepositoryImpl): UserProfileRepository
+
+    @Binds
+    fun provideReservationRepo(repositoryImpl: ReservationRepoImpl): ReservationRepo
 
     @Binds
     fun provideRoomsRepository(repositoryImpl: RoomsRepositoryImpl): RoomsRepository

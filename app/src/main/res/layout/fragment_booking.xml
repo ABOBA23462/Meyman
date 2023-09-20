@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#E1DFDF"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.ui.screens.booking.BookingFragment">
+    tools:context=".presentation.ui.screens.booking.ReservationFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

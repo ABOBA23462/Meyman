@@ -1,13 +1,11 @@
-package com.example.meyman.presentation.ui.screens.room_page.booking
+package com.example.meyman.presentation.ui.screens.booking
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.GetReservationUseCase
-import com.example.meyman.domain.usecases.PostReservationUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.domain.utils.models.reservation.ReservationPostModel
-import com.example.meyman.presentation.models.reservation.ReservationGetUI
+import com.example.meyman.presentation.models.auth.toUI
 import com.example.meyman.presentation.models.reservation.ReservationResultUI
 import com.example.meyman.presentation.models.reservation.toUI
 import com.example.meyman.presentation.state.UIState
@@ -18,14 +16,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RoomBookingViewModel @Inject constructor(
-    private val useCase: PostReservationUseCase
+class ReservationViewModel @Inject constructor(
+    private val useCase: GetReservationUseCase
 ) : ViewModel() {
-    private val _reservation = MutableStateFlow<UIState<ReservationGetUI>>(UIState.Loading())
+
+    private val _reservation = MutableStateFlow<UIState<List<ReservationResultUI>>>(UIState.Loading())
     val reservation = _reservation.asStateFlow()
 
-    fun postReservation(token:String, reservationPostModel: ReservationPostModel) = viewModelScope.launch {
-        useCase.postReservation(token, reservationPostModel).collect {
+    fun getReservation(token: String) = viewModelScope.launch {
+        useCase.getReservation(token).collect {
             when (it) {
                 is Either.Left -> {
                     _reservation.value = UIState.Error(it.message.toString())
@@ -34,11 +33,12 @@ class RoomBookingViewModel @Inject constructor(
 
                 is Either.Right -> {
                     it.data?.let {
-                        _reservation.value = UIState.Success(it.toUI())
+                        _reservation.value = UIState.Success(it.map { it.toUI() })
                     }
-                    Log.e("erbol", "getBooking-success: ${it.data}")
+                    Log.e("ololo", "getBooking-success: ${it.data.toString()}")
                 }
             }
         }
     }
+
 }
