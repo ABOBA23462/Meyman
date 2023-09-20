@@ -16,11 +16,6 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRoomsApiService() = retrofitClient.provideRoomsApiServer()
-
-
-    @Singleton
-    @Provides
     fun provideHotelApiService() = retrofitClient.provideHotelApiServer()
 
     @Singleton
@@ -34,10 +29,6 @@ object AppModule {
     @Singleton
     @Provides
     fun provideUsernameApiService() = retrofitClient.provideUsernameApiServer()
-
-    @Singleton
-    @Provides
-    fun provideChooseRoomApiService() = retrofitClient.provideChooseRoom()
 
     @Singleton
     @Provides
@@ -62,4 +53,12 @@ object AppModule {
     @Singleton
     @Provides
     fun provideUserProfileApiService() = retrofitClient.provideUserProfile()
+
+    @Singleton
+    @Provides
+    fun provideRoomsApiService() = retrofitClient.provideRooms()
+
+    @Singleton
+    @Provides
+    fun provideResetPasswordApiService() = retrofitClient.provideResetPassword()
 }

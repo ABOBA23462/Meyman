@@ -11,7 +11,7 @@ data class AdvertisingModel(
 data class AdvertisingResultModel(
     val checkOutTimeEnd: String = "",
     val roomService: Boolean = false,
-    val parkingLocation: String,
+//    val parkingLocation: String,
     val accommodationType: String = "",
     val petFee: Boolean = false,
     val housing: Int = 0,
@@ -29,7 +29,7 @@ data class AdvertisingResultModel(
     val park: Boolean = false,
     val breakfastOffered: Boolean = false,
     val checkInTimeEnd: String = "",
-    val cheapestRoomPrice: Int,
+//    val cheapestRoomPrice: Int,
     val airportTransfer: Boolean = false,
     val address: String = "",
     val paidTransfer: Boolean = false,
@@ -47,7 +47,7 @@ data class AdvertisingResultModel(
     val carRental: Boolean = false,
     val gym: Boolean = false,
     val paidBar: Boolean = false,
-    val breakfastCostUsd: Int,
+//    val breakfastCostUsd: Int,
     val region: String = "",
     val housingType: String = ""
 )

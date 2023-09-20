@@ -89,6 +89,9 @@ class SignInFragment : BottomSheetDialogFragment() {
     }
 
     private fun login() = with(binding) {
+        tvForgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_guestProfileFragment_to_forgotPasswordFragment)
+        }
         val bundle = Bundle()
         btnSignIn.setOnClickListener {
             val email = etEmail.text.toString().trim()
@@ -133,7 +136,6 @@ class SignInFragment : BottomSheetDialogFragment() {
             val password = binding.etRegPassword.text.toString().trim()
             val usertype = "client"
             val model = RegisterDto(email, username, usertype, password)
-            val mess = "IDI NAHUY"
             if (etRegEmail.text.isNullOrEmpty()) {
                 tilRegEmail.error = "asd"
             } else if (etRegUserName.text.isNullOrEmpty()) {

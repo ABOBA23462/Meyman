@@ -82,7 +82,7 @@ class HotelPageFragment :
                             with(binding) {
                                 tvTitle.text = it.data.address
                                 tvRatingScore.text = it.data.stars.toString()
-                                tvHotelName.text = it.data.housing_name
+                                tvHotelName.text = it.data.housingName
                             }
                         }
                     }

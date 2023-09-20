@@ -3,17 +3,16 @@ package com.example.meyman.data.remote
 import com.example.meyman.core.Constant
 import com.example.meyman.data.remote.apiservices.AdvertisingApiService
 import com.example.meyman.data.remote.apiservices.BookingApiService
-import com.example.meyman.data.remote.apiservices.ChooseRoomService
 import com.example.meyman.data.remote.apiservices.HotelApiService
 import com.example.meyman.data.remote.apiservices.LoginApiService
 import com.example.meyman.data.remote.apiservices.RegisterApiService
+import com.example.meyman.data.remote.apiservices.ResetPasswordApiService
 import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.RoomsApiService
 import com.example.meyman.data.remote.apiservices.UserProfileApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.UsernameApiService
 import com.example.meyman.data.remote.apiservices.VerifyApiService
-import com.example.meyman.data.remote.interceptor.TokenInterceptor
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -68,10 +67,6 @@ class RetrofitClient {
         return retrofitClient.create(RegisterApiService::class.java)
     }
 
-    fun provideChooseRoom(): ChooseRoomService {
-        return retrofitClient.create(ChooseRoomService::class.java)
-    }
-
     fun provideBooking(): BookingApiService {
         return retrofitClient.create(BookingApiService::class.java)
     }
@@ -92,5 +87,12 @@ class RetrofitClient {
 
     fun provideUserProfile(): UserProfileApiService {
         return retrofitClient.create(UserProfileApiService::class.java)
+    }
+
+    fun provideRooms(): RoomsApiService {
+        return retrofitClient.create(RoomsApiService::class.java)
+
+    }    fun provideResetPassword(): ResetPasswordApiService {
+        return retrofitClient.create(ResetPasswordApiService::class.java)
     }
 }

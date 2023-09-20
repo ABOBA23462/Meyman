@@ -13,7 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.meyman.R
 import com.example.meyman.databinding.FragmentSearchResultsBinding
-import com.example.meyman.presentation.models.HotelsResult
+import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -41,7 +41,7 @@ class SearchResultsFragment : Fragment() {
 
     }
 
-    private fun onClick(hotelsResult: HotelsResult) {
+    private fun onClick(hotelsResult: ResultsHotelItemUI) {
         findNavController().navigate(R.id.hotelPageFragment, bundleOf("id" to hotelsResult.id))
     }
 
@@ -63,9 +63,6 @@ class SearchResultsFragment : Fragment() {
                             binding.rvSearchResults.adapter = reviewAdapter
                             reviewAdapter.submitList(it.data)
                         }
-
-                        is UIState.Empty -> {}
-
                     }
                 }
             }

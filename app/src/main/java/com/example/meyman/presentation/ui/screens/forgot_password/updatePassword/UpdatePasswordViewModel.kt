@@ -1,7 +1,17 @@
 package com.example.meyman.presentation.ui.screens.forgot_password.updatePassword
 
 import androidx.lifecycle.ViewModel
+import com.example.meyman.data.remote.dtos.auth.reset_password.CodeDto
+import com.example.meyman.data.remote.dtos.auth.reset_password.PasswordDto
+import com.example.meyman.domain.usecases.FetchResetPasswordCodeUseCase
+import com.example.meyman.domain.usecases.FetchResetPasswordUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class UpdatePasswordViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+@HiltViewModel
+class UpdatePasswordViewModel @Inject constructor(
+    private val fetchResetPasswordUseCase: FetchResetPasswordUseCase,
+) : ViewModel() {
+
+    suspend fun getPassword(passwordDto: PasswordDto) = fetchResetPasswordUseCase(passwordDto)
 }

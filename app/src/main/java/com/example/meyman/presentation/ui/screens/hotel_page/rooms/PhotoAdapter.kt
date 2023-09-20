@@ -4,16 +4,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.meyman.core.base.BaseDiffUtil
+import com.example.meyman.presentation.models.rooms.list.RoomListImagesItemUI
 import com.example.meyman.databinding.ItemPhotoRoomsBinding
-import com.example.meyman.presentation.models.RoomImageUI
 
-class PhotoAdapter() : ListAdapter<RoomImageUI, PhotoAdapter.PhotoViewHolder>(BaseDiffUtil()) {
+class PhotoAdapter() : ListAdapter<RoomListImagesItemUI, PhotoAdapter.PhotoViewHolder>(diffUtil) {
     inner class PhotoViewHolder(val binding: ItemPhotoRoomsBinding) : ViewHolder(binding.root) {
-        fun onBind(model: RoomImageUI) {
+        fun onBind(model: RoomListImagesItemUI) {
             Log.e("ololo", "onBind: " + {model})
             binding.ivPhoto.setImage(model.image)
         }
@@ -31,5 +31,16 @@ class PhotoAdapter() : ListAdapter<RoomImageUI, PhotoAdapter.PhotoViewHolder>(Ba
         Glide.with(this)
             .load(uri)
             .into(this)
+    }
+
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<RoomListImagesItemUI>() {
+            override fun areItemsTheSame(oldItem: RoomListImagesItemUI, newItem: RoomListImagesItemUI): Boolean {
+                return oldItem.id == newItem.id
+            }
+            override fun areContentsTheSame(oldItem: RoomListImagesItemUI, newItem: RoomListImagesItemUI): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 }

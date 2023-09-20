@@ -26,8 +26,8 @@ data class AdvertisingResultUI(
     val checkOutTimeEnd: String = "",
     @SerializedName("room_service")
     val roomService: Boolean = false,
-    @SerializedName("parking_location")
-    val parkingLocation: String,
+//    @SerializedName("parking_location")
+//    val parkingLocation: String,
     @SerializedName("accommodation_type")
     val accommodationType: String = "",
     @SerializedName("pet_fee")
@@ -62,8 +62,8 @@ data class AdvertisingResultUI(
     val breakfastOffered: Boolean = false,
     @SerializedName("check_in_time_end")
     val checkInTimeEnd: String = "",
-    @SerializedName("cheapest_room_price")
-    val cheapestRoomPrice: Int,
+//    @SerializedName("cheapest_room_price")
+//    val cheapestRoomPrice: Int,
     @SerializedName("airport_transfer")
     val airportTransfer: Boolean = false,
     @SerializedName("address")
@@ -98,8 +98,8 @@ data class AdvertisingResultUI(
     val gym: Boolean = false,
     @SerializedName("paid_bar")
     val paidBar: Boolean = false,
-    @SerializedName("breakfast_cost_usd")
-    val breakfastCostUsd: Int,
+//    @SerializedName("breakfast_cost_usd")
+//    val breakfastCostUsd: Int,
     @SerializedName("region")
     val region: String = "",
     @SerializedName("housing_type")
@@ -109,7 +109,7 @@ data class AdvertisingResultUI(
 fun AdvertisingResultModel.toUI() = AdvertisingResultUI(
     checkOutTimeEnd,
     roomService,
-    parkingLocation,
+//    parkingLocation,
     accommodationType,
     petFee,
     housing,
@@ -127,7 +127,7 @@ fun AdvertisingResultModel.toUI() = AdvertisingResultUI(
     park,
     breakfastOffered,
     checkInTimeEnd,
-    cheapestRoomPrice,
+//    cheapestRoomPrice,
     airportTransfer,
     address,
     paidTransfer,
@@ -145,7 +145,7 @@ fun AdvertisingResultModel.toUI() = AdvertisingResultUI(
     carRental,
     gym,
     paidBar,
-    breakfastCostUsd,
+//    breakfastCostUsd,
     region,
     housingType
 )

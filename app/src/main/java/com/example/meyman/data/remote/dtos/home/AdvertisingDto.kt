@@ -13,7 +13,8 @@ data class AdvertisingDto<T>(
     @SerializedName("count")
     val count: Int = 0,
     @SerializedName("results")
-    val results: List<AdvertisingResultDto>)
+    val results: List<AdvertisingResultDto>
+)
 
 fun AdvertisingDto<AdvertisingResultDto>.toDomain() = AdvertisingModel(
     next,
@@ -27,8 +28,8 @@ data class AdvertisingResultDto(
     val checkOutTimeEnd: String = "",
     @SerializedName("room_service")
     val roomService: Boolean = false,
-    @SerializedName("parking_location")
-    val parkingLocation: String,
+//    @SerializedName("parking_location")
+//    val parkingLocation: String,
     @SerializedName("accommodation_type")
     val accommodationType: String = "",
     @SerializedName("pet_fee")
@@ -63,8 +64,8 @@ data class AdvertisingResultDto(
     val breakfastOffered: Boolean = false,
     @SerializedName("check_in_time_end")
     val checkInTimeEnd: String = "",
-    @SerializedName("cheapest_room_price")
-    val cheapestRoomPrice: Int,
+//    @SerializedName("cheapest_room_price")
+//    val cheapestRoomPrice: Int,
     @SerializedName("airport_transfer")
     val airportTransfer: Boolean = false,
     @SerializedName("address")
@@ -99,53 +100,54 @@ data class AdvertisingResultDto(
     val gym: Boolean = false,
     @SerializedName("paid_bar")
     val paidBar: Boolean = false,
-    @SerializedName("breakfast_cost_usd")
-    val breakfastCostUsd: Int,
+//    @SerializedName("breakfast_cost_usd")
+//    val breakfastCostUsd: Int,
     @SerializedName("region")
     val region: String = "",
     @SerializedName("housing_type")
-    val housingType: String = "")
+    val housingType: String = ""
+)
 
 fun AdvertisingResultDto.toDomain() = AdvertisingResultModel(
- checkOutTimeEnd,
- roomService,
- parkingLocation,
- accommodationType,
- petFee,
- housing,
- added,
- paidParking,
- poolsideBar,
- childrenAllowed,
- breakfastIncluded,
- spaServices,
- bar,
- inRoomInternet,
- checkOutTimeStart,
- id,
- freeInternet,
- park,
- breakfastOffered,
- checkInTimeEnd,
- cheapestRoomPrice,
- airportTransfer,
- address,
- paidTransfer,
- childrenPlayground,
- restaurant,
- pool,
- petsAllowed,
- images,
- stars,
- foodType,
- checkInTimeStart,
- housingName,
- cafe,
- hotelWideInternet,
- carRental,
- gym,
- paidBar,
- breakfastCostUsd,
- region,
- housingType
+    checkOutTimeEnd,
+    roomService,
+//    parkingLocation,
+    accommodationType,
+    petFee,
+    housing,
+    added,
+    paidParking,
+    poolsideBar,
+    childrenAllowed,
+    breakfastIncluded,
+    spaServices,
+    bar,
+    inRoomInternet,
+    checkOutTimeStart,
+    id,
+    freeInternet,
+    park,
+    breakfastOffered,
+    checkInTimeEnd,
+//    cheapestRoomPrice,
+    airportTransfer,
+    address,
+    paidTransfer,
+    childrenPlayground,
+    restaurant,
+    pool,
+    petsAllowed,
+    images,
+    stars,
+    foodType,
+    checkInTimeStart,
+    housingName,
+    cafe,
+    hotelWideInternet,
+    carRental,
+    gym,
+    paidBar,
+//    breakfastCostUsd,
+    region,
+    housingType
 )

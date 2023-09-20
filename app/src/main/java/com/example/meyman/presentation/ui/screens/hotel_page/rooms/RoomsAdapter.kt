@@ -9,11 +9,10 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
+import com.example.meyman.presentation.models.rooms.list.ResultsRoomsListItemUI
 import com.example.meyman.databinding.ItemRoomBinding
-import com.example.meyman.presentation.models.ResultRoomUI
 
-class RoomsAdapter( val onItemClick: (id: Int) -> Unit,
-                    val onButtonClick: (id: Int) -> Unit,) : ListAdapter<ResultRoomUI, RoomsAdapter.ViewHolder>(
+class RoomsAdapter( val onItemClick: (id: Int) -> Unit) : ListAdapter<ResultsRoomsListItemUI, RoomsAdapter.ViewHolder>(
     diffUtil
 ) {
 
@@ -28,16 +27,16 @@ class RoomsAdapter( val onItemClick: (id: Int) -> Unit,
     inner class ViewHolder(private val binding: ItemRoomBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(result: ResultRoomUI) = with(binding) {
-            tvPrice.text = result.price_per_night
-            tvGuests.text = result.num_rooms.toString()
-            tvSquare.text = "${result.room_area} m²"
+        fun onBind(result: ResultsRoomsListItemUI) = with(binding) {
+            tvPrice.text = result.pricePerNight
+            tvGuests.text = result.numRooms.toString()
+            tvSquare.text = "${result.roomArea} m²"
             tvHotelAmenities.text = "Двухместная кровать  и диван "
             adapter = PhotoAdapter()
             rcPhotos.adapter = adapter
             val snapHelper: SnapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(rcPhotos)
-            result.room_images.let { adapter.submitList(it) }
+            result.roomImages.let { adapter.submitList(it) }
 
         }
         init {
@@ -60,11 +59,11 @@ class RoomsAdapter( val onItemClick: (id: Int) -> Unit,
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<ResultRoomUI>() {
-            override fun areItemsTheSame(oldItem: ResultRoomUI, newItem: ResultRoomUI): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<ResultsRoomsListItemUI>() {
+            override fun areItemsTheSame(oldItem: ResultsRoomsListItemUI, newItem: ResultsRoomsListItemUI): Boolean {
                 return oldItem.id == newItem.id
             }
-            override fun areContentsTheSame(oldItem: ResultRoomUI, newItem: ResultRoomUI): Boolean {
+            override fun areContentsTheSame(oldItem: ResultsRoomsListItemUI, newItem: ResultsRoomsListItemUI): Boolean {
                 return oldItem == newItem
             }
         }

@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.meyman.databinding.ItemSearchResultBinding
-import com.example.meyman.presentation.models.HotelsResult
+import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 
-class SearchResultsAdapter(private val onClick: (HotelsResult) -> Unit) : ListAdapter<HotelsResult, SearchResultsAdapter.ViewHolder>(diffUtil) {
+class SearchResultsAdapter(private val onClick: (ResultsHotelItemUI) -> Unit) : ListAdapter<ResultsHotelItemUI, SearchResultsAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(dataItem: HotelsResult) {
-            binding.tvHotel.text = dataItem.housing_name
+        fun onBind(dataItem: ResultsHotelItemUI) {
+            binding.tvHotel.text = dataItem.housingName
             binding.tvLocation.text = dataItem.address
-            binding.ivSearchResult.load("http://meyman.tw1.ru" + dataItem.housing_image)
+            binding.ivSearchResult.load("http://meyman.tw1.ru" + dataItem.housingImage)
             binding.tvRating.text = dataItem.stars.toString()
             println(binding.tvHotel)
 
@@ -40,12 +40,12 @@ class SearchResultsAdapter(private val onClick: (HotelsResult) -> Unit) : ListAd
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<HotelsResult>() {
-            override fun areItemsTheSame(oldItem: HotelsResult, newItem: HotelsResult): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<ResultsHotelItemUI>() {
+            override fun areItemsTheSame(oldItem: ResultsHotelItemUI, newItem: ResultsHotelItemUI): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: HotelsResult, newItem: HotelsResult): Boolean {
+            override fun areContentsTheSame(oldItem: ResultsHotelItemUI, newItem: ResultsHotelItemUI): Boolean {
                 return oldItem == newItem
             }
         }

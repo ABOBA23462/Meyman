@@ -3,12 +3,10 @@ package com.example.meyman.presentation.ui.screens.hotel_page
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.meyman.domain.usecases.HotelByIdUseCase
+import com.example.meyman.domain.usecases.FetchDetailHotelUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.presentation.models.HotelsResult
-import com.example.meyman.presentation.models.HotelByIdUI
-import com.example.meyman.presentation.models.auth.toUI
-import com.example.meyman.presentation.models.toUI
+import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
+import com.example.meyman.presentation.models.hotels.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,10 +16,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HotelPageViewModel @Inject constructor(
-    private val hotelByIdUseCase: HotelByIdUseCase
+    private val hotelByIdUseCase: FetchDetailHotelUseCase
 ) : ViewModel() {
 
-    private val _hotelValue = MutableStateFlow<UIState<HotelsResult>>(UIState.Loading())
+    private val _hotelValue = MutableStateFlow<UIState<ResultsHotelItemUI>>(UIState.Loading())
     val hotelValue = _hotelValue.asStateFlow()
 
     fun getHotelById(id: Int) = viewModelScope.launch {

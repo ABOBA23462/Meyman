@@ -1,19 +1,19 @@
 package com.example.meyman.di
 
 import com.example.meyman.data.repositories.AdvertisingRepositoryImpl
-import com.example.meyman.data.repositories.ChooseRoomRepositoryImpl
 import com.example.meyman.data.repositories.HotelRepositoryImpl
 import com.example.meyman.data.repositories.LoginRepositoryImpl
 import com.example.meyman.data.repositories.RegisterRepositoryImpl
+import com.example.meyman.data.repositories.ResetPasswordRepositoryImpl
 import com.example.meyman.data.repositories.ReviewRepositoryImpl
 import com.example.meyman.data.repositories.RoomsRepositoryImpl
 import com.example.meyman.data.repositories.UserProfileRepositoryImpl
 import com.example.meyman.data.repositories.VerifyAccountRepositoryImpl
 import com.example.meyman.domain.repositories.AdvertisingRepository
-import com.example.meyman.domain.repositories.ChooseRoomRepository
 import com.example.meyman.domain.repositories.HotelRepository
 import com.example.meyman.domain.repositories.LoginRepository
 import com.example.meyman.domain.repositories.RegisterRepository
+import com.example.meyman.domain.repositories.ResetPasswordRepository
 import com.example.meyman.domain.repositories.ReviewRepository
 import com.example.meyman.domain.repositories.RoomsRepository
 import com.example.meyman.domain.repositories.UserProfileRepository
@@ -26,13 +26,7 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 interface RepositoriesModule {
-
-    @Binds
-    fun provideChooseRoomsRepository(repositoryImpl: ChooseRoomRepositoryImpl): ChooseRoomRepository
-
-    @Binds
-    fun provideRoomsRepository(repositoryImpl: RoomsRepositoryImpl): RoomsRepository
-
+    
     @Binds
     fun provideHotelRepository(repositoryImpl: HotelRepositoryImpl): HotelRepository
 
@@ -53,4 +47,10 @@ interface RepositoriesModule {
 
     @Binds
     fun provideUserProfileRepository(repositoryImpl: UserProfileRepositoryImpl): UserProfileRepository
+
+    @Binds
+    fun provideRoomsRepository(repositoryImpl: RoomsRepositoryImpl): RoomsRepository
+
+    @Binds
+    fun provideResetPasswordRepository(repositoryImpl: ResetPasswordRepositoryImpl): ResetPasswordRepository
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/roomsFragment">
 
     <fragment
         android:id="@+id/roomPageFragment"
@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_guestProfileFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_guestProfileFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/connectFragment"
@@ -167,4 +170,30 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
     </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.meyman.presentation.ui.screens.forgot_password.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_acceptCodeFragment"
+            app:destination="@id/acceptCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/acceptCodeFragment"
+        android:name="com.example.meyman.presentation.ui.screens.forgot_password.acceptCode.AcceptCodeFragment"
+        android:label="fragment_accept_code"
+        tools:layout="@layout/fragment_accept_code" >
+        <action
+            android:id="@+id/action_acceptCodeFragment_to_updatePasswordFragment2"
+            app:destination="@id/updatePasswordFragment2" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePasswordFragment2"
+        android:name="com.example.meyman.presentation.ui.screens.forgot_password.updatePassword.UpdatePasswordFragment"
+        android:label="fragment_update_password"
+        tools:layout="@layout/fragment_update_password" />
 </navigation>

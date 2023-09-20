@@ -85,7 +85,7 @@ class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding,
                 inputStream = context?.contentResolver?.openInputStream(uri)!!
             }
 
-            val file = File(context?.cacheDir, "temp_image.jpeg")
+            val file = File(context?.cacheDir, "temp_image.jpg")
 
 
             inputStream.let { input ->

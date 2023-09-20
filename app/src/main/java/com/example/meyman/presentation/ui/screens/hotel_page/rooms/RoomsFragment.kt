@@ -20,7 +20,7 @@ class RoomsFragment : Fragment() {
 
     private lateinit var binding: FragmentRoomsBinding
     private val viewModel: RoomsViewModel by viewModels()
-    private val adapter = RoomsAdapter(this::onItemClick, this::onButtonClick)
+    private val adapter = RoomsAdapter(this::onItemClick)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,7 +57,7 @@ class RoomsFragment : Fragment() {
         viewModel.getChooseRoomState()
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.chooseRoomState.collect {
+                viewModel.roomsState.collect {
                     when (it) {
                         is UIState.Error -> {
 //                                binding.progressBar.isVisible = false
