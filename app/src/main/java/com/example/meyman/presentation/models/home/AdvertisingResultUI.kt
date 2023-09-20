@@ -1,29 +1,9 @@
-package com.example.meyman.data.remote.dtos.home
+package com.example.meyman.presentation.models.home
 
-import com.example.meyman.domain.utils.models.home.AdvertisingModel
 import com.example.meyman.domain.utils.models.home.AdvertisingResultModel
-import com.example.meyman.presentation.models.home.AdvertisingResultUI
 import com.google.gson.annotations.SerializedName
 
-data class AdvertisingDto<T>(
-    @SerializedName("next")
-    val next: String,
-    @SerializedName("previous")
-    val previous: String,
-    @SerializedName("count")
-    val count: Int = 0,
-    @SerializedName("results")
-    val results: List<AdvertisingResultDto>
-)
-
-fun AdvertisingDto<AdvertisingResultDto>.toDomain() = AdvertisingModel(
-    next,
-    previous,
-    count,
-    results.map { it.toDomain() }
-)
-
-data class AdvertisingResultDto(
+data class AdvertisingResultUI(
     @SerializedName("check_out_time_end")
     val checkOutTimeEnd: String = "",
     @SerializedName("room_service")
@@ -80,8 +60,8 @@ data class AdvertisingResultDto(
     val pool: Boolean = false,
     @SerializedName("pets_allowed")
     val petsAllowed: Boolean = false,
-    @SerializedName("images")
-    val images: List<String>?,
+    @SerializedName("housingImage")
+    val housingImage: List<String>?,
     @SerializedName("stars")
     val stars: Int = 0,
     @SerializedName("food_type")
@@ -108,7 +88,7 @@ data class AdvertisingResultDto(
     val housingType: String = ""
 )
 
-fun AdvertisingResultDto.toDomain() = AdvertisingResultModel(
+fun AdvertisingResultModel.toUI() = AdvertisingResultUI(
     checkOutTimeEnd,
     roomService,
 //    parkingLocation,
@@ -137,7 +117,7 @@ fun AdvertisingResultDto.toDomain() = AdvertisingResultModel(
     restaurant,
     pool,
     petsAllowed,
-    images,
+    housingImage,
     stars,
     foodType,
     checkInTimeStart,

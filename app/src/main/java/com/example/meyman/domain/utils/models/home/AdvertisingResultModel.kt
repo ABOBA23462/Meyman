@@ -1,13 +1,5 @@
 package com.example.meyman.domain.utils.models.home
 
-
-data class AdvertisingModel(
-    val next: String,
-    val previous: String,
-    val count: Int = 0,
-    val results: List<AdvertisingResultModel>?
-)
-
 data class AdvertisingResultModel(
     val checkOutTimeEnd: String = "",
     val roomService: Boolean = false,
@@ -37,7 +29,7 @@ data class AdvertisingResultModel(
     val restaurant: Boolean = false,
     val pool: Boolean = false,
     val petsAllowed: Boolean = false,
-    val images: List<String>?,
+    val housingImage: List<String>?,
     val stars: Int = 0,
     val foodType: String = "",
     val checkInTimeStart: String = "",

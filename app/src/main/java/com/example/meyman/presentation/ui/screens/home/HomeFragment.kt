@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -31,6 +32,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val adapter = AdvertisingAdapter()
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -98,18 +100,23 @@ class HomeFragment : Fragment() {
                     viewModel.advertisingState.collect {
                         when (it) {
                             is UIState.Error -> {
+                                Toast.makeText(requireContext(), "ABOBA", Toast.LENGTH_SHORT).show()
                                 Log.e("homka", "subscribeToFetchAdvertising: ${it.error}" )
 //                                binding.progressBar.isVisible = false
                             }
 
                             is UIState.Loading -> {
+                                Toast.makeText(requireContext(), "ABOBA", Toast.LENGTH_SHORT).show()
 //                                binding.progressBar.isVisible = true
                             }
 
                             is UIState.Success -> {
+                                Toast.makeText(requireContext(), "ABOBA", Toast.LENGTH_SHORT).show()
                                 Log.e("homka", "subscribeToFetchAdvertising: ${it.data}" )
                                 adapter.submitList(it.data)
                             }
+
+                            else -> {}
                         }
                     }
                 }

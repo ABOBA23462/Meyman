@@ -1,6 +1,7 @@
 package com.example.meyman.presentation.ui.screens.home
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchAdvertisingUseCase
@@ -34,6 +35,8 @@ class HomeViewModel @Inject constructor(
                         _advertisingState.value = UIState.Success(it.data!!.map { it.toUI() })
                         Log.e("ololoSucces", "getChooseRoomState: ${it.data}", )
                     }
+
+                    else -> {}
                 }
             }
         }

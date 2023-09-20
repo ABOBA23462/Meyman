@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface AdvertisingRepository {
 
-    suspend fun getAdvertisingRepository(): Flow<Either<String, List<AdvertisingResultModel>?>>
+    suspend fun getAdvertisingRepository(): Flow<Either<String, List<AdvertisingResultModel>>>
 }

@@ -2,9 +2,11 @@ package com.example.meyman.presentation.ui.screens.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.meyman.databinding.ItemRecomedationBinding
 import com.example.meyman.presentation.models.home.AdvertisingResultUI
 
@@ -16,7 +18,13 @@ class AdvertisingAdapter :
 
         fun onBind(item: AdvertisingResultUI?) {
             binding.tvHotelName.text = item?.housingName
+//            binding.ivHotelImage.setImage(item!!.housingImage!!.last())
         }
+    }
+    fun ImageView.setImage(uri: String) {
+        Glide.with(this)
+            .load(uri)
+            .into(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertisingViewHolder {
