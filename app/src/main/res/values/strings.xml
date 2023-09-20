@@ -100,4 +100,5 @@
     <string name="send_again">Отправить снова</string>
     <string name="confirm">Потвердить</string>
     <string name="write_code">Напишите код потверждения</string>
+    <string name="start">Начать</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.meyman.presentation.ui.screens.adapter
+package com.example.meyman.presentation.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem
+import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
 import com.example.meyman.R
 
-class CustomSpinnerAdapter(
+class CustomSpinnerAdapter2(
     context: Context,
     private val resource: Int,
-    private val items: List<SpinnerItem>
-) : ArrayAdapter<SpinnerItem>(context, resource, items) {
+    private val items: List<SpinnerItem2>
+) : ArrayAdapter<SpinnerItem2>(context, resource, items) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         return getCustomView(position, convertView, parent)
@@ -26,8 +26,8 @@ class CustomSpinnerAdapter(
 
     private fun getCustomView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = convertView ?: LayoutInflater.from(context).inflate(resource, parent, false)
-        val iconImageView = view.findViewById<ImageView>(R.id.spinner_img)
-        val textView = view.findViewById<TextView>(R.id.text_spinner)
+        val iconImageView = view.findViewById<ImageView>(R.id.currensy1)
+        val textView = view.findViewById<TextView>(R.id.text_spinner2)
 
         val item = items[position]
         iconImageView.setImageResource(item.iconResId)

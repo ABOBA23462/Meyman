@@ -17,8 +17,8 @@ import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
 import com.example.meyman.R
 import com.example.meyman.databinding.FragmentHomeBinding
 import com.example.meyman.presentation.state.UIState
-import com.example.meyman.presentation.ui.screens.adapter.CustomSpinnerAdapter
-import com.example.meyman.presentation.ui.screens.adapter.CustomSpinnerAdapter2
+import com.example.meyman.presentation.ui.adapter.CustomSpinnerAdapter
+import com.example.meyman.presentation.ui.adapter.CustomSpinnerAdapter2
 import com.example.meyman.presentation.ui.screens.dashboard.DashboardFragment
 import com.example.meyman.presentation.ui.screens.home.adapter.AdvertisingAdapter
 import dagger.hilt.android.AndroidEntryPoint
