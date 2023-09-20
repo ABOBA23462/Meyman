@@ -12,11 +12,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.meyman.R
 import com.example.meyman.data.remote.dtos.auth.reset_password.PasswordDto
 import com.example.meyman.databinding.FragmentUpdatePasswordBinding
 import com.example.meyman.presentation.base.Resource
 import com.example.meyman.presentation.ui.screens.forgot_password.ForgotPasswordFragmentDirections
+import com.example.meyman.presentation.ui.screens.room_page.RoomPageFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -25,6 +27,7 @@ class UpdatePasswordFragment : Fragment() {
 
     private lateinit var binding: FragmentUpdatePasswordBinding
     private val viewModel: UpdatePasswordViewModel by viewModels()
+    private val args: UpdatePasswordFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,14 +46,14 @@ class UpdatePasswordFragment : Fragment() {
     }
 
     private fun forgotPassword() = with(binding) {
-        val password = etPassword.text.toString()
-        val cofirmPassword = etConfirmPassword.text.toString()
-        val model = PasswordDto(password)
         btnAccept.setOnClickListener {
+            val password = etPassword.text.toString()
+            val model = PasswordDto(password)
+            val cofirmPassword = etConfirmPassword.text.toString()
             if (cofirmPassword == password) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                        viewModel.getPassword(model).collect {
+                        viewModel.getPassword(args.code, model).collect {
                             when (it) {
                                 is Resource.Loading -> {
                                 }

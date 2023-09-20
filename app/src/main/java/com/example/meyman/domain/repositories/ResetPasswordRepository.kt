@@ -15,5 +15,5 @@ interface ResetPasswordRepository {
 
     suspend fun fetchCode(codeDto: CodeDto): Flow<Resource<AnswerCodeDto>>
 
-    suspend fun fetchResetPassword(passwordDto: PasswordDto): Flow<Resource<AnswerReset>>
+    suspend fun fetchResetPassword(code : String, passwordDto: PasswordDto): Flow<Resource<AnswerReset>>
 }

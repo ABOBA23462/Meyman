@@ -30,7 +30,7 @@ class ResetPasswordRepositoryImpl @Inject constructor(
         emit(Resource.Success(resetPasswordApiService.fetchCode(codeDto)))
     }
 
-    override suspend fun fetchResetPassword(passwordDto: PasswordDto): Flow<Resource<AnswerReset>> = flow{
-        emit(Resource.Success(resetPasswordApiService.fetchResetPassword(passwordDto)))
+    override suspend fun fetchResetPassword(code: String,passwordDto: PasswordDto): Flow<Resource<AnswerReset>> = flow{
+        emit(Resource.Success(resetPasswordApiService.fetchResetPassword(code ,passwordDto)))
     }
 }

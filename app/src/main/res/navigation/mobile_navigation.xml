@@ -195,5 +195,9 @@
         android:id="@+id/updatePasswordFragment2"
         android:name="com.example.meyman.presentation.ui.screens.forgot_password.updatePassword.UpdatePasswordFragment"
         android:label="fragment_update_password"
-        tools:layout="@layout/fragment_update_password" />
+        tools:layout="@layout/fragment_update_password" >
+        <argument
+            android:name="code"
+            app:argType="string" />
+    </fragment>
 </navigation>

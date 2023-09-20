@@ -11,11 +11,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.example.meyman.R
 import com.example.meyman.data.remote.dtos.auth.reset_password.CodeDto
 import com.example.meyman.databinding.FragmentAcceptCodeBinding
 import com.example.meyman.presentation.base.Resource
-import com.example.meyman.presentation.ui.screens.forgot_password.ForgotPasswordFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -60,7 +58,7 @@ forgotPassword()
                             }
 
                             is Resource.Success -> {
-                                findNavController().navigate(R.id.action_acceptCodeFragment_to_updatePasswordFragment2)
+                                findNavController().navigate(AcceptCodeFragmentDirections.actionAcceptCodeFragmentToUpdatePasswordFragment2(code))
                             }
                         }
                     }

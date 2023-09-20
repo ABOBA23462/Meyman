@@ -7,6 +7,7 @@ import com.example.meyman.data.remote.dtos.auth.reset_password.EmailDto
 import com.example.meyman.data.remote.dtos.auth.reset_password.PasswordDto
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ResetPasswordApiService {
 
@@ -15,6 +16,8 @@ interface ResetPasswordApiService {
     @POST("api/users/reset-password-code/")
     suspend fun fetchCode(@Body codeDto: CodeDto): AnswerCodeDto
 
-    @POST("api/users/reset-new-password/{code}")
-    suspend fun fetchResetPassword(@Body passwordDto: PasswordDto): AnswerReset
+    @POST("api/users/reset-new-password/{code}/")
+    suspend fun fetchResetPassword(
+        @Path("code") code: String,
+        @Body passwordDto: PasswordDto): AnswerReset
 }
