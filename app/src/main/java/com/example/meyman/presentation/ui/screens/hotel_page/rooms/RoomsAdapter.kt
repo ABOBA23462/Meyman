@@ -29,15 +29,15 @@ class RoomsAdapter( val onItemClick: (id: Int) -> Unit) : ListAdapter<ResultsRoo
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(result: ResultsRoomsListItemUI) = with(binding) {
-//            tvPrice.text = result.pricePerNight
-//            tvGuests.text = result.numRooms.toString()
-//            tvSquare.text = "${result.roomArea} m²"
-//            tvHotelAmenities.text = "Двухместная кровать  и диван "
-//            adapter = PhotoAdapter()
-//            rcPhotos.adapter = adapter
-//            val snapHelper: SnapHelper = PagerSnapHelper()
-//            snapHelper.attachToRecyclerView(rcPhotos)
-//            result.roomImages.let { adapter.submitList(it) }
+            tvPrice.text = result.pricePerNight
+            tvGuests.text = result.numRooms.toString()
+            tvSquare.text = "${result.roomArea} m²"
+            tvHotelAmenities.text = "Двухместная кровать  и диван "
+            adapter = PhotoAdapter()
+            rcPhotos.adapter = adapter
+            val snapHelper: SnapHelper = PagerSnapHelper()
+            snapHelper.attachToRecyclerView(rcPhotos)
+            result.roomImages.let { adapter.submitList(it) }
 
         }
         init {

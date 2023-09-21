@@ -3,6 +3,7 @@ package com.example.meyman.presentation.ui.screens.hotel_page
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -80,13 +81,16 @@ class HotelPageFragment :
 
                         is UIState.Loading -> {}
                         is UIState.Success -> {
-                            Log.e("ololo", "callHotelApi-success: ${it.data}")
+                            val success = it.data.id
+                            val bundle = Bundle()
+                            bundle.putInt("id", success)
+                            Log.e("ololo", "callHotelApi-success: ${it.data.id}")
                             with(binding) {
                                 tvTitle.text = it.data.address
                                 tvRatingScore.text = it.data.stars.toString()
                                 tvHotelName.text = it.data.housingName
                                 binding.btnRooms.setOnClickListener {
-                                    findNavController().navigate(HotelPageFragmentDirections.actionHotelPageFragmentToRoomsFragment(id))
+                                    findNavController().navigate(R.id.action_hotelPageFragment_to_roomsFragment, bundle)
                                 }
                             }
                         }

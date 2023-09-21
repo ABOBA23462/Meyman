@@ -50,14 +50,15 @@ class RoomsFragment : Fragment() {
     }
 
     private fun onItemClick(id: Int) {
-        findNavController().navigate(RoomsFragmentDirections.actionRoomsFragmentToRoomPageFragment(id + 1))
+        findNavController().navigate(RoomsFragmentDirections.actionRoomsFragmentToRoomPageFragment(id))
     }
     private fun onButtonClick(id: Int) {
         findNavController().navigate(RoomsFragmentDirections.actionRoomsFragmentToRoomBookingFragment(id))
     }
 
     private fun subscribeToFetchRooms() {
-        viewModel.getChooseRoomState(args.id)
+        val id = arguments?.getInt("id")
+        viewModel.getChooseRoomState(id!!)
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.roomsState.collect {
@@ -78,7 +79,6 @@ class RoomsFragment : Fragment() {
                             val itemCount = adapter.itemCount
                             binding.textView.text = "$itemCount варианта"
                         }
-
                         else -> {}
                     }
                 }
