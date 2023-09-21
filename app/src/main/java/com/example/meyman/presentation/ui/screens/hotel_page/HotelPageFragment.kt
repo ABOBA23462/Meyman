@@ -28,9 +28,6 @@ class HotelPageFragment :
     override val viewModel: HotelPageViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.btnRooms.setOnClickListener {
-            findNavController().navigate(R.id.action_hotelPageFragment_to_roomsFragment)
-        }
         binding.viewPager.adapter = HotelPageViewPagerAdapter(this@HotelPageFragment)
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->
             when (pos) {
@@ -66,6 +63,8 @@ class HotelPageFragment :
         binding.ivBack.setOnClickListener {
             findNavController().navigateUp()
         }
+
+        binding.btnRooms.setOnClickListener {  }
     }
 
     private fun callApi(id: Int?) {
@@ -86,6 +85,9 @@ class HotelPageFragment :
                                 tvTitle.text = it.data.address
                                 tvRatingScore.text = it.data.stars.toString()
                                 tvHotelName.text = it.data.housingName
+                                binding.btnRooms.setOnClickListener {
+                                    findNavController().navigate(HotelPageFragmentDirections.actionHotelPageFragmentToRoomsFragment(id))
+                                }
                             }
                         }
                     }

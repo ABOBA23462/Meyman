@@ -18,13 +18,28 @@ class AdvertisingAdapter :
 
         fun onBind(item: AdvertisingResultUI?) {
             binding.tvHotelName.text = item?.housingName
-//            binding.ivHotelImage.setImage(item!!.housingImage!!.last())
         }
     }
     fun ImageView.setImage(uri: String) {
         Glide.with(this)
             .load(uri)
             .into(this)
+    }
+
+    fun convertToHttpsUrl(httpUrl: String): String {
+        // Проверяем, начинается ли URL с "http://" (без "s")
+        if (httpUrl.startsWith("http://")) {
+            // Заменяем "http://" на "https://"
+            return "https://" + httpUrl.substring(7)
+        }
+
+        // Если URL уже начинается с "https://", то оставляем его без изменений
+        if (httpUrl.startsWith("https://")) {
+            return httpUrl
+        }
+
+        // Если URL не начинается ни с "http://", ни с "https://", вернем его без изменений
+        return httpUrl
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertisingViewHolder {

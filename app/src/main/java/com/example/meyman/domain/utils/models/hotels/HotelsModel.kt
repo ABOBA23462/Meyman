@@ -1,5 +1,6 @@
 package com.example.meyman.domain.utils.models.hotels
 
+import com.example.meyman.presentation.models.rooms.list.ResultsRoomsListItemUI
 import com.google.gson.annotations.SerializedName
 
 data class HotelsModel(
@@ -103,6 +104,8 @@ data class ResultsHotelItemModel(
     val gym: Boolean = false,
 //    @SerializedName("breakfast_cost_usd")
 //    val breakfastCostUsd: String,
+    @SerializedName("rooms")
+    val rooms: List<ResultsRoomsListItemUI>,
     @SerializedName("housing_type")
     val housingType: String = "",
     @SerializedName("region")

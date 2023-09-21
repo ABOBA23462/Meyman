@@ -19,22 +19,31 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChangeUserProfileViewModel @Inject constructor(
-    private val useCase: FetchChangeUserProfileUseCase
+    private val changeUserProfileUseCase: FetchChangeUserProfileUseCase,
+    private val userProfileUseCase: FetchUserProfileUseCase
 ) : ViewModel() {
+
+    private val _userProfileState =
+        MutableStateFlow<UIState<ChangeUserProfileUI>>(UIState.Loading())
 
     private val _changeUserProfileState =
         MutableStateFlow<UIState<ChangeUserProfileUI>>(UIState.Loading())
+
     val changeUserProfileState = _changeUserProfileState.asStateFlow()
 
-    fun fetchUserProfile(
+    val userProfileState = _userProfileState.asStateFlow()
+
+    fun fetchChangeUserProfile(
         token: String,
         image: MultipartBody.Part?,
         username: RequestBody,
         phoneNumber: RequestBody
     ) = viewModelScope.launch {
-        useCase(token,
+        changeUserProfileUseCase(
+            token,
             image,
-            username, phoneNumber).collect {
+            username, phoneNumber
+        ).collect {
             when (it) {
                 is Either.Left -> {
                     _changeUserProfileState.value = UIState.Error(it.message.toString())
@@ -43,6 +52,22 @@ class ChangeUserProfileViewModel @Inject constructor(
                 is Either.Right -> {
                     it.data?.let {
                         _changeUserProfileState.value = UIState.Success(it.toUI())
+                    }
+                }
+            }
+        }
+    }
+
+    fun fetchUserProfile(token: String) = viewModelScope.launch {
+        userProfileUseCase(token).collect {
+            when (it) {
+                is Either.Left -> {
+                    _userProfileState.value = UIState.Error(it.message.toString())
+                }
+
+                is Either.Right -> {
+                    it.data?.let {
+                        _userProfileState.value = UIState.Success(it.toUI())
                     }
                 }
             }

@@ -36,7 +36,7 @@ interface HotelApiService {
         @Query("offset") offset: Int = 0
     ): HotelsDto
 
-    @GET("housing/{id}/")
+    @GET("api/housing/housing/{id}/")
     suspend fun getHotelById(
         @Path("id") id: Int
     ): ResultsHotelItemDto

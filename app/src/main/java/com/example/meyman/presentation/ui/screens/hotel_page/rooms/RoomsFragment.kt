@@ -54,7 +54,7 @@ class RoomsFragment : Fragment() {
     }
 
     private fun subscribeToFetchRooms() {
-        viewModel.getChooseRoomState()
+        viewModel.getChooseRoomState(1)
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.roomsState.collect {

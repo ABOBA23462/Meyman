@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchRoomsUseCase
 import com.example.meyman.presentation.models.rooms.list.ResultsRoomsListItemUI
 import com.example.meyman.domain.utils.Either
+import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
+import com.example.meyman.presentation.models.hotels.toUI
 import com.example.meyman.presentation.models.rooms.list.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,12 +21,12 @@ class RoomsViewModel @Inject constructor(
     private val roomsUseCase: FetchRoomsUseCase
 ): ViewModel() {
 
-    private val _roomsState = MutableStateFlow<UIState<List<ResultsRoomsListItemUI>>>(UIState.Loading())
+    private val _roomsState = MutableStateFlow<UIState<List<ResultsHotelItemUI>>>(UIState.Loading())
     val roomsState get() = _roomsState.asStateFlow()
 
-    fun getChooseRoomState(){
+    fun getChooseRoomState(id: Int){
         viewModelScope.launch {
-            roomsUseCase().collect{
+            roomsUseCase(id).collect{
                 when(it){
                     is Either.Left -> {
                         _roomsState.value = UIState.Error(it.message!!)

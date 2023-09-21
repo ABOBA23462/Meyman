@@ -31,7 +31,8 @@ import java.io.InputStream
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding, ChangeUserProfileViewModel>(R.layout.fragment_change_user_profile) {
+class ChangeUserProfileFragment :
+    BaseFragment<FragmentChangeUserProfileBinding, ChangeUserProfileViewModel>(R.layout.fragment_change_user_profile) {
 
     @Inject
     lateinit var userPreferencesData: UserDataPreferencesHelper
@@ -45,16 +46,16 @@ class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding,
             if (it.resultCode == Activity.RESULT_OK && it.data != null) {
                 uri = it.data?.data!!
                 localAva = true
-                binding.ivUserAvatar.loadImage(uri.toString())
+                binding.ivUserAvatar.setImage(uri.toString())
             }
         }
 
-    fun ImageView.loadImage(url: String) {
+    fun ImageView.setImage(url: String) {
         Glide.with(this).load(url).into(this)
     }
 
     override fun initialize() {
-        super.initialize()
+        profile()
     }
 
     private fun saveImage() {
@@ -62,6 +63,22 @@ class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding,
         pickImageIntent.type = "image/*"
         pickImageIntent.action = Intent.ACTION_PICK
         launcher.launch(pickImageIntent)
+    }
+
+    fun convertToHttpsUrl(httpUrl: String): String {
+        // Проверяем, начинается ли URL с "http://" (без "s")
+        if (httpUrl.startsWith("http://")) {
+            // Заменяем "http://" на "https://"
+            return "https://" + httpUrl.substring(7)
+        }
+
+        // Если URL уже начинается с "https://", то оставляем его без изменений
+        if (httpUrl.startsWith("https://")) {
+            return httpUrl
+        }
+
+        // Если URL не начинается ни с "http://", ни с "https://", вернем его без изменений
+        return httpUrl
     }
 
     override fun setupSubscribes() = with(binding) {
@@ -76,7 +93,7 @@ class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding,
             val fullName = etUserName.text.toString()
             val phoneNumber = etUserPhoneNumber.text.toString()
             Log.e("ABOBA", "setupSubscribes: + ${fullName + phoneNumber} ")
-            val  fullnamePart = RequestBody.create("fullname".toMediaTypeOrNull(), fullName)
+            val fullnamePart = RequestBody.create("fullname".toMediaTypeOrNull(), fullName)
             val phoneNumberPart =
                 RequestBody.create("phone_number".toMediaTypeOrNull(), phoneNumber)
 
@@ -103,7 +120,12 @@ class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding,
             }
             Log.e("ABOBA", "setupSubscribes:   ${avatar} + ${fullnamePart} + ${phoneNumberPart}")
             Log.e("ABOBA", "setupSubscribes:   ${avatar} + ${fullName} + ${phoneNumber}")
-            viewModel.fetchUserProfile("Bearer ${userPreferencesData.accessToken}", avatar, fullnamePart, phoneNumberPart)
+            viewModel.fetchChangeUserProfile(
+                "Bearer ${userPreferencesData.accessToken}",
+                avatar,
+                fullnamePart,
+                phoneNumberPart
+            )
             viewLifecycleOwner.lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     viewModel.changeUserProfileState.collect {
@@ -112,10 +134,39 @@ class ChangeUserProfileFragment : BaseFragment<FragmentChangeUserProfileBinding,
                             is UIState.Error -> {
                                 Log.e("ololo", "RPAE: ${it.error}")
                             }
+
                             is UIState.Loading -> {}
                             is UIState.Success -> {
                                 Log.e("ololo", "RPAS: ${it.data}")
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun profile() {
+        viewModel.fetchUserProfile("Bearer ${userPreferencesData.accessToken}")
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.userProfileState.collect {
+                    Log.e("ololo", "RPF: ${it}")
+                    when (it) {
+                        is UIState.Error -> {
+                            Log.e("ololo", "RPAE: ${it.error}")
+                        }
+
+                        is UIState.Loading -> {
+
+                        }
+
+                        is UIState.Success -> {
+                            val http = convertToHttpsUrl(it.data.image.toString())
+                            binding.etUserName.setText(it.data.username)
+                            binding.etUserPhoneNumber.setText(it.data.phoneNumber)
+                            binding.ivUserAvatar.setImage(http)
+                            Log.e("ololo", "RPAS: ${it.data}")
                         }
                     }
                 }
