@@ -14,7 +14,7 @@ class RoomsRepositoryImpl @Inject constructor(
 ) : BaseRepository(), RoomsRepository {
 
     override fun fetchRooms(id: Int) = doRequest {
-        service.fetchRooms(id).map { it.toDomain() }
+        service.fetchRooms(id).toDomain()
     }
 
     override fun fetchDetailRooms(id: Int) = doRequest {

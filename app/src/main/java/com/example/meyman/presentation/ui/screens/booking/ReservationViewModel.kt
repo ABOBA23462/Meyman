@@ -28,14 +28,12 @@ class ReservationViewModel @Inject constructor(
             when (it) {
                 is Either.Left -> {
                     _reservation.value = UIState.Error(it.message.toString())
-                    Log.e("erbol", "getBooking-error: ${it.message.toString()}")
                 }
 
                 is Either.Right -> {
                     it.data?.let {
                         _reservation.value = UIState.Success(it.map { it.toUI() })
                     }
-                    Log.e("ololo", "getBooking-success: ${it.data.toString()}")
                 }
             }
         }

@@ -13,7 +13,7 @@ import com.example.meyman.presentation.models.rooms.list.ResultsRoomsListItemUI
 import com.example.meyman.databinding.ItemRoomBinding
 import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 
-class RoomsAdapter( val onItemClick: (id: Int) -> Unit) : ListAdapter<ResultsHotelItemUI, RoomsAdapter.ViewHolder>(
+class RoomsAdapter( val onItemClick: (id: Int) -> Unit) : ListAdapter<ResultsRoomsListItemUI, RoomsAdapter.ViewHolder>(
     diffUtil
 ) {
 
@@ -28,7 +28,7 @@ class RoomsAdapter( val onItemClick: (id: Int) -> Unit) : ListAdapter<ResultsHot
     inner class ViewHolder(private val binding: ItemRoomBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(result: ResultsHotelItemUI) = with(binding) {
+        fun onBind(result: ResultsRoomsListItemUI) = with(binding) {
 //            tvPrice.text = result.pricePerNight
 //            tvGuests.text = result.numRooms.toString()
 //            tvSquare.text = "${result.roomArea} m²"
@@ -60,11 +60,11 @@ class RoomsAdapter( val onItemClick: (id: Int) -> Unit) : ListAdapter<ResultsHot
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<ResultsHotelItemUI>() {
-            override fun areItemsTheSame(oldItem: ResultsHotelItemUI, newItem: ResultsHotelItemUI): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<ResultsRoomsListItemUI>() {
+            override fun areItemsTheSame(oldItem: ResultsRoomsListItemUI, newItem: ResultsRoomsListItemUI): Boolean {
                 return oldItem.id == newItem.id
             }
-            override fun areContentsTheSame(oldItem: ResultsHotelItemUI, newItem: ResultsHotelItemUI): Boolean {
+            override fun areContentsTheSame(oldItem: ResultsRoomsListItemUI, newItem: ResultsRoomsListItemUI): Boolean {
                 return oldItem == newItem
             }
         }

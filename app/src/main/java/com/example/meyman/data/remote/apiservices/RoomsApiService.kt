@@ -14,7 +14,7 @@ interface RoomsApiService {
     @GET("api/housing/housing/{id}/")
     suspend fun fetchRooms(
         @Path("id") id: Int
-    ): List<ResultsHotelItemDto>
+    ): ResultsHotelItemDto
 
     @GET("api/housing/rooms/{id}/")
     suspend fun fetchDetailRoom(
