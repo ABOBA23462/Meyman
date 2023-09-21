@@ -4,9 +4,8 @@ import com.example.meyman.domain.repositories.UserProfileRepository
 import okhttp3.RequestBody
 import javax.inject.Inject
 
-class FetchUserProfileUseCase  @Inject constructor(
+class FetchUserProfileUseCase @Inject constructor(
     private val userProfileRepository: UserProfileRepository
-){
-    suspend operator fun invoke(token: String) = userProfileRepository.fetchUserProfile(token)
-
+) {
+    operator fun invoke(token: String) = userProfileRepository.fetchUserProfile(token)
 }

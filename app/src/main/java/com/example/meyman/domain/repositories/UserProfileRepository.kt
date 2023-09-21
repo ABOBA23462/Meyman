@@ -11,9 +11,11 @@ import okhttp3.RequestBody
 
 interface UserProfileRepository {
 
-    suspend fun fetchUserProfile(token: String): Flow<Either<String, ChangeUserProfileModel?>>
+    fun fetchUserProfile(token: String): Flow<Either<String, ChangeUserProfileModel?>>
 
-    suspend fun fetchChangeUserProfile(token: String,
-                                       image: MultipartBody.Part? = null,
-                                       username: RequestBody, phoneNumber: RequestBody): Flow<Either<String, ChangeUserProfileModel?>>
+    fun fetchChangeUserProfile(
+        token: String,
+        image: MultipartBody.Part? = null,
+        username: RequestBody, phoneNumber: RequestBody
+    ): Flow<Either<String, ChangeUserProfileModel?>>
 }

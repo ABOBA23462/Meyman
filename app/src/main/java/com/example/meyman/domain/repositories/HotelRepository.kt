@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface HotelRepository {
 
-    suspend fun fetchHotel(): Flow<Either<String, List<ResultsHotelItemModel>?>>
-    suspend fun getHotelById(id: Int): Flow<Either<String, ResultsHotelItemModel>>
+     fun fetchHotel(): Flow<Either<String, List<ResultsHotelItemModel>?>>
 
+     fun getHotelById(id: Int): Flow<Either<String, ResultsHotelItemModel>>
 }

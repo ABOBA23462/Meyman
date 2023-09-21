@@ -15,7 +15,7 @@ class AdvertisingRepositoryImpl @Inject constructor(
     private val advertisingApiService: AdvertisingApiService
 ) : BaseRepository(), AdvertisingRepository {
 
-    override suspend fun getAdvertisingRepository() = doRequest {
+    override fun getAdvertisingRepository() = doRequest {
         Log.e("homka", "getAdvertisingRepository: + ${advertisingApiService.fetchAdvertising()}")
         advertisingApiService.fetchAdvertising().map { it.toDomain() }
     }

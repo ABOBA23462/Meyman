@@ -14,8 +14,8 @@ import javax.inject.Inject
 class VerifyAccountRepositoryImpl @Inject constructor(
     private val registerApiService: VerifyApiService,
 ) : BaseRepository(), VerifyAccountRepository {
-    override suspend  fun fetchVerifyAccount(verifyDto: VerifyDto): Flow<Resource<AnswerVerifyDomain>> =
-        flow {
-            emit(Resource.Success(registerApiService.fetchVerifyAccount(verifyDto).toDomain()))
+
+    override fun fetchVerifyAccount(verifyDto: VerifyDto) = doRequests{
+            registerApiService.fetchVerifyAccount(verifyDto).toDomain()
         }
 }

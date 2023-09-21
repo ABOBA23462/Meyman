@@ -5,7 +5,7 @@ import com.example.meyman.domain.repositories.RoomsRepository
 import javax.inject.Inject
 
 class FetchRoomsUseCase @Inject constructor(
-    private  val roomsRepository: RoomsRepository){
-    suspend operator fun invoke() = roomsRepository.fetchRooms()
-
+    private val roomsRepository: RoomsRepository
+) {
+    operator fun invoke() = roomsRepository.fetchRooms()
 }

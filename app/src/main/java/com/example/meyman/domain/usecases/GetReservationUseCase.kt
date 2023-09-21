@@ -6,7 +6,6 @@ import javax.inject.Inject
 
 class GetReservationUseCase @Inject constructor(
     private val repo: ReservationRepo
-){
-    suspend fun getReservation(token: String) = repo.getReservation(token)
-
+) {
+    fun getReservation(token: String) = repo.getReservation(token)
 }

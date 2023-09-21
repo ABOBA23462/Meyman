@@ -6,8 +6,5 @@ import javax.inject.Inject
 class FetchDetailHotelUseCase @Inject constructor(
     private val hotelRepository: HotelRepository
 ) {
-
-    suspend operator fun invoke(id: Int) = hotelRepository.getHotelById(id)
-
-
+     operator fun invoke(id: Int) = hotelRepository.getHotelById(id)
 }

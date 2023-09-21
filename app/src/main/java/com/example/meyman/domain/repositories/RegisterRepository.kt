@@ -6,5 +6,5 @@ import com.example.meyman.presentation.base.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface RegisterRepository {
-     suspend fun fetchRegister(registerDto: RegisterDto): Flow<Resource<AnswerRegisterModel>>
+     fun fetchRegister(registerDto: RegisterDto): Flow<Resource<AnswerRegisterModel>>
 }

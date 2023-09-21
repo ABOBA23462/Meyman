@@ -11,11 +11,11 @@ class HotelRepositoryImpl @Inject constructor(
     private val hotelApiService: HotelApiService
 ) : BaseRepository(), HotelRepository {
 
-    override suspend fun fetchHotel() = doRequest {
+    override fun fetchHotel() = doRequest {
         hotelApiService.getHotelResult().results?.map { it.toDomain() }
     }
 
-    override suspend fun getHotelById(id: Int) = doRequest {
+    override fun getHotelById(id: Int) = doRequest {
         hotelApiService.getHotelById(id).toDomain()
     }
 

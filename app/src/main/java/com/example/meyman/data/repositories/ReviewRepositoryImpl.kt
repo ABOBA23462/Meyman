@@ -10,7 +10,7 @@ class ReviewRepositoryImpl @Inject constructor(
     private val reviewApiService: ReviewApiService
 ) : BaseRepository(), ReviewRepository {
 
-    override suspend fun fetchReview() = doRequest {
+    override fun fetchReview() = doRequest {
         reviewApiService.fetchReview().results?.map{ it.toDomain() }
     }
 }

@@ -9,5 +9,5 @@ import javax.inject.Inject
 class FetchResetPasswordEmailUseCase @Inject constructor(
     private  val resetPasswordRepository: ResetPasswordRepository
 ) {
-    operator suspend fun invoke(emailDto: EmailDto) = resetPasswordRepository.fetchEmail(emailDto)
+    operator fun invoke(emailDto: EmailDto) = resetPasswordRepository.fetchEmail(emailDto)
 }

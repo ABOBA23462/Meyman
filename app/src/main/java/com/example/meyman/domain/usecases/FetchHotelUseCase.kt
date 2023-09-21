@@ -6,5 +6,5 @@ import javax.inject.Inject
 class FetchHotelUseCase @Inject constructor(
     private  val hotelRepository: HotelRepository
 ) {
-    suspend operator fun invoke() = hotelRepository.fetchHotel()
+    operator fun invoke() = hotelRepository.fetchHotel()
 }

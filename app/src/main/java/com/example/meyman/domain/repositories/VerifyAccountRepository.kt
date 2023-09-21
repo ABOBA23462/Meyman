@@ -6,5 +6,5 @@ import com.example.meyman.presentation.base.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface VerifyAccountRepository {
-    suspend fun fetchVerifyAccount(verifyDto: VerifyDto): Flow<Resource<AnswerVerifyDomain>>
+    fun fetchVerifyAccount(verifyDto: VerifyDto): Flow<Resource<AnswerVerifyDomain>>
 }

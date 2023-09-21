@@ -6,5 +6,5 @@ import javax.inject.Inject
 class FetchReviewUseCase @Inject constructor(
     private  val reviewRepository: ReviewRepository
 ) {
-    suspend operator fun invoke() = reviewRepository.fetchReview()
+    operator fun invoke() = reviewRepository.fetchReview()
 }

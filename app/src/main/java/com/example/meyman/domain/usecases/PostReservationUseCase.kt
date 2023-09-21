@@ -6,10 +6,9 @@ import javax.inject.Inject
 
 class PostReservationUseCase @Inject constructor(
     private val repo: ReservationRepo
-){
-    suspend fun postReservation(
+) {
+    fun postReservation(
         token: String,
         reservationPostModel: ReservationPostModel
     ) = repo.postReservation(token, reservationPostModel)
-
 }

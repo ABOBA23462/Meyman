@@ -7,7 +7,8 @@ import com.example.meyman.domain.repositories.TokenRepository
 import javax.inject.Inject
 
 class FetchTokenUseCase @Inject constructor(
-    private  val tokenRepository: TokenRepository
+    private val tokenRepository: TokenRepository
 ) {
-    operator suspend fun invoke(token : String, tokenDto: RefreshTokenDto) = tokenRepository.fetchToken(token, tokenDto)
+    operator fun invoke(token: String, tokenDto: RefreshTokenDto) =
+        tokenRepository.fetchToken(token, tokenDto)
 }

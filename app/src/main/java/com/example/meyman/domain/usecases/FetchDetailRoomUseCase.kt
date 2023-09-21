@@ -7,5 +7,5 @@ class FetchDetailRoomUseCase @Inject constructor(
     private val repository: RoomsRepository
 ) {
 
-    suspend operator fun invoke(id: Int) = repository.fetchDetailRooms(id)
+    operator fun invoke(id: Int) = repository.fetchDetailRooms(id)
 }

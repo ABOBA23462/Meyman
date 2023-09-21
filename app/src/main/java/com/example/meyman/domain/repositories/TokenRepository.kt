@@ -8,5 +8,5 @@ import com.example.meyman.presentation.base.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface TokenRepository {
-    suspend fun fetchToken(token : String, tokenDto: RefreshTokenDto): Flow<Resource<AnswerAccessTokenModel>>
+    fun fetchToken(token : String, tokenDto: RefreshTokenDto): Flow<Resource<AnswerAccessTokenModel>>
 }

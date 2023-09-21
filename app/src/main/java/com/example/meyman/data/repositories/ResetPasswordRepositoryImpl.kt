@@ -21,16 +21,15 @@ import javax.inject.Inject
 class ResetPasswordRepositoryImpl @Inject constructor(
     private val resetPasswordApiService: ResetPasswordApiService,
 ) : BaseRepository(), ResetPasswordRepository {
-    override suspend  fun fetchEmail(emailDto: EmailDto): Flow<Resource<AnswerReset>> =
-        flow {
-            emit(Resource.Success(resetPasswordApiService.fetchEmail(emailDto)))
+    override fun fetchEmail(emailDto: EmailDto) = doRequests{
+            resetPasswordApiService.fetchEmail(emailDto)
         }
 
-    override suspend fun fetchCode(codeDto: CodeDto): Flow<Resource<AnswerCodeDto>> = flow {
-        emit(Resource.Success(resetPasswordApiService.fetchCode(codeDto)))
+    override fun fetchCode(codeDto: CodeDto) = doRequests{
+        resetPasswordApiService.fetchCode(codeDto)
     }
 
-    override suspend fun fetchResetPassword(code: String,passwordDto: PasswordDto): Flow<Resource<AnswerReset>> = flow{
-        emit(Resource.Success(resetPasswordApiService.fetchResetPassword(code ,passwordDto)))
+    override fun fetchResetPassword(code: String,passwordDto: PasswordDto) = doRequests{
+        resetPasswordApiService.fetchResetPassword(code ,passwordDto)
     }
 }

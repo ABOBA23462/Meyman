@@ -15,11 +15,11 @@ class UserProfileRepositoryImpl @Inject constructor(
     private val service: UserProfileApiService
 ) : BaseRepository(), UserProfileRepository {
 
-    override suspend  fun fetchUserProfile(token: String) = doRequest {
+    override fun fetchUserProfile(token: String) = doRequest {
         service.fetchUserProfile(token).toDomain()
     }
 
-    override suspend fun fetchChangeUserProfile(
+    override fun fetchChangeUserProfile(
         token: String,
         image: MultipartBody.Part?,
         username: RequestBody,

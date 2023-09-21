@@ -8,9 +8,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface ReservationRepo {
 
-    suspend fun getReservation(token: String): Flow<Either<String, List<ReservationResultModel>>>
+    fun getReservation(token: String): Flow<Either<String, List<ReservationResultModel>>>
 
-    suspend fun postReservation(
+     fun postReservation(
         token: String,
         reservationPostModel: ReservationPostModel
     ): Flow<Either<String, ReservationGetModel>>

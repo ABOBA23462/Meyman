@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ReviewRepository {
 
-    suspend fun fetchReview(): Flow<Either<String, List<ResultsReviewItemModel>?>>
+    fun fetchReview(): Flow<Either<String, List<ResultsReviewItemModel>?>>
 }

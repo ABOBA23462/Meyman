@@ -15,14 +15,14 @@ class ReservationRepoImpl @Inject constructor(
     private val api: ReservationApi
 ): ReservationRepo, BaseRepository() {
 
-    override suspend fun getReservation(token: String): Flow<Either<String, List<ReservationResultModel>>> = doRequest {
+    override fun getReservation(token: String) = doRequest {
         api.getReservation(token).map { it.toDomain() }
     }
 
-    override suspend fun postReservation(
+    override fun postReservation(
         token: String,
         reservationPostModel: ReservationPostModel
-    ): Flow<Either<String, ReservationGetModel>> = doRequest {
+    ) = doRequest {
         api.postReservation(token, reservationPostModel).toDomain()
     }
 

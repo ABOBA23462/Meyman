@@ -8,7 +8,7 @@ import javax.inject.Inject
 class FetchChangeUserProfileUseCase @Inject constructor(
     private val userProfileRepository: UserProfileRepository
 ) {
-    suspend operator fun invoke(
+    operator fun invoke(
         token: String,
         image: MultipartBody.Part?,
         username: RequestBody,

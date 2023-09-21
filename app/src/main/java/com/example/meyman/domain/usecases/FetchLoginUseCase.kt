@@ -7,5 +7,5 @@ import javax.inject.Inject
 class FetchLoginUseCase @Inject constructor(
     private  val loginRepository: LoginRepository
 ) {
-    operator suspend fun invoke(loginDto: LoginDto) = loginRepository.fetchLogin(loginDto)
+    operator fun invoke(loginDto: LoginDto) = loginRepository.fetchLogin(loginDto)
 }

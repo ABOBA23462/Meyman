@@ -6,5 +6,5 @@ import com.example.meyman.presentation.base.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {
-    suspend fun fetchLogin(loginDto: LoginDto): Flow<Resource<AnswerLoginModel>>
+    fun fetchLogin(loginDto: LoginDto): Flow<Resource<AnswerLoginModel>>
 }

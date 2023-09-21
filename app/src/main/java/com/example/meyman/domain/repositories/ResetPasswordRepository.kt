@@ -11,9 +11,9 @@ import com.example.meyman.presentation.base.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface ResetPasswordRepository {
-    suspend fun fetchEmail(emailDto: EmailDto): Flow<Resource<AnswerReset>>
+    fun fetchEmail(emailDto: EmailDto): Flow<Resource<AnswerReset>>
 
-    suspend fun fetchCode(codeDto: CodeDto): Flow<Resource<AnswerCodeDto>>
+    fun fetchCode(codeDto: CodeDto): Flow<Resource<AnswerCodeDto>>
 
-    suspend fun fetchResetPassword(code : String, passwordDto: PasswordDto): Flow<Resource<AnswerReset>>
+    fun fetchResetPassword(code: String, passwordDto: PasswordDto): Flow<Resource<AnswerReset>>
 }

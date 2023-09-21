@@ -6,5 +6,5 @@ import javax.inject.Inject
 class FetchAdvertisingUseCase  @Inject constructor(
     private val advertisingRepository: AdvertisingRepository
 ){
-    suspend operator fun invoke() = advertisingRepository.getAdvertisingRepository()
+     operator fun invoke() = advertisingRepository.getAdvertisingRepository()
 }

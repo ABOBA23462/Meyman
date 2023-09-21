@@ -14,9 +14,7 @@ import javax.inject.Inject
 class LoginRepositoryImpl @Inject constructor(
     private val loginApiService: LoginApiService,
 ) : BaseRepository(), LoginRepository {
-    override suspend fun fetchLogin(loginDto: LoginDto): Flow<Resource<AnswerLoginModel>> =
-        flow {
-            emit(Resource.Success(loginApiService.fetchLogin(loginDto).toDomain()))
-//            registerApiService.fetchRegister(registerDto).toDomain()
+    override fun fetchLogin(loginDto: LoginDto) = doRequests{
+            loginApiService.fetchLogin(loginDto).toDomain()
         }
 }

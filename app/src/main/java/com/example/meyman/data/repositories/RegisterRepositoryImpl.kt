@@ -14,9 +14,7 @@ import javax.inject.Inject
 class RegisterRepositoryImpl @Inject constructor(
     private val registerApiService: RegisterApiService,
 ) : BaseRepository(), RegisterRepository {
-    override suspend fun fetchRegister(registerDto: RegisterDto): Flow<Resource<AnswerRegisterModel>> =
-        flow {
-            emit(Resource.Success(registerApiService.fetchRegister(registerDto).toDomain()))
-//            registerApiService.fetchRegister(registerDto).toDomain()
+    override fun fetchRegister(registerDto: RegisterDto) = doRequests{
+     registerApiService.fetchRegister(registerDto).toDomain()
         }
 }

@@ -5,7 +5,8 @@ import com.example.meyman.domain.repositories.VerifyAccountRepository
 import javax.inject.Inject
 
 class VerifyAccountUseCase @Inject constructor(
-    private  val verifyAccountRepository: VerifyAccountRepository
+    private val verifyAccountRepository: VerifyAccountRepository
 ) {
-   suspend operator fun invoke(verifyDto: VerifyDto) = verifyAccountRepository.fetchVerifyAccount(verifyDto)
+    operator fun invoke(verifyDto: VerifyDto) =
+        verifyAccountRepository.fetchVerifyAccount(verifyDto)
 }

@@ -16,8 +16,8 @@ import javax.inject.Inject
 class TokenRepositoryImpl @Inject constructor(
     private val tokenApiService: TokenApiService,
 ) : BaseRepository(), TokenRepository {
-    override suspend fun fetchToken(token: String, tokenDto: RefreshTokenDto,): Flow<Resource<AnswerAccessTokenModel>> =
-        flow {
-            emit(Resource.Success(tokenApiService.fetchToken(token, tokenDto).toDomain()))
+
+    override fun fetchToken(token: String, tokenDto: RefreshTokenDto,) = doRequests{
+            tokenApiService.fetchToken(token, tokenDto).toDomain()
         }
 }
