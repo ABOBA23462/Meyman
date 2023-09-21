@@ -28,6 +28,9 @@ class HotelPageFragment :
     override val viewModel: HotelPageViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.btnRooms.setOnClickListener {
+            findNavController().navigate(R.id.action_hotelPageFragment_to_roomsFragment)
+        }
         binding.viewPager.adapter = HotelPageViewPagerAdapter(this@HotelPageFragment)
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->
             when (pos) {

@@ -28,10 +28,6 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideUsernameApiService() = retrofitClient.provideUsernameApiServer()
-
-    @Singleton
-    @Provides
     fun provideBookingApiService() = retrofitClient.provideBooking()
 
     @Singleton
@@ -65,4 +61,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideResetPasswordApiService() = retrofitClient.provideResetPassword()
+
+    @Singleton
+    @Provides
+    fun provideTokenApiService() = retrofitClient.provideTokenApi()
 }

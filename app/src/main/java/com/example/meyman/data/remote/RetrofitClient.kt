@@ -10,9 +10,9 @@ import com.example.meyman.data.remote.apiservices.ResetPasswordApiService
 import com.example.meyman.data.remote.apiservices.ReservationApi
 import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.RoomsApiService
+import com.example.meyman.data.remote.apiservices.TokenApiService
 import com.example.meyman.data.remote.apiservices.UserProfileApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
-import com.example.meyman.data.remote.apiservices.UsernameApiService
 import com.example.meyman.data.remote.apiservices.VerifyApiService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -56,10 +56,6 @@ class RetrofitClient {
         return retrofitClient.create(RoomsApiService::class.java)
     }
 
-    fun provideUsernameApiServer(): UsernameApiService {
-        return retrofitClient.create(UsernameApiService::class.java)
-    }
-
     fun provideUsersApiServer(): UsersApiService {
         return retrofitClient.create(UsersApiService::class.java)
     }
@@ -99,5 +95,8 @@ class RetrofitClient {
 
     fun provideReservationApi(): ReservationApi {
         return retrofitClient.create(ReservationApi::class.java)
+    }
+    fun provideTokenApi(): TokenApiService {
+        return retrofitClient.create(TokenApiService::class.java)
     }
 }

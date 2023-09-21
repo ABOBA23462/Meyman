@@ -49,8 +49,9 @@ class UserProfileFragment :
                         }
 
                         is UIState.Success -> {
+                            val http = convertToHttpsUrl(it.data.image.toString())
                             binding.tvProfileName.text = it.data.username
-                            binding.ivProfileIcon.setImage(it.data.image.toString())
+                            binding.ivProfileIcon.setImage(http)
                             Log.e("ololo", "RPAS: ${it.data}")
                         }
                     }
@@ -65,6 +66,22 @@ class UserProfileFragment :
             .diskCacheStrategy(DiskCacheStrategy.NONE) // Для тестирования
             .skipMemoryCache(true)
             .into(this)
+    }
+
+    fun convertToHttpsUrl(httpUrl: String): String {
+        // Проверяем, начинается ли URL с "http://" (без "s")
+        if (httpUrl.startsWith("http://")) {
+            // Заменяем "http://" на "https://"
+            return "https://" + httpUrl.substring(7)
+        }
+
+        // Если URL уже начинается с "https://", то оставляем его без изменений
+        if (httpUrl.startsWith("https://")) {
+            return httpUrl
+        }
+
+        // Если URL не начинается ни с "http://", ни с "https://", вернем его без изменений
+        return httpUrl
     }
 
     override fun setupSubscribes() = with(binding) {

@@ -8,6 +8,7 @@ import com.example.meyman.data.repositories.ReservationRepoImpl
 import com.example.meyman.data.repositories.ResetPasswordRepositoryImpl
 import com.example.meyman.data.repositories.ReviewRepositoryImpl
 import com.example.meyman.data.repositories.RoomsRepositoryImpl
+import com.example.meyman.data.repositories.TokenRepositoryImpl
 import com.example.meyman.data.repositories.UserProfileRepositoryImpl
 import com.example.meyman.data.repositories.VerifyAccountRepositoryImpl
 import com.example.meyman.domain.repositories.AdvertisingRepository
@@ -18,6 +19,7 @@ import com.example.meyman.domain.repositories.ReservationRepo
 import com.example.meyman.domain.repositories.ResetPasswordRepository
 import com.example.meyman.domain.repositories.ReviewRepository
 import com.example.meyman.domain.repositories.RoomsRepository
+import com.example.meyman.domain.repositories.TokenRepository
 import com.example.meyman.domain.repositories.UserProfileRepository
 import com.example.meyman.domain.repositories.VerifyAccountRepository
 import dagger.Binds
@@ -58,4 +60,7 @@ interface RepositoriesModule {
 
     @Binds
     fun provideResetPasswordRepository(repositoryImpl: ResetPasswordRepositoryImpl): ResetPasswordRepository
+
+    @Binds
+    fun provideTokenRepository(repositoryImpl: TokenRepositoryImpl): TokenRepository
 }

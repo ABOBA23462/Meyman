@@ -528,6 +528,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
+            android:id="@+id/btn_rooms"
             android:layout_width="336dp"
             android:layout_height="50dp"
             android:layout_gravity="center"

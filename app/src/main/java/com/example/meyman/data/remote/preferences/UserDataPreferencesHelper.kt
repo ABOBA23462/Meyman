@@ -11,6 +11,7 @@ const val PREF_IS_AUTHORIZED = "is_authorized"
 const val PREF_REFRESH_TOKEN: String = "refresh_token"
 const val PREF_ACCESS_TOKEN: String = "access_token"
 const val PREF_USER_EMAIL: String = "email"
+const val PREF_USER_PASSWORD: String = "password"
 const val PREF_ON_BOARD = "on_board"
 
 class UserDataPreferencesHelper @Inject constructor(
@@ -29,7 +30,7 @@ class UserDataPreferencesHelper @Inject constructor(
         set(value) = preferences().edit().putString(PREF_ACCESS_TOKEN, value).apply()
 
     var userEmail : String
-        get() = preferences().getString(PREF_ACCESS_TOKEN, "null")!!
+        get() = preferences().getString(PREF_USER_EMAIL, "null")!!
         set(value) = preferences().edit().putString(PREF_ACCESS_TOKEN, value).apply()
 
     var saveOnBoard : Boolean

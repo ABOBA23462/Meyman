@@ -72,7 +72,11 @@
         android:id="@+id/hotelPageFragment"
         android:name="com.example.meyman.presentation.ui.screens.hotel_page.HotelPageFragment"
         android:label="fragment_hotel_page"
-        tools:layout="@layout/fragment_hotel_page" />
+        tools:layout="@layout/fragment_hotel_page" >
+        <action
+            android:id="@+id/action_hotelPageFragment_to_roomsFragment"
+            app:destination="@id/roomsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/hotelPhotosFragment"
