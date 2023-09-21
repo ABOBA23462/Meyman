@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface RoomsRepository {
 
-    fun fetchRooms(id: Int): Flow<Either<String, List<ResultsHotelItemModel>?>>
+    fun fetchRooms(id: Int): Flow<Either<String, ResultsHotelItemModel>>
 
     fun fetchDetailRooms(id: Int): Flow<Either<String, ResultsRoomsItemModel?>>
 }
