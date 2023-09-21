@@ -2,11 +2,12 @@ package com.example.meyman.presentation.ui.screens.profile.user.change
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.meyman.data.remote.dtos.profile.password.ChangeUserPasswordDto
+import com.example.meyman.domain.usecases.FetchChangeUserPasswordUseCase
 import com.example.meyman.domain.usecases.FetchChangeUserProfileUseCase
 import com.example.meyman.domain.usecases.FetchUserProfileUseCase
 import com.example.meyman.domain.utils.Either
 import com.example.meyman.presentation.models.profile.ChangeUserProfileUI
-import com.example.meyman.presentation.models.profile.UserProfileUI
 import com.example.meyman.presentation.models.profile.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +21,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ChangeUserProfileViewModel @Inject constructor(
     private val changeUserProfileUseCase: FetchChangeUserProfileUseCase,
-    private val userProfileUseCase: FetchUserProfileUseCase
+    private val userProfileUseCase: FetchUserProfileUseCase,
+    private val changeUserPasswordUseCase: FetchChangeUserPasswordUseCase,
 ) : ViewModel() {
 
     private val _userProfileState =
@@ -73,4 +75,7 @@ class ChangeUserProfileViewModel @Inject constructor(
             }
         }
     }
+
+    fun fetchChangeUserPassword(token: String, changeUserPasswordDto: ChangeUserPasswordDto) = changeUserPasswordUseCase(token, changeUserPasswordDto)
+
 }

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
@@ -15,8 +16,10 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.data.remote.dtos.profile.password.ChangeUserPasswordDto
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentChangeUserProfileBinding
+import com.example.meyman.presentation.base.Resource
 import com.example.meyman.presentation.state.UIState
 
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,6 +59,7 @@ class ChangeUserProfileFragment :
 
     override fun initialize() {
         profile()
+        changeUserPassword()
     }
 
     private fun saveImage() {
@@ -144,6 +148,20 @@ class ChangeUserProfileFragment :
                 }
             }
         }
+
+        binding.flChangePassword.setOnClickListener {
+            tilOldPassword.visibility = View.VISIBLE
+            tilNewPassword.visibility = View.VISIBLE
+            flChangePassword.setOnClickListener {
+                tilOldPassword.visibility = View.GONE
+                tilNewPassword.visibility = View.GONE
+            }
+        }
+        binding.flExitAccount.setOnClickListener {
+            userPreferencesData.isAuthorized = false
+            userPreferencesData.accessToken = ""
+            userPreferencesData.refreshToken = ""
+        }
     }
 
     private fun profile() {
@@ -167,6 +185,31 @@ class ChangeUserProfileFragment :
                             binding.etUserPhoneNumber.setText(it.data.phoneNumber)
                             binding.ivUserAvatar.setImage(http)
                             Log.e("ololo", "RPAS: ${it.data}")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    private fun changeUserPassword() = with(binding) {
+        btnUpdatePassword.setOnClickListener {
+            val oldPassword = etOldPassword.text.toString().trim()
+            val newPassword = etNewPassword.text.toString().trim()
+            val model = ChangeUserPasswordDto(oldPassword, newPassword)
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.fetchChangeUserPassword("Bearer ${userPreferencesData.accessToken}", model).collect {
+                        when (it) {
+                            is Resource.Loading -> {
+                            }
+
+                            is Resource.Error -> {
+                                Log.e("ololo", "setupSubscribes11111: " + it.message)
+                            }
+
+                            is Resource.Success -> {
+                                Log.e("ololo", "setupSubscribes11111: " + it.data)
+                            }
                         }
                     }
                 }

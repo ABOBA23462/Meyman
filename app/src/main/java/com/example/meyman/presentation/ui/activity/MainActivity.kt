@@ -32,8 +32,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        refreshAccessToken()
         setupNavController()
+        if (userPreferencesData.isAuthorized == true){
+            refreshAccessToken()
+        }
 
     }
 
