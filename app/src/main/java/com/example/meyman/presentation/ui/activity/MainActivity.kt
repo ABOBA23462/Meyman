@@ -1,14 +1,21 @@
 package com.example.meyman.presentation.ui.activity
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import com.example.meyman.R
+import com.example.meyman.core.ConnectionLiveData
 import com.example.meyman.data.remote.dtos.auth.token.RefreshTokenDto
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.ActivityMainBinding
@@ -29,12 +36,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         refreshAccessToken()
         setupNavController()
-
+        setInternetConnection()
     }
 
     private fun refreshAccessToken() {
@@ -73,10 +81,10 @@ class MainActivity : AppCompatActivity() {
 
         if (!userPreferencesData.saveOnBoard) {
             navGraph.setStartDestination(R.id.onBoardFragment)
-            binding.bottomNavigation.visibility = View.GONE
+            binding.bottomNavigation.isGone = true
         } else {
             navGraph.setStartDestination(R.id.homeFragment)
-            binding.bottomNavigation.visibility = View.VISIBLE
+            binding.bottomNavigation.isGone = false
         }
 
         navController.graph = navGraph
@@ -119,6 +127,23 @@ class MainActivity : AppCompatActivity() {
 
                 else -> false
             }
+        }
+    }
+    private fun setInternetConnection() {
+        ConnectionLiveData(application).observe(this) {
+            binding.clNoInternet.isVisible = !it
+            binding.bottomNavigation.isVisible = it
+        }
+
+        val retry = findViewById<Button>(R.id.btn_retry)
+        val progressBar = findViewById<ProgressBar>(R.id.pb_no_internet)
+        retry.setOnClickListener {
+            progressBar.isVisible = true
+            retry.isVisible = false
+            Handler().postDelayed({
+                progressBar.isVisible = true
+                retry.isVisible = true
+            }, 4000L)
         }
     }
 }
