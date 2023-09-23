@@ -101,6 +101,7 @@
     <string name="confirm">Потвердить</string>
     <string name="write_code">Напишите код потверждения</string>
     <string name="start">Начать</string>
+    <string name="internet_connection_is_not_work">Отсутствует интернет подключение</string>
     <string name="old_password">Старый пароль</string>
     <string name="new_password">Новый пароль</string>
     <string name="update_password">Обновить пароль</string>

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Meyman" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+    <style name="Base.Theme.Meyman" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
@@ -27,5 +27,11 @@
     <style name="SeekBarColor"
         parent="Widget.AppCompat.SeekBar">
         <item name="colorAccent">@color/blue1</item>
+    </style>
+
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#1164B4</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo4</item>
+        <item name="postSplashScreenTheme">@style/Theme.Meyman</item>
     </style>
 </resources>
