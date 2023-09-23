@@ -65,4 +65,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideTokenApiService() = retrofitClient.provideTokenApi()
+
+    @Singleton
+    @Provides
+    fun provideWishlistApiService() = retrofitClient.provideWishlistApi()
 }

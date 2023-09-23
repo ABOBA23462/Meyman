@@ -9,5 +9,5 @@ import javax.inject.Inject
 @HiltViewModel
 class VerifyAccountViewModel @Inject constructor(private val verifyAccountUseCase : VerifyAccountUseCase) : ViewModel() {
 
-    suspend fun getVerifyState(verifyDto: VerifyDto) = verifyAccountUseCase(verifyDto)
+    fun getVerifyState(verifyDto: VerifyDto) = verifyAccountUseCase(verifyDto)
 }

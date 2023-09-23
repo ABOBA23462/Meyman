@@ -15,6 +15,8 @@ import com.example.meyman.R
 import com.example.meyman.databinding.FragmentSearchResultsBinding
 import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 import com.example.meyman.presentation.state.UIState
+import com.example.meyman.presentation.ui.screens.favorite.addInFavorite.AddInFavoriteFragment
+import com.example.meyman.presentation.ui.screens.sign.`in`.SignInFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -23,7 +25,7 @@ class SearchResultsFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchResultsBinding
     private val viewModel: SearchResultViewModel by viewModels()
-    private val reviewAdapter = SearchResultsAdapter(this::onClick)
+    private val reviewAdapter = SearchResultsAdapter(this::onClick, this::onButtonClick)
 
 
     override fun onCreateView(
@@ -43,6 +45,12 @@ class SearchResultsFragment : Fragment() {
 
     private fun onClick(hotelsResult: ResultsHotelItemUI) {
         findNavController().navigate(R.id.hotelPageFragment, bundleOf("id" to hotelsResult.id))
+    }
+
+    private fun onButtonClick(id: Int) {
+        val bottomSheetFragment = AddInFavoriteFragment()
+        bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+        bottomSheetFragment.dialog?.window?.setBackgroundDrawableResource(R.drawable.rounder)
     }
 
     private fun subscribeToFetchHotel() {

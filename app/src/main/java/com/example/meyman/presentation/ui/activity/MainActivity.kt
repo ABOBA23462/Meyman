@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_favorite -> {
-                    navController.navigate(R.id.favoriteFragment)
+                    navController.navigate(R.id.wishlistFragment)
                     true
                 }
 

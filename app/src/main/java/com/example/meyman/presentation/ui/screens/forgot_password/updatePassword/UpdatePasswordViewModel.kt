@@ -13,5 +13,5 @@ class UpdatePasswordViewModel @Inject constructor(
     private val fetchResetPasswordUseCase: FetchResetPasswordUseCase,
 ) : ViewModel() {
 
-    suspend fun getPassword(code: String, passwordDto: PasswordDto) = fetchResetPasswordUseCase(code,passwordDto)
+     fun getPassword(code: String, passwordDto: PasswordDto) = fetchResetPasswordUseCase(code,passwordDto)
 }

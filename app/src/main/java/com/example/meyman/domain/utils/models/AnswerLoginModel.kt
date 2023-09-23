@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class AnswerLoginModel(
     val tokens: TokensModel,
-    val message: String = ""
+    val message: String = "",
 )
 
 data class TokensModel(

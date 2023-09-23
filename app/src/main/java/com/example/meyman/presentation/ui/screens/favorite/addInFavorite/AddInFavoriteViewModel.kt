@@ -1,12 +1,12 @@
-package com.example.meyman.presentation.ui.screens.home
+package com.example.meyman.presentation.ui.screens.favorite.addInFavorite
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.meyman.domain.usecases.FetchAdvertisingUseCase
+import com.example.meyman.domain.usecases.FetchWishlistUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.presentation.models.home.AdvertisingResultUI
-import com.example.meyman.presentation.models.home.toUI
+import com.example.meyman.presentation.models.favorite.wishlist.AnswerWishlistUI
+import com.example.meyman.presentation.models.favorite.wishlist.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,27 +15,25 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val advertisingUseCase: FetchAdvertisingUseCase
+class AddInFavoriteViewModel @Inject constructor(
+    private val wishlistUseCase: FetchWishlistUseCase
 ): ViewModel() {
 
-    private val _advertisingState = MutableStateFlow<UIState<List<AdvertisingResultUI>>>(UIState.Loading())
-    val advertisingState get() = _advertisingState.asStateFlow()
+    private val _wishlistState = MutableStateFlow<UIState<List<AnswerWishlistUI>>>(UIState.Loading())
+    val wishlistState get() = _wishlistState.asStateFlow()
 
-    fun getAdvertising(){
+    fun getWishlist(token: String){
         viewModelScope.launch {
-            advertisingUseCase().collect{
+            wishlistUseCase(token).collect{
                 when(it){
                     is Either.Left -> {
-                        _advertisingState.value = UIState.Error(it.message!!)
+                        _wishlistState.value = UIState.Error(it.message!!)
                         Log.e("ololoLeft", "getChooseRoomState: ${it.message}", )
                     }
                     is Either.Right -> {
-                        _advertisingState.value = UIState.Success(it.data!!.map { it.toUI() })
+                        _wishlistState.value = UIState.Success(it.data!!.map { it.toUI() })
                         Log.e("ololoSucces", "getChooseRoomState: ${it.data}", )
                     }
-
-                    else -> {}
                 }
             }
         }

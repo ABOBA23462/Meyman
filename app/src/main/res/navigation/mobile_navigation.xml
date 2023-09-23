@@ -245,5 +245,14 @@
             android:name="code"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/wishlistFragment"
+        android:name="com.example.meyman.presentation.ui.screens.favorite.wishlist.WishlistFragment"
+        android:label="fragment_wishlist"
+        tools:layout="@layout/fragment_wishlist" >
+        <action
+            android:id="@+id/action_wishlistFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
 
 </navigation>

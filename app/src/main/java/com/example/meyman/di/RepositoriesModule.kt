@@ -11,6 +11,7 @@ import com.example.meyman.data.repositories.RoomsRepositoryImpl
 import com.example.meyman.data.repositories.TokenRepositoryImpl
 import com.example.meyman.data.repositories.UserProfileRepositoryImpl
 import com.example.meyman.data.repositories.VerifyAccountRepositoryImpl
+import com.example.meyman.data.repositories.WishlistRepositoryImpl
 import com.example.meyman.domain.repositories.AdvertisingRepository
 import com.example.meyman.domain.repositories.HotelRepository
 import com.example.meyman.domain.repositories.LoginRepository
@@ -22,6 +23,7 @@ import com.example.meyman.domain.repositories.RoomsRepository
 import com.example.meyman.domain.repositories.TokenRepository
 import com.example.meyman.domain.repositories.UserProfileRepository
 import com.example.meyman.domain.repositories.VerifyAccountRepository
+import com.example.meyman.domain.repositories.WishlistRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -63,4 +65,7 @@ interface RepositoriesModule {
 
     @Binds
     fun provideTokenRepository(repositoryImpl: TokenRepositoryImpl): TokenRepository
+
+    @Binds
+    fun provideWishlistRepository(repositoryImpl: WishlistRepositoryImpl): WishlistRepository
 }
