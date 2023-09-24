@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
+    android:padding="@dimen/defaultPadding"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="bottom"
     tools:context=".presentation.ui.screens.favorite.wishlist.addWishlist.AddWishlistFragment">
@@ -24,8 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Новый вишлист"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
+        android:textSize="@dimen/defaultTextSize"
+        android:layout_marginTop="@dimen/defaultMargine"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,10 +48,10 @@
         android:layout_height="wrap_content"
         android:hint="Название"
         android:layout_marginTop="27dp"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
+        app:boxCornerRadiusBottomEnd="@dimen/defaultCorner"
+        app:boxCornerRadiusBottomStart="@dimen/defaultCorner"
+        app:boxCornerRadiusTopEnd="@dimen/defaultCorner"
+        app:boxCornerRadiusTopStart="@dimen/defaultCorner"
         app:boxStrokeColor="@color/blue1"
         app:boxStrokeErrorColor="@color/red"
         app:boxStrokeWidth="1dp"
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="@dimen/defaultTextSizeSmall"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,7 +74,7 @@
         android:id="@+id/tv_description_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/defaultMargine"
         app:layout_constraintStart_toStartOf="@id/til_wishlist_name"
         app:layout_constraintTop_toBottomOf="@id/til_wishlist_name"
         android:text="0/150" />
@@ -90,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_description_count"
         android:textAllCaps="false"
-        app:cornerRadius="10dp"
+        app:cornerRadius="@dimen/defaultCorner"
         android:backgroundTint="@color/blue1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

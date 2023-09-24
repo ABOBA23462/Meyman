@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="@dimen/defaultCorner"
     tools:context=".presentation.ui.screens.favorite.addInFavorite.AddInFavoriteFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +31,7 @@
             android:layout_marginTop="16dp"
             android:text="Добавить в вишлист"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/defaultTextSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dragHandle" />
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:text="Создать новый вишлист"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="@dimen/defaultTextSizeSmall"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"

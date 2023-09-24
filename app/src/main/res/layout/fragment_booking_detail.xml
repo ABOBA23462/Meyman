@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#E1DFDF"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".presentation.ui.screens.booking.booking_detail.BookingDetailFragment">
 
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|start"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/defaultMargine"
                 android:src="@drawable/arrow_back"
                 tools:ignore="ContentDescription" />
 
@@ -34,7 +34,7 @@
                 android:id="@+id/tv_booking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/defaultMargine"
                 android:text="@string/bookings"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -60,10 +60,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="16sp"
+            android:layout_marginTop="@dimen/defaultMargine"
             android:text="Ваше бронивароние жилья"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="@dimen/defaultTextSizeSmall"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="12dp"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="@dimen/defaultCorner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4">
@@ -82,17 +82,16 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="12dp">
+                android:padding="@dimen/defaultPadding">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view1"
                     android:layout_width="83dp"
                     android:layout_height="83dp"
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="@dimen/defaultCorner"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
-
                     <ImageView
 
                         android:id="@+id/iv_booking"
@@ -210,10 +209,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/defaultMargine"
             android:background="@color/white"
             android:elevation="20dp"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="@dimen/defaultCorner"
             app:layout_constraintTop_toBottomOf="@+id/cardView2"
             tools:layout_editor_absoluteX="12dp">
 
@@ -221,12 +220,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:padding="12dp">
+                android:padding="@dimen/defaultPadding">
 
                 <ImageView
                     android:id="@+id/iv_calendar"
-                    android:layout_width="13dp"
-                    android:layout_height="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="3dp"
                     android:src="@drawable/calendar"
                     app:layout_constraintStart_toStartOf="parent"
@@ -349,10 +348,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/defaultMargine"
             android:text="Вы забронировали 1 номер"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="@dimen/defaultTextSizeSmall"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
@@ -365,7 +364,7 @@
             android:layout_marginTop="12dp"
             android:background="@color/white"
             android:elevation="20dp"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="@dimen/defaultCorner"
             app:layout_constraintTop_toBottomOf="@+id/textView5"
             tools:layout_editor_absoluteX="12dp">
 
@@ -373,7 +372,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:padding="12dp">
+                android:padding="@dimen/defaultPadding">
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -382,7 +381,7 @@
                     android:lines="2"
                     android:text="@string/room_name"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/defaultTextSizeSmall"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -585,14 +584,14 @@
             android:background="@color/white"
             android:elevation="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="@dimen/defaultCorner"
             app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:padding="12dp">
+                android:padding="@dimen/defaultPadding">
 
                 <TextView
                     android:id="@+id/tv_payment_on_the_spot"
@@ -632,7 +631,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/com"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/defaultTextSize"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -643,7 +642,7 @@
                     android:layout_marginEnd="4dp"
                     android:text="@string/summ"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/defaultTextSize"
                     app:layout_constraintBottom_toBottomOf="@id/tv_cyrrency"
                     app:layout_constraintEnd_toStartOf="@id/tv_cyrrency"
                     app:layout_constraintTop_toTopOf="@id/tv_cyrrency" />
