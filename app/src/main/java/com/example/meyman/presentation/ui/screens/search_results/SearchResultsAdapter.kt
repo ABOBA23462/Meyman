@@ -25,7 +25,7 @@ class SearchResultsAdapter(private val onClick: (ResultsHotelItemUI) -> Unit,
             itemView.setOnClickListener {
                 onClick(dataItem)
             }
-            binding.ivAddToFavorite.setOnClickListener {
+            binding.like.setOnClickListener {
                 onButtonClick.invoke(absoluteAdapterPosition)
             }
         }
