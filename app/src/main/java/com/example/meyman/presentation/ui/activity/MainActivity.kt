@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupNavController()
         setInternetConnection()
-        if (userPreferencesData.isAuthorized == true){
+        if (userPreferencesData.isAuthorized){
             refreshAccessToken()
         }
 

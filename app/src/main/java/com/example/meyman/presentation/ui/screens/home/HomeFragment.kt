@@ -13,8 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem
-import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
+
 import com.example.meyman.R
 import com.example.meyman.databinding.FragmentHomeBinding
 import com.example.meyman.presentation.state.UIState
@@ -56,24 +55,6 @@ class HomeFragment : Fragment() {
 //        binding.tvOptions2.text = "$adultNum взрослых"
 //        binding.tvOptions1.text = "$childNum детей"
 //        Toast.makeText(requireContext(), "$roomNum + $adultNum + $childNum", Toast.LENGTH_SHORT).show()
-
-        val spinnerItem = listOf(
-            SpinnerItem("Russian", R.drawable.rasha2),
-            SpinnerItem("English", R.drawable.languages)
-        )
-
-        val spinnerItem2 = listOf(
-            SpinnerItem2("СОМ", R.drawable.currensy1),
-            SpinnerItem2("USD", R.drawable.currensy2),
-            SpinnerItem2("EUR", R.drawable.currrensy3)
-
-        )
-
-        val adapter = CustomSpinnerAdapter(requireContext(), R.layout.spinner_item_layout, spinnerItem)
-        binding.spinLanguages.adapter = adapter
-
-        val adapter2 = CustomSpinnerAdapter2(requireContext(), R.layout.spinner_item2_layout, spinnerItem2)
-        binding.spinValuta.adapter = adapter2
 
         binding.mcvOptions.setOnClickListener {
             val bottomSheetFragment = DashboardFragment()
