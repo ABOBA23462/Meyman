@@ -19,10 +19,9 @@ class AdvertisingAdapter :
         ViewHolder(binding.root) {
 
         fun onBind(item: AdvertisingResultUI?) = with(binding) {
-            val http = convertToHttpsUrl("http://meyman.geeks.kg/${item?.housingImage}")
-            Log.e("Huylo", "onBind: + ${"http://meyman.geeks.kg/${item?.housingImage}"}")
             tvHotelName.text = item?.housingName
-            ivHotelImage.setImage(http)
+            Log.e("Images", "onBind: + ${item?.housingImage}")
+            ivHotelImage.setImage("https://meyman.geeks.kg${item?.housingImage?.getOrNull(0)}")
             tvLocation.text = item?.address
             val stars = item?.stars
             if (stars == 1){

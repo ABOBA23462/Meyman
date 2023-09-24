@@ -67,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12.5dp"
             android:layout_marginTop="40dp"
+            android:inputType="number"
             android:background="@drawable/bg_for_et"
             android:hint="@string/accept_code"
             android:paddingHorizontal="16dp"

@@ -102,9 +102,9 @@ class SignInFragment : BottomSheetDialogFragment() {
             val password = etPassword.text.toString().trim()
             val model = LoginDto(password, email)
             if (!isGmailAddressValid(email)) {
-                tilEmail.setErrorWithTimeout("Введите норм почту")
+                tilEmail.setErrorWithTimeout("Введите корректную почту")
             } else if (!isPasswordValid(password)) {
-                tilPassword.setErrorWithTimeout("Введите норм пароль")
+                tilPassword.setErrorWithTimeout("Введите корректный пароль")
             } else {
                 viewLifecycleOwner.lifecycleScope.launch {
                     viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -114,7 +114,7 @@ class SignInFragment : BottomSheetDialogFragment() {
                                 }
 
                                 is Resource.Error -> {
-                                    Log.e("ololo", "setupSubscribes11111: " + it.message)
+                                    Toast.makeText(requireContext(), "Введите корректные данные", Toast.LENGTH_SHORT).show()
                                 }
 
                                 is Resource.Success -> {
@@ -152,11 +152,11 @@ class SignInFragment : BottomSheetDialogFragment() {
             tilRegPassword.error = null
             tilConfirmPassword.error = null
             if (!isUsernameValid(username)) {
-                tilRegUserName.setErrorWithTimeout("Введите корректно имя и фамилию")
+                tilRegUserName.setErrorWithTimeout("Введите корректное имя и фамилие")
             } else if (!isGmailAddressValid(email)) {
-                tilRegEmail.setErrorWithTimeout("Введите норм почту")
+                tilRegEmail.setErrorWithTimeout("Введите корректную почту")
             } else if (!isPasswordValid(password)) {
-                tilRegPassword.setErrorWithTimeout("Введите норм пароль")
+                tilRegPassword.setErrorWithTimeout("Введите корректный пароль")
             } else if (confirmPassword != password) {
                 tilConfirmPassword.setErrorWithTimeout("Повторите введеный пароль")
             } else {

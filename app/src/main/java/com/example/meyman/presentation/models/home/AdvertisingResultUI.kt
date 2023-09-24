@@ -60,7 +60,7 @@ data class AdvertisingResultUI(
     val pool: Boolean = false,
     @SerializedName("pets_allowed")
     val petsAllowed: Boolean = false,
-    @SerializedName("housingImage")
+    @SerializedName("housing_image")
     val housingImage: List<String>?,
     @SerializedName("stars")
     val stars: Int = 0,
