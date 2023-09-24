@@ -14,5 +14,5 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val tokenUseCase: FetchTokenUseCase,
 ) : ViewModel() {
 
-    suspend fun getToken(token : String, tokenDto: RefreshTokenDto) = tokenUseCase(token, tokenDto)
+    fun getToken(tokenDto: RefreshTokenDto) = tokenUseCase(tokenDto)
 }

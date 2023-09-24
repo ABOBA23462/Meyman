@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             if (userPreferencesData.isAuthorized) {
                 lifecycleScope.launchWhenStarted {
                     val token = RefreshTokenDto(userPreferencesData.refreshToken)
-                    viewModel.getToken( "Bearer ${userPreferencesData.accessToken}" ,token).collect { it ->
+                    viewModel.getToken(token).collect { it ->
                         when (it) {
                             is Resource.Error -> {
                                 Log.e("shug", "getNewToken: error ${it.message}")

@@ -59,6 +59,7 @@ class ChangeUserProfileFragment :
 
     override fun initialize() {
         profile()
+        changeUserProfile()
         changeUserPassword()
     }
 
@@ -93,9 +94,29 @@ class ChangeUserProfileFragment :
         ivUserAvatar.setOnClickListener {
             saveImage()
         }
+
+        binding.flChangePassword.setOnClickListener {
+            tilOldPassword.visibility = View.VISIBLE
+            tilNewPassword.visibility = View.VISIBLE
+            btnUpdatePassword.visibility = View.VISIBLE
+
+            flChangePassword.setOnClickListener {
+                tilOldPassword.visibility = View.GONE
+                tilNewPassword.visibility = View.GONE
+                btnUpdatePassword.visibility = View.GONE
+            }
+        }
+        binding.flExitAccount.setOnClickListener {
+            userPreferencesData.isAuthorized = false
+            userPreferencesData.accessToken = ""
+            userPreferencesData.refreshToken = ""
+        }
+    }
+
+    private fun changeUserProfile() = with(binding) {
         tvSave.setOnClickListener {
-            val fullName = etUserName.text.toString()
-            val phoneNumber = etUserPhoneNumber.text.toString()
+            val fullName = etUserName.text.toString().trim()
+            val phoneNumber = etUserPhoneNumber.text.toString().trim()
             Log.e("ABOBA", "setupSubscribes: + ${fullName + phoneNumber} ")
             val fullnamePart = RequestBody.create("fullname".toMediaTypeOrNull(), fullName)
             val phoneNumberPart =
@@ -148,20 +169,6 @@ class ChangeUserProfileFragment :
                 }
             }
         }
-
-        binding.flChangePassword.setOnClickListener {
-            tilOldPassword.visibility = View.VISIBLE
-            tilNewPassword.visibility = View.VISIBLE
-            flChangePassword.setOnClickListener {
-                tilOldPassword.visibility = View.GONE
-                tilNewPassword.visibility = View.GONE
-            }
-        }
-        binding.flExitAccount.setOnClickListener {
-            userPreferencesData.isAuthorized = false
-            userPreferencesData.accessToken = ""
-            userPreferencesData.refreshToken = ""
-        }
     }
 
     private fun profile() {
@@ -191,6 +198,7 @@ class ChangeUserProfileFragment :
             }
         }
     }
+
     private fun changeUserPassword() = with(binding) {
         btnUpdatePassword.setOnClickListener {
             val oldPassword = etOldPassword.text.toString().trim()
@@ -198,7 +206,10 @@ class ChangeUserProfileFragment :
             val model = ChangeUserPasswordDto(oldPassword, newPassword)
             viewLifecycleOwner.lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    viewModel.fetchChangeUserPassword("Bearer ${userPreferencesData.accessToken}", model).collect {
+                    viewModel.fetchChangeUserPassword(
+                        "Bearer ${userPreferencesData.accessToken}",
+                        model
+                    ).collect {
                         when (it) {
                             is Resource.Loading -> {
                             }

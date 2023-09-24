@@ -17,7 +17,7 @@ class TokenRepositoryImpl @Inject constructor(
     private val tokenApiService: TokenApiService,
 ) : BaseRepository(), TokenRepository {
 
-    override fun fetchToken(token: String, tokenDto: RefreshTokenDto,) = doRequests{
-            tokenApiService.fetchToken(token, tokenDto).toDomain()
+    override fun fetchToken(tokenDto: RefreshTokenDto) = doRequests{
+            tokenApiService.fetchToken(tokenDto).toDomain()
         }
 }

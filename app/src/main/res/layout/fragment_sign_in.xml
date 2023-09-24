@@ -78,7 +78,7 @@
 
     <LinearLayout
         android:id="@+id/ll"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,8 +88,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="336dp"
-            android:layout_height="62dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/email_address"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
@@ -103,8 +103,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email"
-                android:layout_width="336dp"
-                android:layout_height="52dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
@@ -113,11 +113,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_reg_user_name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="336dp"
-            android:layout_height="62dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/name_and_surname"
-            android:visibility="gone"
             app:boxCornerRadiusBottomEnd="10dp"
+            android:visibility="gone"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
@@ -129,8 +129,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_reg_user_name"
-                android:layout_width="336dp"
-                android:layout_height="52dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
@@ -139,8 +139,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_reg_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="336dp"
-            android:layout_height="62dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/email_address"
             android:visibility="gone"
             app:boxCornerRadiusBottomEnd="10dp"
@@ -155,8 +155,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_reg_email"
-                android:layout_width="336dp"
-                android:layout_height="52dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
@@ -165,9 +165,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="336dp"
-            android:layout_height="62dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/password"
+            android:layout_marginTop="8dp"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -180,8 +181,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
-                android:layout_width="336dp"
-                android:layout_height="52dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
@@ -190,10 +191,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_reg_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="336dp"
-            android:layout_height="62dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/password"
             android:visibility="gone"
+            android:layout_marginTop="8dp"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -206,8 +208,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_reg_password"
-                android:layout_width="336dp"
-                android:layout_height="52dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
@@ -216,10 +218,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_confirm_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="336dp"
-            android:layout_height="62dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
             android:visibility="gone"
+            android:layout_marginTop="8dp"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -232,8 +235,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_confirm_password"
-                android:layout_width="336dp"
-                android:layout_height="52dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />

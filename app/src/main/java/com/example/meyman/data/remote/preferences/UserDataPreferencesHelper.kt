@@ -31,7 +31,7 @@ class UserDataPreferencesHelper @Inject constructor(
 
     var userEmail : String
         get() = preferences().getString(PREF_USER_EMAIL, "null")!!
-        set(value) = preferences().edit().putString(PREF_ACCESS_TOKEN, value).apply()
+        set(value) = preferences().edit().putString(PREF_USER_EMAIL, value).apply()
 
     var saveOnBoard : Boolean
         get() = preferences().getBoolean(PREF_ON_BOARD, false)

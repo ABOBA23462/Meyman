@@ -10,6 +10,5 @@ interface TokenApiService {
 
     @POST("api/users/tokens/refresh_access_token/")
     suspend fun fetchToken(
-        @Header("Authorization") token: String,
         @Body refreshTokenDto: RefreshTokenDto): AnswerAccessTokenDto
 }

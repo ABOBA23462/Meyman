@@ -44,6 +44,7 @@ class VerifyAccountFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.e("ololo", "onViewCreated: + ${userPreferencesData.userEmail}" )
         super.onViewCreated(view, savedInstanceState)
         binding.btnAccept.setOnClickListener {
             val code = binding.etCode.text.toString()
@@ -60,6 +61,7 @@ class VerifyAccountFragment : Fragment() {
                                 }
                                 is Resource.Error -> {
                                     Log.e("ololo", "setupSubscribes11111: " + it.message)
+                                    Log.e("ololo", "setupSubscribes11111: " + userPreferencesData.userEmail)
                                     Toast.makeText(
                                         requireContext(),
                                         "Не правильный код",
@@ -69,7 +71,7 @@ class VerifyAccountFragment : Fragment() {
                                 is Resource.Success -> {
                                     val list = it.data?.toUI()
                                     customAlertDialog()
-                                    findNavController().navigate(R.id.action_verifyAccountFragment_to_searchResultsFragment)
+                                    findNavController().navigate(R.id.action_verifyAccountFragment_to_userProfileFragment)
                                     Log.e("MyApp", "setupSubscribes: $list")
                                 }
                             }
