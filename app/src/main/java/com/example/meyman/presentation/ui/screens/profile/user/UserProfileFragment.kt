@@ -33,7 +33,7 @@ class UserProfileFragment :
         profile()
     }
 
-    private fun profile() {
+    private fun profile() = with(binding) {
         viewModel.fetchUserProfile("Bearer ${userPreferencesData.accessToken}")
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -45,7 +45,7 @@ class UserProfileFragment :
                         }
 
                         is UIState.Loading -> {
-
+                            ivProfileIcon.setImage(R.drawable.chort.toString())
                         }
 
                         is UIState.Success -> {
