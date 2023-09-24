@@ -1,11 +1,6 @@
 package com.example.meyman.data.remote.preferences
 
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
-import javax.inject.Singleton
 
 const val PREF_IS_AUTHORIZED = "is_authorized"
 const val PREF_REFRESH_TOKEN: String = "refresh_token"

@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-        }, 0, 20, TimeUnit.MINUTES)
+        }, 0, 1, TimeUnit.HOURS)
     }
 
     private fun setupNavController() {

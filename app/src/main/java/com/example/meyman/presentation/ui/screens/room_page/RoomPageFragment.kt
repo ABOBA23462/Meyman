@@ -15,13 +15,12 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.databinding.FragmentRoomPageBinding
-import com.example.meyman.presentation.models.rooms.ResultsRoomsItemUI
 import com.example.meyman.presentation.state.UIState
-import com.example.meyman.presentation.ui.screens.hotel_page.rooms.PhotoAdapter
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class RoomPageFragment :
@@ -34,10 +33,10 @@ class RoomPageFragment :
     private lateinit var adapterAmenities: RoomAmenitiesAdapter
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         Log.e("ololo", "getChooseRoomState: ${args.id}")
-        binding.viewPager.adapter = ViewPagerAdapter(this@RoomPageFragment)
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->
+        viewPager.adapter = ViewPagerAdapter(this@RoomPageFragment)
+        TabLayoutMediator(tabLayout, viewPager) { tab, pos ->
             when (pos) {
                 0 -> {
                     tab.text = "Условия"
@@ -68,16 +67,16 @@ class RoomPageFragment :
                         is UIState.Loading -> {}
                         is UIState.Success -> {
                             Log.e("ololo", "RPAS: ${it.data}")
-                            binding.tvTitle.text = it.data.pricePerNight
-                            binding.tvRoomSquare.text = "${it.data.roomArea} m²"
-                            binding.tvHotelAmenities.text = "Двухместная кровать ${it.data.bedType} и диван "
+                            tvTitle.text = it.data.roomName
+                            tvRoomSquare.text = "${it.data.roomArea} m²"
+                            tvHotelAmenities.text = "Двухместная кровать ${it.data.bedType} и диван "
                             adapter = PhotoPageAdapter()
-                            binding.rvPhoto.adapter = adapter
+                            rvPhoto.adapter = adapter
                             val snapHelper: SnapHelper = PagerSnapHelper()
-                            snapHelper.attachToRecyclerView(binding.rvPhoto)
+                            snapHelper.attachToRecyclerView(rvPhoto)
                             it.data.roomImages?.let { adapter.submitList(it) }
                             adapterAmenities = RoomAmenitiesAdapter(it.data.roomAmenities!!)
-                            binding.rvRoomAmenities.adapter = adapterAmenities
+                            rvRoomAmenities.adapter = adapterAmenities
                         }
 
                     }

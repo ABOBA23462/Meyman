@@ -21,6 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="@string/wifi"
+        android:lines="1"
+        android:ellipsize="end"
         android:textColor="@color/gray3"
         app:layout_constraintBottom_toBottomOf="@id/iv_wifi"
         app:layout_constraintStart_toEndOf="@id/iv_wifi"

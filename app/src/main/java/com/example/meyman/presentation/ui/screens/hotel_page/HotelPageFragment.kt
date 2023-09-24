@@ -18,9 +18,6 @@ import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.databinding.FragmentHotelPageBinding
 import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.hotel_page.tabLayout.HotelPageViewPagerAdapter
-import com.example.meyman.presentation.ui.screens.room_page.PhotoPageAdapter
-import com.example.meyman.presentation.ui.screens.room_page.RoomAmenitiesAdapter
-import com.example.meyman.presentation.ui.screens.room_page.tablayout.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

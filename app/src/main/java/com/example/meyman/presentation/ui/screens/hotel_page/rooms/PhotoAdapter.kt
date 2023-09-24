@@ -15,7 +15,7 @@ class PhotoAdapter() : ListAdapter<RoomListImagesItemUI, PhotoAdapter.PhotoViewH
     inner class PhotoViewHolder(val binding: ItemPhotoRoomsBinding) : ViewHolder(binding.root) {
         fun onBind(model: RoomListImagesItemUI) {
             Log.e("ololo", "onBind: " + {model})
-            binding.ivPhoto.setImage(model.image)
+            binding.ivPhoto.setImage("https://meyman.geeks.kg${model.image}")
         }
 
     }

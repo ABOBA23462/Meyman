@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchDetailRoomUseCase
 import com.example.meyman.domain.utils.Either
-import com.example.meyman.presentation.models.rooms.ResultsRoomsItemUI
-import com.example.meyman.presentation.models.rooms.toUI
+import com.example.meyman.presentation.models.rooms.page.RoomUI
+import com.example.meyman.presentation.models.rooms.page.toUI
 import com.example.meyman.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +20,7 @@ class RoomPageViewModel @Inject constructor(
     private val useCase: FetchDetailRoomUseCase
 ) : ViewModel() {
 
-    private val _roomState = MutableStateFlow<UIState<ResultsRoomsItemUI>>(UIState.Loading())
+    private val _roomState = MutableStateFlow<UIState<RoomUI>>(UIState.Loading())
     val roomState = _roomState.asStateFlow()
 
     fun fetchRoom(id: Int) = viewModelScope.launch {
