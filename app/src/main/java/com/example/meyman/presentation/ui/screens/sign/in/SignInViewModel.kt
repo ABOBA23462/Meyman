@@ -9,10 +9,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SignInViewModel @Inject constructor( private val registerUseCase : FetchRegisterUseCase,
-   private val loginUseCase: FetchLoginUseCase) : ViewModel() {
+class SignInViewModel @Inject constructor(
+    private val registerUseCase: FetchRegisterUseCase,
+    private val loginUseCase: FetchLoginUseCase
+) : ViewModel() {
 
-   suspend fun getRegisterState(registerDomain: RegisterDto) = registerUseCase(registerDomain)
+    fun getRegisterState(registerDomain: RegisterDto) = registerUseCase(registerDomain)
 
-   suspend fun getLoginState(loginDto: LoginDto) = loginUseCase(loginDto)
+    fun getLoginState(loginDto: LoginDto) = loginUseCase(loginDto)
 }

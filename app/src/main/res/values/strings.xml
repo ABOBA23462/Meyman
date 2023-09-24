@@ -105,4 +105,7 @@
     <string name="old_password">Старый пароль</string>
     <string name="new_password">Новый пароль</string>
     <string name="update_password">Обновить пароль</string>
+    <string name="text_favorite">Здесь будут появляться ваши избранные</string>
+    <string name="sign">Войти</string>
+    <string name="no_like">У вас еще нет избранных отелей</string>
 </resources>

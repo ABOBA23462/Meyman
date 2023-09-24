@@ -1,6 +1,5 @@
 package com.example.meyman.presentation.ui.screens.search_results
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchHotelUseCase
@@ -31,15 +30,12 @@ class SearchResultViewModel @Inject constructor(
             fetchHotelUseCase().collect {
                 when (it) {
                     is Either.Left -> {
-                        Log.e("ololo", "fetchHotel: $it")
                         it.message?.let { error ->
                             _hotelState.value = UIState.Error(error)
                         }
                     }
 
                     is Either.Right -> {
-                        Log.e("ololo", it.data.toString())
-
                         it.data?.let {
                             _hotelState.value = UIState.Success(it.map { hotel ->
                                 hotel.toUI()

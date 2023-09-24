@@ -40,5 +40,4 @@ class UserDataPreferencesHelper @Inject constructor(
     var userId : Int
         get() = preferences().getInt(KEY_FOR_USER_ID, 0)
         set(value) = preferences().edit().putInt(KEY_FOR_USER_ID, value).apply()
-
 }

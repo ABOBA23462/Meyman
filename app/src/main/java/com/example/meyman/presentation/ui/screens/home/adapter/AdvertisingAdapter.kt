@@ -1,6 +1,5 @@
 package com.example.meyman.presentation.ui.screens.home.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +19,6 @@ class AdvertisingAdapter :
 
         fun onBind(item: AdvertisingResultUI?) = with(binding) {
             val http = convertToHttpsUrl("http://meyman.geeks.kg/${item?.housingImage}")
-            Log.e("Huylo", "onBind: + ${"http://meyman.geeks.kg/${item?.housingImage}"}")
             tvHotelName.text = item?.housingName
             ivHotelImage.setImage(http)
             tvLocation.text = item?.address
@@ -55,18 +53,12 @@ class AdvertisingAdapter :
     }
 
     fun convertToHttpsUrl(httpUrl: String): String {
-        // Проверяем, начинается ли URL с "http://" (без "s")
         if (httpUrl.startsWith("http://")) {
-            // Заменяем "http://" на "https://"
             return "https://" + httpUrl.substring(7)
         }
-
-        // Если URL уже начинается с "https://", то оставляем его без изменений
         if (httpUrl.startsWith("https://")) {
             return httpUrl
         }
-
-        // Если URL не начинается ни с "http://", ни с "https://", вернем его без изменений
         return httpUrl
     }
 

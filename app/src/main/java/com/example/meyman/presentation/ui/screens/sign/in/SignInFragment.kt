@@ -3,16 +3,12 @@ package com.example.meyman.presentation.ui.screens.sign.`in`
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -110,21 +106,17 @@ class SignInFragment : BottomSheetDialogFragment() {
                     viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                         viewModel.getLoginState(model).collect {
                             when (it) {
-                                is Resource.Loading -> {
-                                }
+                                is Resource.Loading -> {}
 
-                                is Resource.Error -> {
-                                    Log.e("ololo", "setupSubscribes11111: " + it.message)
-                                }
+                                is Resource.Error -> {}
 
                                 is Resource.Success -> {
-                                    val list = it.data?.toUI()
+                                    it.data?.toUI()
                                     userPreferencesData.apply {
                                         isAuthorized = true
                                         accessToken = it.data!!.tokens.access
                                         refreshToken = it.data.tokens.refresh
                                     }
-                                    Log.e("MyApp", "setupSubscribes: $list")
                                     dismiss()
                                     findNavController().navigate(R.id.action_guestProfileFragment_to_userProfileFragment)
                                     bundle.putString("email", etRegEmail.text.toString())
@@ -168,7 +160,6 @@ class SignInFragment : BottomSheetDialogFragment() {
                                 }
 
                                 is Resource.Error -> {
-                                    Log.e("ololo", "setupSubscribes11111: " + it.message)
                                     Toast.makeText(requireContext(), "Данный email уже зарегистрирован", Toast.LENGTH_SHORT).show()
                                 }
 
@@ -176,6 +167,7 @@ class SignInFragment : BottomSheetDialogFragment() {
                                     userPreferencesData.apply {
                                         userEmail = binding.etRegEmail.text.toString().trim()
                                     }
+                                    dismiss()
                                     findNavController().navigate(R.id.action_guestProfileFragment_to_verifyAccountFragment)
                                     dismiss()
                                 }
@@ -188,45 +180,32 @@ class SignInFragment : BottomSheetDialogFragment() {
     }
 
     fun isUsernameValid(username: String): Boolean {
-        // Разбиваем строку имени пользователя на слова
         val words = username.split(" ")
-
-        // Проверяем, что в имени пользователя есть ровно два слова
         if (words.size != 2) {
             return false
         }
-
-        // Проверяем, что каждое слово состоит из букв
         for (word in words) {
             if (!word.all { it.isLetter() }) {
                 return false
             }
         }
-
-        // Если прошли все проверки, имя пользователя считается допустимым
         return true
     }
 
     fun isGmailAddressValid(email: String): Boolean {
-        // Используйте регулярное выражение для проверки адреса электронной почты
         val emailPattern = "[a-zA-Z0-9._-]+@gmail.com"
         return email.matches(emailPattern.toRegex())
     }
 
     fun isPasswordValid(password: String): Boolean {
-        // Проверяем длину пароля
         if (password.length <= 6) {
             return false
         }
-
-        // Проверяем, что пароль состоит из цифр и букв
         for (char in password) {
             if (!char.isDigit() && !char.isLetter()) {
                 return false
             }
         }
-
-        // Если прошли все проверки, пароль считается допустимым
         return true
     }
 

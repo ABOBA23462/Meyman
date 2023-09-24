@@ -49,11 +49,6 @@ class AddWishlistFragment : BottomSheetDialogFragment() {
 
                                 is Resource.Error -> {
                                     Log.e("ololo", "setupSubscribes11111: " + it.message)
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Не правильный код",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
                                 }
 
                                 is Resource.Success -> {
