@@ -1,6 +1,8 @@
 package com.example.meyman.presentation.ui.screens.home.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
@@ -16,11 +18,37 @@ class AdvertisingAdapter :
     inner class AdvertisingViewHolder(val binding: ItemRecomedationBinding) :
         ViewHolder(binding.root) {
 
-        fun onBind(item: AdvertisingResultUI?) {
-            binding.tvHotelName.text = item?.housingName
+        fun onBind(item: AdvertisingResultUI?) = with(binding) {
+            val http = convertToHttpsUrl("http://meyman.geeks.kg/${item?.housingImage}")
+            Log.e("Huylo", "onBind: + ${"http://meyman.geeks.kg/${item?.housingImage}"}")
+            tvHotelName.text = item?.housingName
+            ivHotelImage.setImage(http)
+            tvLocation.text = item?.address
+            val stars = item?.stars
+            if (stars == 1){
+                ivStar1.visibility = View.VISIBLE
+            }else if(stars == 2){
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+            }else if(stars == 3){
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+                ivStar3.visibility = View.VISIBLE
+            }else if(stars == 4){
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+                ivStar3.visibility = View.VISIBLE
+                ivStar4.visibility = View.VISIBLE
+            }else if(stars == 5){
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+                ivStar3.visibility = View.VISIBLE
+                ivStar4.visibility = View.VISIBLE
+                ivStar5.visibility = View.VISIBLE
+            }
         }
     }
-    fun ImageView.setImage(uri: String) {
+    fun ImageView.setImage(uri: String?) {
         Glide.with(this)
             .load(uri)
             .into(this)

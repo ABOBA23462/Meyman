@@ -9,6 +9,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.meyman.R
@@ -16,6 +18,8 @@ import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.databinding.FragmentHotelPageBinding
 import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.hotel_page.tabLayout.HotelPageViewPagerAdapter
+import com.example.meyman.presentation.ui.screens.room_page.PhotoPageAdapter
+import com.example.meyman.presentation.ui.screens.room_page.RoomAmenitiesAdapter
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +31,7 @@ class HotelPageFragment :
 
     override val binding by viewBinding(FragmentHotelPageBinding::bind)
     override val viewModel: HotelPageViewModel by viewModels()
+    private lateinit var photoAdapter: HotelPagePhotoAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.viewPager.adapter = HotelPageViewPagerAdapter(this@HotelPageFragment)
@@ -88,7 +93,12 @@ class HotelPageFragment :
                             with(binding) {
                                 tvTitle.text = it.data.address
                                 tvRatingScore.text = it.data.stars.toString()
-                                tvHotelName.text = it.data.housingName
+                              tvHotelName.text = it.data.housingName
+                                photoAdapter = HotelPagePhotoAdapter()
+                                binding.rvPhoto.adapter = photoAdapter
+                                val snapHelper: SnapHelper = PagerSnapHelper()
+                                snapHelper.attachToRecyclerView(binding.rvPhoto)
+                                it.data.housingImages?.let { photoAdapter.submitList(it) }
                                 binding.btnRooms.setOnClickListener {
                                     findNavController().navigate(R.id.action_hotelPageFragment_to_roomsFragment, bundle)
                                 }

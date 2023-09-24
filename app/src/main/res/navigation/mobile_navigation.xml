@@ -249,6 +249,9 @@
         <argument
             android:name="code"
             app:argType="string" />
+        <action
+            android:id="@+id/action_updatePasswordFragment2_to_guestProfileFragment"
+            app:destination="@id/guestProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/wishlistFragment"

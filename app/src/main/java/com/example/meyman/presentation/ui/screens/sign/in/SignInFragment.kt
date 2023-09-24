@@ -94,6 +94,7 @@ class SignInFragment : BottomSheetDialogFragment() {
     private fun login() = with(binding) {
         tvForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_guestProfileFragment_to_forgotPasswordFragment)
+            dismiss()
         }
         val bundle = Bundle()
         btnSignIn.setOnClickListener {
@@ -168,6 +169,7 @@ class SignInFragment : BottomSheetDialogFragment() {
 
                                 is Resource.Error -> {
                                     Log.e("ololo", "setupSubscribes11111: " + it.message)
+                                    Toast.makeText(requireContext(), "Данный email уже зарегистрирован", Toast.LENGTH_SHORT).show()
                                 }
 
                                 is Resource.Success -> {
@@ -175,10 +177,7 @@ class SignInFragment : BottomSheetDialogFragment() {
                                         userEmail = binding.etRegEmail.text.toString().trim()
                                     }
                                     findNavController().navigate(R.id.action_guestProfileFragment_to_verifyAccountFragment)
-                                    Log.e(
-                                        "ololo",
-                                        "setupSubscribes11111: " + userPreferencesData.userEmail
-                                    )
+                                    dismiss()
                                 }
                             }
                         }

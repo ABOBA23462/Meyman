@@ -19,6 +19,7 @@ import com.example.meyman.databinding.FragmentUpdatePasswordBinding
 import com.example.meyman.presentation.base.Resource
 import com.example.meyman.presentation.ui.screens.forgot_password.ForgotPasswordFragmentDirections
 import com.example.meyman.presentation.ui.screens.room_page.RoomPageFragmentArgs
+import com.example.meyman.presentation.ui.screens.sign.`in`.SignInFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -63,15 +64,17 @@ class UpdatePasswordFragment : Fragment() {
                                 }
 
                                 is Resource.Success -> {
-                                    Toast.makeText(requireContext(), "Huynia", Toast.LENGTH_SHORT)
-                                        .show()
+                                  findNavController().navigate(R.id.action_updatePasswordFragment2_to_guestProfileFragment)
+                                    val bottomSheetFragment = SignInFragment()
+                                    bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+                                    bottomSheetFragment.dialog?.window?.setBackgroundDrawableResource(R.drawable.rounder)
                                 }
                             }
                         }
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "Blia", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Введите одинаковый пароль", Toast.LENGTH_SHORT).show()
             }
         }
     }
