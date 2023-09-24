@@ -8,12 +8,12 @@ data class AnswerLoginDto(
     @SerializedName("tokens")
     val tokens: TokensDto,
     @SerializedName("message")
-    val message: String = ""
+    val message: String = "",
 )
 
 fun AnswerLoginDto.toDomain() = AnswerLoginModel(
     tokens.toDomain(),
-    message
+    message,
 )
 
 data class TokensDto(

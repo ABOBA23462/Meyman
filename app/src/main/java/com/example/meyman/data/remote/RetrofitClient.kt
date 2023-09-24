@@ -14,6 +14,7 @@ import com.example.meyman.data.remote.apiservices.TokenApiService
 import com.example.meyman.data.remote.apiservices.UserProfileApiService
 import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.VerifyApiService
+import com.example.meyman.data.remote.apiservices.WishlistApiService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -96,7 +97,12 @@ class RetrofitClient {
     fun provideReservationApi(): ReservationApi {
         return retrofitClient.create(ReservationApi::class.java)
     }
+
     fun provideTokenApi(): TokenApiService {
         return retrofitClient.create(TokenApiService::class.java)
+    }
+
+    fun provideWishlistApi(): WishlistApiService {
+        return retrofitClient.create(WishlistApiService::class.java)
     }
 }

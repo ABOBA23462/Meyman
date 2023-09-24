@@ -2,11 +2,10 @@ package com.example.meyman.data.repositories
 
 import com.example.meyman.core.base.BaseRepository
 import com.example.meyman.data.remote.apiservices.UserProfileApiService
+import com.example.meyman.data.remote.dtos.profile.password.ChangeUserPasswordDto
+import com.example.meyman.data.remote.dtos.profile.password.toDomain
 import com.example.meyman.data.remote.dtos.profile.toDomain
 import com.example.meyman.domain.repositories.UserProfileRepository
-import com.example.meyman.domain.utils.Either
-import com.example.meyman.domain.utils.models.profile.ChangeUserProfileModel
-import kotlinx.coroutines.flow.Flow
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject
@@ -28,5 +27,9 @@ class UserProfileRepositoryImpl @Inject constructor(
         service.fetchChangeUserProfile(token,
             image,
             username, phoneNumber).toDomain()
+    }
+
+    override fun fetchChangeUserPassword(token: String, changeUserPasswordDto: ChangeUserPasswordDto) = doRequests {
+        service.fetchChangeUserPassword(token, changeUserPasswordDto).toDomain()
     }
 }

@@ -3,6 +3,7 @@ package com.example.meyman.data.repositories
 import android.util.Log
 import com.example.meyman.core.base.BaseRepository
 import com.example.meyman.data.remote.apiservices.RoomsApiService
+import com.example.meyman.data.remote.dtos.hotels.toDomain
 import com.example.meyman.data.remote.dtos.rooms.list.toDomain
 import com.example.meyman.data.remote.dtos.rooms.toDomain
 import com.example.meyman.domain.repositories.RoomsRepository
@@ -12,8 +13,8 @@ class RoomsRepositoryImpl @Inject constructor(
     private val service: RoomsApiService
 ) : BaseRepository(), RoomsRepository {
 
-    override fun fetchRooms() = doRequest {
-        service.fetchRooms().results?.map { it.toDomain() }
+    override fun fetchRooms(id: Int) = doRequest {
+        service.fetchRooms(id).toDomain()
     }
 
     override fun fetchDetailRooms(id: Int) = doRequest {

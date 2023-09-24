@@ -1,7 +1,6 @@
 package com.example.meyman.presentation.ui.screens.home
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchAdvertisingUseCase
@@ -23,7 +22,7 @@ class HomeViewModel @Inject constructor(
     private val _advertisingState = MutableStateFlow<UIState<List<AdvertisingResultUI>>>(UIState.Loading())
     val advertisingState get() = _advertisingState.asStateFlow()
 
-    fun getChooseRoomState(){
+    fun getAdvertising(){
         viewModelScope.launch {
             advertisingUseCase().collect{
                 when(it){

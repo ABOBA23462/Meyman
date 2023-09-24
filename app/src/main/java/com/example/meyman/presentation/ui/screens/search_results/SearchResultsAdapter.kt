@@ -9,7 +9,8 @@ import coil.load
 import com.example.meyman.databinding.ItemSearchResultBinding
 import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 
-class SearchResultsAdapter(private val onClick: (ResultsHotelItemUI) -> Unit) : ListAdapter<ResultsHotelItemUI, SearchResultsAdapter.ViewHolder>(diffUtil) {
+class SearchResultsAdapter(private val onClick: (ResultsHotelItemUI) -> Unit,
+                           val onButtonClick: (id: Int) -> Unit) : ListAdapter<ResultsHotelItemUI, SearchResultsAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -23,6 +24,9 @@ class SearchResultsAdapter(private val onClick: (ResultsHotelItemUI) -> Unit) : 
 
             itemView.setOnClickListener {
                 onClick(dataItem)
+            }
+            binding.ivAddToFavorite.setOnClickListener {
+                onButtonClick.invoke(absoluteAdapterPosition)
             }
         }
     }

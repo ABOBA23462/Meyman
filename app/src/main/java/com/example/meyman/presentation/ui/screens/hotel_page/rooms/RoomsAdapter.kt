@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
 import com.example.meyman.presentation.models.rooms.list.ResultsRoomsListItemUI
 import com.example.meyman.databinding.ItemRoomBinding
+import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 
 class RoomsAdapter( val onItemClick: (id: Int) -> Unit) : ListAdapter<ResultsRoomsListItemUI, RoomsAdapter.ViewHolder>(
     diffUtil

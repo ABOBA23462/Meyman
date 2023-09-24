@@ -52,6 +52,7 @@ class UserProfileFragment :
                             val http = convertToHttpsUrl(it.data.image.toString())
                             binding.tvProfileName.text = it.data.username
                             binding.ivProfileIcon.setImage(http)
+                            userPreferencesData.userId = it.data.id
                             Log.e("ololo", "RPAS: ${it.data}")
                         }
                     }

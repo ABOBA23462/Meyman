@@ -40,9 +40,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        refreshAccessToken()
         setupNavController()
         setInternetConnection()
+        if (userPreferencesData.isAuthorized == true){
+            refreshAccessToken()
+        }
+
     }
 
     private fun refreshAccessToken() {
@@ -104,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_favorite -> {
-                    navController.navigate(R.id.favoriteFragment)
+                    navController.navigate(R.id.wishlistFragment)
                     true
                 }
 

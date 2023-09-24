@@ -7,5 +7,5 @@ import javax.inject.Inject
 class FetchRoomsUseCase @Inject constructor(
     private val roomsRepository: RoomsRepository
 ) {
-    operator fun invoke() = roomsRepository.fetchRooms()
+    operator fun invoke(id: Int) = roomsRepository.fetchRooms(id)
 }

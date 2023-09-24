@@ -49,8 +49,8 @@ class UpdatePasswordFragment : Fragment() {
         btnAccept.setOnClickListener {
             val password = etPassword.text.toString()
             val model = PasswordDto(password)
-            val cofirmPassword = etConfirmPassword.text.toString()
-            if (cofirmPassword == password) {
+            val confirmPassword = etConfirmPassword.text.toString()
+            if (confirmPassword == password) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                         viewModel.getPassword(args.code, model).collect {

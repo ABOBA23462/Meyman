@@ -8,12 +8,12 @@ data class AnswerLoginUI(
     @SerializedName("tokens")
     val tokens: TokensUI,
     @SerializedName("message")
-    val message: String = ""
+    val message: String = "",
 )
 
 fun AnswerLoginModel.toUI() = AnswerLoginUI(
     tokens.toUI(),
-    message
+    message,
 )
 
 data class TokensUI(

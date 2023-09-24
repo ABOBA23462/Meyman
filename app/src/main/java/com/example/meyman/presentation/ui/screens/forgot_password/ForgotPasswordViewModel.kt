@@ -15,5 +15,5 @@ class ForgotPasswordViewModel @Inject constructor(
     private val fetchResetPasswordEmailUseCase: FetchResetPasswordEmailUseCase,
 ) : ViewModel() {
 
-    suspend fun getEmail(emailDto: EmailDto) = fetchResetPasswordEmailUseCase(emailDto)
+    fun getEmail(emailDto: EmailDto) = fetchResetPasswordEmailUseCase(emailDto)
 }

@@ -94,7 +94,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun subscribeToFetchAdvertising() {
-            viewModel.getChooseRoomState()
+            viewModel.getAdvertising()
             viewLifecycleOwner.lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                     viewModel.advertisingState.collect {
