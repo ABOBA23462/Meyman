@@ -3,7 +3,10 @@ package com.example.meyman.presentation.ui.screens.sign.`in`
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -97,30 +100,36 @@ class SignInFragment : BottomSheetDialogFragment() {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
             val model = LoginDto(password, email)
-            viewLifecycleOwner.lifecycleScope.launch {
-                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    viewModel.getLoginState(model).collect {
-                        when (it) {
-                            is Resource.Loading -> {
-                            }
-
-                            is Resource.Error -> {
-                                Log.e("ololo", "setupSubscribes11111: " + it.message)
-                            }
-
-                            is Resource.Success -> {
-                                val list = it.data?.toUI()
-                                userPreferencesData.apply {
-                                    isAuthorized = true
-                                    accessToken = it.data!!.tokens.access
-                                    refreshToken = it.data.tokens.refresh
+            if (!isGmailAddressValid(email)) {
+                tilEmail.setErrorWithTimeout("Введите норм почту")
+            } else if (!isPasswordValid(password)) {
+                tilPassword.setErrorWithTimeout("Введите норм пароль")
+            } else {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.getLoginState(model).collect {
+                            when (it) {
+                                is Resource.Loading -> {
                                 }
-                                Log.e("MyApp", "setupSubscribes: $list")
-                                dismiss()
-                                findNavController().navigate(R.id.action_guestProfileFragment_to_userProfileFragment)
-                                bundle.putString("email", etRegEmail.text.toString())
-                                val verifyFragment = VerifyAccountFragment()
-                                verifyFragment.arguments = bundle
+
+                                is Resource.Error -> {
+                                    Log.e("ololo", "setupSubscribes11111: " + it.message)
+                                }
+
+                                is Resource.Success -> {
+                                    val list = it.data?.toUI()
+                                    userPreferencesData.apply {
+                                        isAuthorized = true
+                                        accessToken = it.data!!.tokens.access
+                                        refreshToken = it.data.tokens.refresh
+                                    }
+                                    Log.e("MyApp", "setupSubscribes: $list")
+                                    dismiss()
+                                    findNavController().navigate(R.id.action_guestProfileFragment_to_userProfileFragment)
+                                    bundle.putString("email", etRegEmail.text.toString())
+                                    val verifyFragment = VerifyAccountFragment()
+                                    verifyFragment.arguments = bundle
+                                }
                             }
                         }
                     }
@@ -134,14 +143,21 @@ class SignInFragment : BottomSheetDialogFragment() {
             val email = binding.etRegEmail.text.toString().trim()
             val username = binding.etRegUserName.text.toString().trim()
             val password = binding.etRegPassword.text.toString().trim()
+            val confirmPassword = binding.etConfirmPassword.text.toString().trim()
             val usertype = "client"
             val model = RegisterDto(email, username, usertype, password)
-            if (etRegEmail.text.isNullOrEmpty()) {
-                tilRegEmail.error = "asd"
-            } else if (etRegUserName.text.isNullOrEmpty()) {
-                tilRegUserName.error = "asd"
-            } else if (etRegPassword.text.isNullOrEmpty()) {
-                tilRegPassword.error = "asd"
+            tilRegUserName.error = null
+            tilRegEmail.error = null
+            tilRegPassword.error = null
+            tilConfirmPassword.error = null
+            if (!isUsernameValid(username)) {
+                tilRegUserName.setErrorWithTimeout("Введите корректно имя и фамилию")
+            } else if (!isGmailAddressValid(email)) {
+                tilRegEmail.setErrorWithTimeout("Введите норм почту")
+            } else if (!isPasswordValid(password)) {
+                tilRegPassword.setErrorWithTimeout("Введите норм пароль")
+            } else if (confirmPassword != password) {
+                tilConfirmPassword.setErrorWithTimeout("Повторите введеный пароль")
             } else {
                 viewLifecycleOwner.lifecycleScope.launch {
                     viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -155,8 +171,14 @@ class SignInFragment : BottomSheetDialogFragment() {
                                 }
 
                                 is Resource.Success -> {
-                                    userPreferencesData.userEmail = email
+                                    userPreferencesData.apply {
+                                        userEmail = binding.etRegEmail.text.toString().trim()
+                                    }
                                     findNavController().navigate(R.id.action_guestProfileFragment_to_verifyAccountFragment)
+                                    Log.e(
+                                        "ololo",
+                                        "setupSubscribes11111: " + userPreferencesData.userEmail
+                                    )
                                 }
                             }
                         }
@@ -166,14 +188,61 @@ class SignInFragment : BottomSheetDialogFragment() {
         }
     }
 
+    fun isUsernameValid(username: String): Boolean {
+        // Разбиваем строку имени пользователя на слова
+        val words = username.split(" ")
+
+        // Проверяем, что в имени пользователя есть ровно два слова
+        if (words.size != 2) {
+            return false
+        }
+
+        // Проверяем, что каждое слово состоит из букв
+        for (word in words) {
+            if (!word.all { it.isLetter() }) {
+                return false
+            }
+        }
+
+        // Если прошли все проверки, имя пользователя считается допустимым
+        return true
+    }
+
+    fun isGmailAddressValid(email: String): Boolean {
+        // Используйте регулярное выражение для проверки адреса электронной почты
+        val emailPattern = "[a-zA-Z0-9._-]+@gmail.com"
+        return email.matches(emailPattern.toRegex())
+    }
+
+    fun isPasswordValid(password: String): Boolean {
+        // Проверяем длину пароля
+        if (password.length <= 6) {
+            return false
+        }
+
+        // Проверяем, что пароль состоит из цифр и букв
+        for (char in password) {
+            if (!char.isDigit() && !char.isLetter()) {
+                return false
+            }
+        }
+
+        // Если прошли все проверки, пароль считается допустимым
+        return true
+    }
+
     fun TextInputLayout.setErrorWithTimeout(errorMessage: String) {
         error = errorMessage
         Handler().postDelayed({
             error = null
-//        val layoutParams = this.layoutParams
-//        val dpVal = 56f
-//        layoutParams.height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpVal, context.resources.displayMetrics).toInt()
-//        this.layoutParams = layoutParams
+            val layoutParams = this.layoutParams
+            val dpVal = 62f
+            layoutParams.height = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dpVal,
+                context.resources.displayMetrics
+            ).toInt()
+            this.layoutParams = layoutParams
         }, 5000L)
     }
 }
