@@ -22,6 +22,8 @@ import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentChangeUserProfileBinding
 import com.example.meyman.presentation.base.Resource
 import com.example.meyman.presentation.state.UIState
+import com.example.meyman.presentation.ui.screens.profile.user.change.exitAccount.ExitAccountFragment
+import com.example.meyman.presentation.ui.screens.sign.`in`.SignInFragment
 
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -108,9 +110,9 @@ class ChangeUserProfileFragment :
             }
         }
         binding.flExitAccount.setOnClickListener {
-            userPreferencesData.isAuthorized = false
-            userPreferencesData.accessToken = ""
-            userPreferencesData.refreshToken = ""
+            val bottomSheetFragment = ExitAccountFragment()
+            bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
+            bottomSheetFragment.dialog?.window?.setBackgroundDrawableResource(R.drawable.rounder)
         }
     }
 

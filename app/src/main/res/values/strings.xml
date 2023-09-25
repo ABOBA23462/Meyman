@@ -189,4 +189,7 @@
     <string name="text_favorite">Здесь будут появляться ваши избранные</string>
     <string name="sign">Войти</string>
     <string name="no_like">У вас еще нет избранных отелей</string>
+    <string name="exit_account">Выйти с аккаунта?</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete">Удалить</string>
 </resources>
