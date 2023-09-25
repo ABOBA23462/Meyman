@@ -54,18 +54,12 @@ class AdvertisingAdapter :
     }
 
     fun convertToHttpsUrl(httpUrl: String): String {
-        // Проверяем, начинается ли URL с "http://" (без "s")
         if (httpUrl.startsWith("http://")) {
-            // Заменяем "http://" на "https://"
             return "https://" + httpUrl.substring(7)
         }
-
-        // Если URL уже начинается с "https://", то оставляем его без изменений
         if (httpUrl.startsWith("https://")) {
             return httpUrl
         }
-
-        // Если URL не начинается ни с "http://", ни с "https://", вернем его без изменений
         return httpUrl
     }
 

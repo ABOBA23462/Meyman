@@ -186,4 +186,7 @@
     <string name="option">2 варианта</string>
     <string name="reset_password_rules">Введите 6-20 символов. Пароль должен содержать\nбуквы и цифры</string>
     <string name="no_get_code">Не получили код?</string>
+    <string name="text_favorite">Здесь будут появляться ваши избранные</string>
+    <string name="sign">Войти</string>
+    <string name="no_like">У вас еще нет избранных отелей</string>
 </resources>

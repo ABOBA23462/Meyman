@@ -1,6 +1,5 @@
 package com.example.meyman.presentation.ui.screens.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.meyman.domain.usecases.FetchAdvertisingUseCase
@@ -28,14 +27,10 @@ class HomeViewModel @Inject constructor(
                 when(it){
                     is Either.Left -> {
                         _advertisingState.value = UIState.Error(it.message!!)
-                        Log.e("ololoLeft", "getChooseRoomState: ${it.message}", )
                     }
                     is Either.Right -> {
                         _advertisingState.value = UIState.Success(it.data!!.map { it.toUI() })
-                        Log.e("ololoSucces", "getChooseRoomState: ${it.data}", )
                     }
-
-                    else -> {}
                 }
             }
         }

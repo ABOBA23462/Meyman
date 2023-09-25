@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -36,6 +37,15 @@ class WishlistFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        if (!userPreferencesData.isAuthorized) {
+            binding.rvWishlist.isGone = true
+            binding.noDataLinear.isGone = false
+            binding.signButton.isGone = false
+        } else {
+            binding.rvWishlist.isGone = false
+            binding.noDataLinear.isGone = true
+            binding.signButton.isGone = true
+        }
         wishlist()
         deleteWishlist()
     }
@@ -46,17 +56,16 @@ class WishlistFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.wishlistState.collect {
                     when (it) {
-                        is UIState.Error -> {
-//                                binding.progressBar.isVisible = false
-                        }
+                        is UIState.Error -> {}
 
-                        is UIState.Loading -> {
-//                                binding.progressBar.isVisible = true
-                        }
+                        is UIState.Loading -> {}
 
                         is UIState.Success -> {
-//                                binding.progressBar.isVisible = false
-                            binding.rvWishlist.adapter = adapter
+                            if (it.data.isEmpty()) {
+                                binding.rvWishlist.isGone = true
+                                binding.likeLinear.isGone = false
+                            } else
+                                binding.rvWishlist.adapter = adapter
                             adapter.submitList(it.data)
                         }
                     }
@@ -64,6 +73,7 @@ class WishlistFragment : Fragment() {
             }
         }
     }
+
     private fun deleteWishlist() {
 
     }

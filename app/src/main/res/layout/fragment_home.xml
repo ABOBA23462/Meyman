@@ -69,25 +69,6 @@
                 app:layout_constraintStart_toEndOf="@+id/iv_location_icon"
                 app:layout_constraintTop_toTopOf="@+id/iv_location_icon" />
 
-            <Spinner
-                android:id="@+id/spin_languages"
-                style="@style/SpinnerButtonStyle"
-                android:layout_width="100dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/spin_valuta"
-                app:layout_constraintEnd_toStartOf="@+id/spin_valuta"
-                app:layout_constraintTop_toTopOf="@id/spin_valuta" />
-
-            <Spinner
-                android:id="@+id/spin_valuta"
-                android:layout_width="101dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:paddingVertical="10dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageView
                 android:id="@+id/iv_main_logo"
                 android:layout_width="wrap_content"
