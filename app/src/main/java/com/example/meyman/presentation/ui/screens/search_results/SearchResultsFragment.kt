@@ -12,17 +12,22 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.meyman.R
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentSearchResultsBinding
 import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.favorite.addInFavorite.AddInFavoriteFragment
+import com.example.meyman.presentation.ui.screens.room_page.booking.RoomBookingFragment
 import com.example.meyman.presentation.ui.screens.sign.`in`.SignInFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SearchResultsFragment : Fragment() {
 
+    @Inject
+    lateinit var userDataPreferencesHelper: UserDataPreferencesHelper
     private lateinit var binding: FragmentSearchResultsBinding
     private val viewModel: SearchResultViewModel by viewModels()
     private val reviewAdapter = SearchResultsAdapter(this::onClick, this::onButtonClick)
@@ -45,6 +50,7 @@ class SearchResultsFragment : Fragment() {
 
     private fun onClick(hotelsResult: ResultsHotelItemUI) {
         findNavController().navigate(R.id.hotelPageFragment, bundleOf("id" to hotelsResult.id))
+        userDataPreferencesHelper.hotelId = hotelsResult.id
     }
 
     private fun onButtonClick(id: Int) {

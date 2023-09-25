@@ -2,17 +2,26 @@ package com.example.meyman.presentation.ui.screens.dashboard
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.meyman.R
+import com.example.meyman.data.remote.preferences.PreferenceHelper
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentDashboardBinding
 import com.example.meyman.presentation.ui.screens.home.HomeFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DashboardFragment : BottomSheetDialogFragment() {
 
+    @Inject
+    lateinit var userPreferencesData: UserDataPreferencesHelper
     private lateinit var binding: FragmentDashboardBinding
 
 
@@ -36,40 +45,59 @@ class DashboardFragment : BottomSheetDialogFragment() {
         var childNum = 0
 
         ivRoomPlus.setOnClickListener {
-            tvRoomNum.text = roomNum.toString()
             roomNum++
+            tvRoomNum.text = roomNum.toString()
         }
 
         ivMinusRoom.setOnClickListener {
-            tvRoomNum.text = roomNum.toString()
-            roomNum--
+            if (roomNum <= 0) {
+                Toast.makeText(requireActivity(), "Сan't be less", Toast.LENGTH_SHORT).show()
+            } else {
+                roomNum--
+                tvRoomNum.text = roomNum.toString()
+            }
         }
 
         ivAdultPlus.setOnClickListener {
-            tvAdultNum.text = adultNum.toString()
             adultNum++
+            tvAdultNum.text = adultNum.toString()
         }
 
         ivMinusAdult.setOnClickListener {
-            tvAdultNum.text = adultNum.toString()
-            adultNum--
+            if (adultNum <= 0) {
+                Toast.makeText(requireActivity(), "Сan't be less", Toast.LENGTH_SHORT).show()
+            } else {
+                adultNum--
+                tvRoomNum.text = adultNum.toString()
+            }
         }
 
         ivChildPlus.setOnClickListener {
-            tvChildNum.text = childNum.toString()
             childNum++
+            tvChildNum.text = childNum.toString()
         }
 
         ivMinusChild.setOnClickListener {
-            tvChildNum.text = childNum.toString()
-            childNum--
+            if (childNum < 0) {
+                Toast.makeText(requireActivity(), "Сan't be less", Toast.LENGTH_SHORT).show()
+            } else {
+                childNum--
+                tvRoomNum.text = childNum.toString()
+            }
         }
         btnApply.setOnClickListener {
+            userPreferencesData.apply {
+                children = childNum
+                adults = adultNum
+            }
+            Log.e("erbol", "prefs: " + userPreferencesData.children )
+
             val bundle = Bundle()
             bundle.putString("room", tvRoomNum.text.toString())
             bundle.putString("adult", tvAdultNum.toString())
             bundle.putString("child", tvChildNum.toString())
             findNavController().navigate(R.id.homeFragment, bundle)
+            dismiss()
         }
     }
 }

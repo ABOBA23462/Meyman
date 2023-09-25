@@ -10,9 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentBookingBinding
 import com.example.meyman.presentation.state.UIState
+import com.example.meyman.presentation.ui.screens.hotel_page.rooms.RoomsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.processNextEventInCurrentThread
@@ -24,6 +26,7 @@ class ReservationFragment : Fragment() {
     @Inject
     lateinit var userPreferencesData: UserDataPreferencesHelper
     private val viewModel: ReservationViewModel by viewModels()
+    private val sharedViewModel: RoomsViewModel by viewModels()
     private lateinit var binding: FragmentBookingBinding
     private val reservationAdapter = ReservationAdapter()
 

@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem
 import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
 import com.example.meyman.R
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentHomeBinding
 import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.adapter.CustomSpinnerAdapter
@@ -24,10 +25,13 @@ import com.example.meyman.presentation.ui.screens.dashboard.DashboardFragment
 import com.example.meyman.presentation.ui.screens.home.adapter.AdvertisingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
+    @Inject
+    lateinit var userPreferencesData: UserDataPreferencesHelper
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
     private val adapter = AdvertisingAdapter()
@@ -46,7 +50,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initialize()
         setupSubscribes()
-
+        binding.tvOptions2.text = "${userPreferencesData.adults} взрослых"
+        binding.tvOptions3.text = "${userPreferencesData.children} детей"
 //        val receivedBundle = arguments
 //        val roomNum = receivedBundle?.getString("room", "1")
 //        val adultNum = receivedBundle?.getString("adult", "1")

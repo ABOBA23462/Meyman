@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun setInternetConnection() {
- /*       ConnectionLiveData(application).observe(this) {
+        ConnectionLiveData(application).observe(this) {
             binding.clNoInternet.isVisible = !it
             binding.bottomNavigation.isVisible = it
         }
@@ -144,6 +144,6 @@ class MainActivity : AppCompatActivity() {
                 progressBar.isVisible = true
                 retry.isVisible = true
             }, 4000L)
-        }*/
+        }
     }
 }
