@@ -1,7 +1,9 @@
 package com.example.meyman.presentation.ui.screens.forgot_password.updatePassword
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +22,7 @@ import com.example.meyman.presentation.base.Resource
 import com.example.meyman.presentation.ui.screens.forgot_password.ForgotPasswordFragmentDirections
 import com.example.meyman.presentation.ui.screens.room_page.RoomPageFragmentArgs
 import com.example.meyman.presentation.ui.screens.sign.`in`.SignInFragment
+import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -48,10 +51,14 @@ class UpdatePasswordFragment : Fragment() {
 
     private fun forgotPassword() = with(binding) {
         btnAccept.setOnClickListener {
-            val password = etPassword.text.toString()
+            val password = etUpdatePassword.text.toString()
             val model = PasswordDto(password)
             val confirmPassword = etConfirmPassword.text.toString()
-            if (confirmPassword == password) {
+            if (!isPasswordValid(password)) {
+                tilUpdatePassword.setErrorWithTimeout("введите корректный пароль")
+            } else if (password != confirmPassword) {
+                tilConfirmPassword.setErrorWithTimeout("введите повторный пароль")
+            } else {
                 viewLifecycleOwner.lifecycleScope.launch {
                     viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                         viewModel.getPassword(args.code, model).collect {
@@ -64,18 +71,53 @@ class UpdatePasswordFragment : Fragment() {
                                 }
 
                                 is Resource.Success -> {
-                                  findNavController().navigate(R.id.action_updatePasswordFragment2_to_guestProfileFragment)
+                                    findNavController().navigate(R.id.action_updatePasswordFragment2_to_guestProfileFragment)
                                     val bottomSheetFragment = SignInFragment()
-                                    bottomSheetFragment.show(parentFragmentManager, bottomSheetFragment.tag)
-                                    bottomSheetFragment.dialog?.window?.setBackgroundDrawableResource(R.drawable.rounder)
+                                    bottomSheetFragment.show(
+                                        parentFragmentManager,
+                                        bottomSheetFragment.tag
+                                    )
+                                    bottomSheetFragment.dialog?.window?.setBackgroundDrawableResource(
+                                        R.drawable.rounder
+                                    )
                                 }
                             }
                         }
                     }
                 }
-            } else {
-                Toast.makeText(requireContext(), "Введите одинаковый пароль", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    fun isPasswordValid(password: String): Boolean {
+        // Проверяем длину пароля
+        if (password.length <= 6) {
+            return false
+        }
+
+        // Проверяем, что пароль состоит из цифр и букв
+        for (char in password) {
+            if (!char.isDigit() && !char.isLetter()) {
+                return false
+            }
+        }
+
+        // Если прошли все проверки, пароль считается допустимым
+        return true
+    }
+
+    fun TextInputLayout.setErrorWithTimeout(errorMessage: String) {
+        error = errorMessage
+        Handler().postDelayed({
+            error = null
+            val layoutParams = this.layoutParams
+            val dpVal = 62f
+            layoutParams.height = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dpVal,
+                context.resources.displayMetrics
+            ).toInt()
+            this.layoutParams = layoutParams
+        }, 5000L)
     }
 }

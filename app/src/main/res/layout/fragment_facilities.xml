@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Спальня"
+                android:text="@string/bedroom"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Шкаф и гардероб"
+            android:text="@string/garderob"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Бесплатные туалетно-косметические принадлежности"
+            android:text="@string/free_toilet"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Туалетная бумага"
+            android:text="@string/toilet_peper"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Полотенце"
+            android:text="@string/towel"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Ванная"
+            android:text="@string/bathroom_2"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Душ"
+            android:text="@string/shower"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Гостиная зона"
+                android:text="@string/guest_zone"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -166,7 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Гостиный уголок"
+            android:text="@string/guest_corner"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -175,7 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Диван"
+            android:text="@string/sofa"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -198,7 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Кухня"
+                android:text="@string/kitchen"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -212,7 +212,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Электрический чайник"
+            android:text="@string/electro_kettle"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -221,7 +221,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Кофеварка"
+            android:text="@string/coffee_maker"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -230,7 +230,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Мини-бар"
+            android:text="@string/mini_bar"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -253,7 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Вид"
+                android:text="@string/view"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -267,7 +267,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Вид на город"
+            android:text="@string/view_on_city"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -290,7 +290,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="На свежем воздухе"
+                android:text="@string/on_fresh_air"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -304,7 +304,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Терраса для загара"
+            android:text="@string/sun_terrace"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -313,7 +313,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Сад"
+            android:text="@string/garden"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -336,7 +336,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Медиа и технологии"
+                android:text="@string/media_and_technology"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -350,7 +350,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Телевизор"
+            android:text="@string/tv"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -359,7 +359,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Телефон"
+            android:text="@string/phone"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -382,7 +382,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Сервисы"
+                android:text="@string/services"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -396,7 +396,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Услуга &quot;звонок- будильник&quot; "
+            android:text="@string/quot_quot"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -419,7 +419,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Общие"
+                android:text="@string/general"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -433,7 +433,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Кондиционер"
+            android:text="@string/conditioner"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -442,7 +442,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Сейф"
+            android:text="@string/safe"
             android:textColor="@color/black"
             android:textSize="12sp" />
 

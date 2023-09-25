@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Ущелье Ала-Арча"
+                android:text="@string/ala_archa"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_location_icon"
@@ -179,7 +179,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="4dp"
-                                android:text="13 июля, чт - 14 июля, пт"
+                                android:text="@string/_13_14"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -212,7 +212,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="4dp"
-                                android:text="1 номер"
+                                android:text="@string/_1_room"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
@@ -229,7 +229,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="6dp"
-                                android:text="2 взрослых"
+                                android:text="@string/_2_adult"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
@@ -246,7 +246,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="6dp"
-                                android:text="0 детей"
+                                android:text="@string/_0_child"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -260,7 +260,7 @@
                         android:background="@drawable/rounder_button"
                         android:backgroundTint="@color/blue1"
                         android:padding="16dp"
-                        android:text="Найти"
+                        android:text="@string/find"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -299,7 +299,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Жилье"
+                android:text="@string/housing"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/mcv_lodging"
@@ -310,7 +310,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Транспорт"
+                android:text="@string/car"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/mcv_transport"
@@ -342,7 +342,7 @@
                 android:id="@+id/tv_recomend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Рекомендации"
+                android:text="@string/advertising"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"

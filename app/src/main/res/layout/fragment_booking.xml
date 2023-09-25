@@ -28,34 +28,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/line1_hor"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintGuide_begin="20dp" />-->
-
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/line2_hor"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintGuide_end="462dp" />-->
-
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/line3_hor"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintGuide_end="24dp" />-->
-
-<!--    <androidx.constraintlayout.widget.Guideline-->
-<!--        android:id="@+id/line1_vert"-->
-<!--        android:layout_width="1dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintGuide_begin="12dp" />-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

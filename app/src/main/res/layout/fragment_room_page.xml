@@ -160,6 +160,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginHorizontal="12dp"
                     app:spanCount="3"
                     app:layout_constraintTop_toBottomOf="@id/iv_hotel_amenities"/>
 
@@ -200,7 +203,7 @@
             android:layout_gravity="center"
             android:background="@drawable/rounder_button"
             android:backgroundTint="@color/blue1"
-            android:text="Забронировать номер от 12 520 сом."
+            android:text="@string/booking_room"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />

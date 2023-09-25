@@ -51,7 +51,8 @@
             android:text="@string/write_code"
             android:textColor="@color/black"
             android:textSize="@dimen/defaultTextSize"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="SpUsage" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,7 +68,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12.5dp"
             android:layout_marginTop="40dp"
-            android:inputType="number"
             android:background="@drawable/bg_for_et"
             android:hint="@string/accept_code"
             android:paddingHorizontal="16dp"

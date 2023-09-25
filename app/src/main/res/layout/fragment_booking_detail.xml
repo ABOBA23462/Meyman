@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="32dp"
-            android:text="Завершено"
+            android:text="@string/finish"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="@dimen/defaultMargine"
-            android:text="Ваше бронивароние жилья"
+            android:text="@string/your_booking_house"
             android:textColor="@color/black"
             android:textSize="@dimen/defaultTextSizeSmall"
             android:textStyle="bold"
@@ -149,7 +149,7 @@
                                 android:background="@color/yellow"
                                 android:paddingHorizontal="8dp"
                                 android:paddingVertical="1dp"
-                                android:text="10"
+                                android:text="@string/_10"
                                 android:textColor="@color/white"
                                 android:textSize="12sp"
                                 app:layout_constraintBottom_toTopOf="@+id/iv_location"
@@ -194,8 +194,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="8dp"
-                            android:text="адрес"
-                            android:textSize="12dp" />
+                            android:text="@string/address"
+                            android:textSize="12sp" />
 
                     </LinearLayout>
 
@@ -349,7 +349,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="@dimen/defaultMargine"
-            android:text="Вы забронировали 1 номер"
+            android:text="@string/your_booking_1_room"
             android:textColor="@color/black"
             android:textSize="@dimen/defaultTextSizeSmall"
             android:textStyle="bold"

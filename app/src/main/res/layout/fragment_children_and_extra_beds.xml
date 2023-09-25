@@ -12,7 +12,7 @@
         android:id="@+id/tv_children_and_extra_beds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Дети и дополнительные кровати"
+        android:text="@string/child_extra_beds"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="Правила размещения детей (0-16 лет)"
+            android:text="@string/_0_16"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        android:text="Разрешается проживание детей любого возраста"
+        android:text="@string/child_of_any_age_are_allowed"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-            android:text="По запросу детям в возрасте от 1 до 3 лет детская кроватка предоставляется бесплатно"
+            android:text="@string/_1_3"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="Установка дополнительных кроватей"
+                android:text="@string/setup_extra_beds"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:text="Установка дополнительных кроватей не предусмотрена"
+            android:text="@string/setup_extra_beds_no"
             android:textColor="@color/black"
             android:textSize="12sp" />
 

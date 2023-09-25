@@ -132,30 +132,25 @@
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:strokeWidth="1dp"
             android:layout_marginTop="20dp"
-            android:hint="@string/mail"
-            app:boxCornerRadiusBottomEnd="@dimen/defaultCorner"
-            app:boxCornerRadiusBottomStart="@dimen/defaultCorner"
-            app:boxCornerRadiusTopEnd="@dimen/defaultCorner"
-            app:boxCornerRadiusTopStart="@dimen/defaultCorner"
-            app:boxStrokeColor="@color/blue1"
-            app:boxStrokeErrorColor="@color/red"
-            app:boxStrokeWidth="1.5dp"
-            app:boxStrokeWidthFocused="2dp"
-            app:hintTextColor="@color/blue1">
+            app:strokeColor="@color/gray2"
+            android:backgroundTint="@color/gray4"
+            app:cardCornerRadius="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_user_email"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/gray2"
+                android:layout_marginVertical="14dp"
                 android:textSize="@dimen/defaultTextSizeSmall"
-                tools:ignore="TextContrastCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="@dimen/defaultMargine"
+                android:text="@string/email"/>
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -178,7 +173,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:text="+996"
+                android:text="@string/_996"
                 android:textColor="@color/black"
                 android:textSize="@dimen/defaultTextSizeSmall"
                 tools:ignore="TextContrastCheck" />
@@ -193,7 +188,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="12dp"
-                android:text="Изменить пароль"
+                android:text="@string/change_password"
                 android:textColor="@color/black"
                 android:textSize="@dimen/defaultTextSizeSmall"
                 android:textStyle="bold" />
@@ -281,7 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="12dp"
-                android:text="Выйти"
+                android:text="@string/exit"
                 android:textColor="@color/black"
                 android:textSize="@dimen/defaultTextSizeSmall"
                 android:textStyle="bold" />

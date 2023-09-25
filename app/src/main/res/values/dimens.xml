@@ -5,6 +5,6 @@
     <dimen name="defaultPadding">12dp</dimen>
     <dimen name="defaultMargine">12dp</dimen>
     <dimen name="defaultCorner">10dp</dimen>
-    <dimen name="defaultTextSize">18dp</dimen>
-    <dimen name="defaultTextSizeSmall">16dp</dimen>
+    <dimen name="defaultTextSize">18sp</dimen>
+    <dimen name="defaultTextSizeSmall">16sp</dimen>
 </resources>

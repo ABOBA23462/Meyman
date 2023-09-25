@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Порядок проживания в отеле"
+                android:text="@string/hotel_stay_polisy"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Данные правила проживания в отеле Novotel Bishkek City Center являются общими и могут варьироваться в зависимости от типа номера.Пожалуйста, также проверьте условия для отдельных номеров."
+                android:text="@string/hotel_rules"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Время заезда/выезда"
+                android:text="@string/check_in_out_time"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -57,28 +57,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Заезд c "
+                    android:text="@string/c"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15:00"
+                    android:text="@string/_15_00"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" до "
+                    android:text="@string/out"
+                    android:layout_marginHorizontal="3dp"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00:00"
+                    android:text="@string/out_time"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
@@ -93,28 +94,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Выезд c "
+                    android:text="@string/in_c"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00:00"
+                    android:text="@string/out_time"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" до "
+                    android:text="@string/out"
+                    android:layout_marginHorizontal="3dp"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12:00"
+                    android:text="@string/_12_00"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
@@ -124,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Домашние животные"
+                android:text="@string/home_animal"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -138,7 +140,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Размещение домашних животных допускается"
+                    android:text="@string/home_animal_rules"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

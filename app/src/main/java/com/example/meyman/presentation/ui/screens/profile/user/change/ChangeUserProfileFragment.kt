@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
@@ -116,11 +117,14 @@ class ChangeUserProfileFragment :
     private fun changeUserProfile() = with(binding) {
         tvSave.setOnClickListener {
             val fullName = etUserName.text.toString().trim()
-            val phoneNumber = etUserPhoneNumber.text.toString().trim()
+            val phone = etUserPhoneNumber.text?.trim()
+            val phoneNumber = phone?.replace("[+]".toRegex(), "")
             Log.e("ABOBA", "setupSubscribes: + ${fullName + phoneNumber} ")
             val fullnamePart = RequestBody.create("fullname".toMediaTypeOrNull(), fullName)
             val phoneNumberPart =
-                RequestBody.create("phone_number".toMediaTypeOrNull(), phoneNumber)
+                RequestBody.create("phone_number".toMediaTypeOrNull(), phoneNumber!!)
+            Log.e("ABOBA", "setupSubscribes: + ${fullnamePart}, ${phoneNumberPart} ")
+
 
             var inputStream: InputStream = ByteArrayInputStream(byteArrayOf())
             if (uri != Uri.EMPTY) {
@@ -189,6 +193,7 @@ class ChangeUserProfileFragment :
                         is UIState.Success -> {
                             val http = convertToHttpsUrl(it.data.image.toString())
                             binding.etUserName.setText(it.data.username)
+                            binding.tvEmail.text = it.data.email
                             binding.etUserPhoneNumber.setText(it.data.phoneNumber)
                             binding.ivUserAvatar.setImage(http)
                             Log.e("ololo", "RPAS: ${it.data}")
