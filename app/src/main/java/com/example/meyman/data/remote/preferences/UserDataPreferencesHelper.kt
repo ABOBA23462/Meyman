@@ -7,11 +7,16 @@ const val PREF_REFRESH_TOKEN: String = "refresh_token"
 const val PREF_ACCESS_TOKEN: String = "access_token"
 const val PREF_USER_EMAIL: String = "email"
 const val KEY_FOR_USER_ID = "KEY_FOR_USER_ID"
+const val PREF_USER_PASSWORD: String = "password"
+const val PREF_CHILDREN: String = "children"
+const val PREF_ADULTS: String = "adults"
 const val PREF_ON_BOARD = "on_board"
+const val PREF_HOTEL_ID = "hotel_ID"
 
 class UserDataPreferencesHelper @Inject constructor(
     private val preferences: PreferenceHelper
 ) {
+
     var isAuthorized : Boolean
         get() = preferences().getBoolean(PREF_IS_AUTHORIZED, false)
         set(value) = preferences().edit().putBoolean(PREF_IS_AUTHORIZED, value).apply()
@@ -32,7 +37,21 @@ class UserDataPreferencesHelper @Inject constructor(
         get() = preferences().getBoolean(PREF_ON_BOARD, false)
         set(value) = preferences().edit().putBoolean(PREF_ON_BOARD, value).apply()
 
+    var children : Int
+        get() = preferences().getInt(PREF_CHILDREN, 0)
+        set(value) = preferences().edit().putInt(PREF_CHILDREN, value).apply()
+
+    var adults : Int
+        get() = preferences().getInt(PREF_ADULTS, 0)
+        set(value) = preferences().edit().putInt(PREF_ADULTS, value).apply()
+
     var userId : Int
         get() = preferences().getInt(KEY_FOR_USER_ID, 0)
         set(value) = preferences().edit().putInt(KEY_FOR_USER_ID, value).apply()
+
+    var hotelId : Int
+        get() = preferences().getInt(PREF_HOTEL_ID, 0)
+        set(value) = preferences().edit().putInt(PREF_HOTEL_ID, value).apply()
+
+
 }

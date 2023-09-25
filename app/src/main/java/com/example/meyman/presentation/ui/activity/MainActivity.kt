@@ -114,20 +114,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setInternetConnection() {
-//        ConnectionLiveData(application).observe(this) {
-//            binding.clNoInternet.isVisible = !it
-//            binding.bottomNavigation.isVisible = it
-//        }
-//
-//        val retry = findViewById<Button>(R.id.btn_retry)
-//        val progressBar = findViewById<ProgressBar>(R.id.pb_no_internet)
-//        retry.setOnClickListener {
-//            progressBar.isVisible = true
-//            retry.isVisible = false
-//            Handler().postDelayed({
-//                progressBar.isVisible = true
-//                retry.isVisible = true
-//            }, 4000L)
-//        }
+ /*       ConnectionLiveData(application).observe(this) {
+            binding.clNoInternet.isVisible = !it
+            binding.bottomNavigation.isVisible = it
+        }
+
+        val retry = findViewById<Button>(R.id.btn_retry)
+        val progressBar = findViewById<ProgressBar>(R.id.pb_no_internet)
+        retry.setOnClickListener {
+            progressBar.isVisible = true
+            retry.isVisible = false
+            Handler().postDelayed({
+                progressBar.isVisible = true
+                retry.isVisible = true
+            }, 4000L)
+        }*/
     }
 }

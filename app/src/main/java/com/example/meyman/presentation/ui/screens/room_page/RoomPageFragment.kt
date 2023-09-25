@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.SnapHelper
@@ -91,6 +92,9 @@ class RoomPageFragment :
             startActivity(Intent.createChooser(sharingIntent, "Поделиться через"))
         }
 
+        binding.btnReserve.setOnClickListener {
+            findNavController().navigate(R.id.action_roomPageFragment_to_roomBookingFragment)
+        }
 
     }
 

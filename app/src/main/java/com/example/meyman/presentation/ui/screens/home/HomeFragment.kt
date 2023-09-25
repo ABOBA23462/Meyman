@@ -2,6 +2,7 @@ package com.example.meyman.presentation.ui.screens.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +13,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem
+import com.example.meyman.presentation.ui.screens.spinerhome.SpinnerItem2
 import com.example.meyman.R
 import com.example.meyman.databinding.FragmentHomeBinding
 import com.example.meyman.presentation.state.UIState
+import com.example.meyman.presentation.ui.adapter.CustomSpinnerAdapter
+import com.example.meyman.presentation.ui.adapter.CustomSpinnerAdapter2
 import com.example.meyman.presentation.ui.screens.dashboard.DashboardFragment
 import com.example.meyman.presentation.ui.screens.home.adapter.AdvertisingAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +38,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+     binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,6 +46,16 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initialize()
         setupSubscribes()
+
+        binding.tvOptions2.text = "${userPreferencesData.adults} взрослых"
+        binding.tvOptions3.text = "${userPreferencesData.children} детей"
+
+
+        val adapter = CustomSpinnerAdapter(requireContext(), R.layout.spinner_item_layout, spinnerItem)
+        binding.spinLanguages.adapter = adapter
+
+        val adapter2 = CustomSpinnerAdapter2(requireContext(), R.layout.spinner_item2_layout, spinnerItem2)
+        binding.spinValuta.adapter = adapter2
 
         binding.mcvOptions.setOnClickListener {
             val bottomSheetFragment = DashboardFragment()

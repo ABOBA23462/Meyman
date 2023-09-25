@@ -1,20 +1,28 @@
 package com.example.meyman.presentation.ui.screens.booking
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meyman.databinding.ItemBookingBinding
+import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 import com.example.meyman.presentation.models.reservation.ReservationResultUI
+import com.example.meyman.presentation.ui.screens.hotel_page.rooms.RoomsViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 
-class ReservationAdapter : ListAdapter<ReservationResultUI, ReservationAdapter.BookingViewHolder>(diffUtil) {
+class ReservationAdapter() : ListAdapter<ReservationResultUI, ReservationAdapter.BookingViewHolder>(diffUtil) {
 
     inner class BookingViewHolder(private val binding: ItemBookingBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(dataItem: ReservationResultUI) {
-            binding.tvTitle.text = dataItem.room_name
+            dataItem.id
+            Log.e("erbol", "adapter: " + dataItem.room_name + " " + dataItem.housing )
         }
     }
 

@@ -13,6 +13,9 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_roomPageFragment_to_roomBookingFragment"
+            app:destination="@id/roomBookingFragment" />
     </fragment>
 
     <fragment
@@ -262,5 +265,6 @@
             android:id="@+id/action_wishlistFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
     </fragment>
+
 
 </navigation>

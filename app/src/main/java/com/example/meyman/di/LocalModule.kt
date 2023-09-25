@@ -16,4 +16,5 @@ object LocalModule {
     @Singleton
     @Provides
     fun providePreferenceHelper(@ApplicationContext context: Context) = PreferenceHelper(context)
+
 }
