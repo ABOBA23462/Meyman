@@ -15,18 +15,22 @@ import androidx.recyclerview.widget.SnapHelper
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentRoomPageBinding
 import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.room_page.tablayout.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class RoomPageFragment :
     BaseFragment<FragmentRoomPageBinding, RoomPageViewModel>(R.layout.fragment_room_page) {
 
+    @Inject
+    lateinit var userDataPreferencesHelper: UserDataPreferencesHelper
     override val binding by viewBinding(FragmentRoomPageBinding::bind)
     override val viewModel: RoomPageViewModel by viewModels()
     private val args: RoomPageFragmentArgs by navArgs()
@@ -67,6 +71,7 @@ class RoomPageFragment :
                         }
                         is UIState.Loading -> {}
                         is UIState.Success -> {
+                            binding.tvHotelName.text = userDataPreferencesHelper.housingName
                             Log.e("ololo", "RPAS: ${it.data}")
                             tvTitle.text = it.data.roomName
                             tvRoomSquare.text = "${it.data.roomArea} m²"

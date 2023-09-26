@@ -1,6 +1,7 @@
 package com.example.meyman.presentation.ui.screens.search_results
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,7 @@ class SearchResultsFragment : Fragment() {
     lateinit var userPreferencesData: UserDataPreferencesHelper
     private lateinit var binding: FragmentSearchResultsBinding
     private val viewModel: SearchResultViewModel by viewModels()
-    private val reviewAdapter = SearchResultsAdapter()
+    private val reviewAdapter = SearchResultsAdapter(this::onClick)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,12 +44,11 @@ class SearchResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToFetchHotel()
-
+        onButtonClick()
     }
 
     private fun onClick(hotelsResult: ResultsHotelItemUI) {
         findNavController().navigate(R.id.hotelPageFragment, bundleOf("id" to hotelsResult.id))
-        userPreferencesData.hotelId = hotelsResult.id
     }
 
     private fun onButtonClick() {

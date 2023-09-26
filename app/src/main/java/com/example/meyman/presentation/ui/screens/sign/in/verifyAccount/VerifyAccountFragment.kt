@@ -2,6 +2,7 @@ package com.example.meyman.presentation.ui.screens.sign.`in`.verifyAccount
 
 import android.app.Dialog
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -34,16 +36,45 @@ class VerifyAccountFragment : Fragment() {
     lateinit var userPreferencesData: UserDataPreferencesHelper
     private lateinit var binding: FragmentVerifyAccountBinding
     private val viewModel: VerifyAccountViewModel by viewModels()
+    private var originalMode: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        originalMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING
+        activity?.window?.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+        )
         binding = FragmentVerifyAccountBinding.inflate(inflater, container, false)
         return binding.root
     }
+    private fun customAdjustResize() {
+        with(binding) {
+            root.viewTreeObserver.addOnGlobalLayoutListener {
+                val rect = Rect()
+                root.getWindowVisibleDisplayFrame(rect)
+
+                val screenHeight = root.rootView.height
+                val visibleHeight = rect.bottom - rect.top
+
+                val heightDifference = screenHeight - visibleHeight
+
+                if (heightDifference >= 200) {
+                    val layoutParams = root.layoutParams as ViewGroup.MarginLayoutParams
+                    layoutParams.bottomMargin = heightDifference - 100
+                    root.requestLayout()
+                } else {
+                    val layoutParams = root.layoutParams as ViewGroup.MarginLayoutParams
+                    layoutParams.bottomMargin = 30
+                    root.requestLayout()
+                }
+            }
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        customAdjustResize()
         Log.e("ololo", "onViewCreated: + ${userPreferencesData.userEmail}" )
         super.onViewCreated(view, savedInstanceState)
         binding.btnAccept.setOnClickListener {

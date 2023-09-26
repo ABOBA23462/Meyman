@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1DFDF"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ui.screens.booking.ReservationFragment">
 
@@ -29,6 +28,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -48,7 +48,7 @@
 
         <TextView
             android:id="@+id/tv_regist"
-            android:layout_width="336dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
@@ -61,8 +61,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_booking"
             tools:ignore="TextSizeCheck" />
-
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/sign"
+        android:visibility="gone"
+        app:cornerRadius="10dp"
+        android:textAllCaps="false"
+        android:backgroundTint="#1164B4"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_booking"

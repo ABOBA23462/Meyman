@@ -57,10 +57,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_star"
+
+                tools:ignore="ContentDescription" />
+            <LinearLayout
+                android:id="@+id/ll_stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/tv_hotel_grade_value"
                 app:layout_constraintStart_toStartOf="@id/guideline_vertical"
-                app:layout_constraintTop_toBottomOf="@id/tv_hotel"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintTop_toBottomOf="@id/tv_hotel">
+
+                <ImageView
+                    android:id="@+id/iv_star1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/star"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/iv_star2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/star"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/iv_star3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/star"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/iv_star4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/star"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                <ImageView
+                    android:id="@+id/iv_star5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/star"
+                    android:visibility="gone"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+            </LinearLayout>
+
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/tv_hotel_grade_value"
@@ -120,9 +169,12 @@
 
             <TextView
                 android:id="@+id/tv_location"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/n_kilometers_from_the_center"
+                android:lines="1"
+                android:ellipsize="end"
+                app:layout_constraintEnd_toStartOf="@id/iv_wifi"
                 app:layout_constraintBottom_toBottomOf="@id/iv_location"
                 app:layout_constraintStart_toEndOf="@id/iv_location"
                 app:layout_constraintTop_toTopOf="@id/iv_location" />

@@ -5,14 +5,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.navigation.fragment.findNavController
+import com.example.meyman.R
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentBookingBinding
+import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.hotel_page.rooms.RoomsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,8 +43,18 @@ class ReservationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+        if (!userPreferencesData.isAuthorized) {
+            binding.rvBooking.isGone = true
+            binding.ll.isGone = false
+            binding.signButton.isGone = false
+            binding.signButton.setOnClickListener {
+                findNavController().navigate(R.id.guestProfileFragment)
+            }
+        } else {
+            binding.rvBooking.isGone = false
+            binding.ll.isGone = true
+            binding.signButton.isGone = true
+        }
         setupSubscribes()
     }
 

@@ -15,17 +15,21 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentHotelPageBinding
 import com.example.meyman.presentation.state.UIState
 import com.example.meyman.presentation.ui.screens.hotel_page.tabLayout.HotelPageViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HotelPageFragment :
     BaseFragment<FragmentHotelPageBinding, HotelPageViewModel>(R.layout.fragment_hotel_page) {
 
+    @Inject
+    lateinit var userDataPreferencesHelper: UserDataPreferencesHelper
     override val binding by viewBinding(FragmentHotelPageBinding::bind)
     override val viewModel: HotelPageViewModel by viewModels()
     private lateinit var photoAdapter: HotelPagePhotoAdapter
@@ -88,6 +92,8 @@ class HotelPageFragment :
                             bundle.putInt("id", success)
                             Log.e("ololo", "callHotelApi-success: ${it.data.id}")
                             with(binding) {
+                                userDataPreferencesHelper.adress = it.data.address
+                                userDataPreferencesHelper.housingName = it.data.housingName
                                 tvTitle.text = it.data.address
                                 tvRatingScore.text = it.data.stars.toString()
                               tvHotelName.text = it.data.housingName
@@ -106,5 +112,4 @@ class HotelPageFragment :
             }
         }
     }
-
 }

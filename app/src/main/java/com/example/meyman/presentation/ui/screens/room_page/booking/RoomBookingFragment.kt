@@ -1,5 +1,6 @@
 package com.example.meyman.presentation.ui.screens.room_page.booking
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -9,6 +10,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -28,7 +30,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class RoomBookingFragment :
+class RoomBookingFragment ():
     BaseFragment<FragmentRoomBookingBinding, RoomBookingViewModel>(R.layout.fragment_room_booking) {
 
 
@@ -45,9 +47,12 @@ class RoomBookingFragment :
         return inflater.inflate(R.layout.fragment_room_booking, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListener()
+        binding.tvHotelName.text = userPreferencesData.housingName
+        binding.tvLocation.text = userPreferencesData.adress
 
     }
 
@@ -56,7 +61,7 @@ class RoomBookingFragment :
         binding.btnReserve.setOnClickListener {
 
             val username = binding.etUserName.text.toString().trim()
-            val phoneNumber = "+${binding.etUserPhoneNumber.text.toString().trim()}"
+            val phoneNumber = "${binding.etUserPhoneNumber.text.toString().trim()}"
             val number = binding.etUserPhoneNumber
             val email = binding.etUserEmail.text.toString().trim()
             val emaill = binding.etUserEmail

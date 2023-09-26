@@ -1,6 +1,7 @@
 package com.example.meyman.presentation.ui.screens.search_results
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.ImageView
@@ -11,25 +12,49 @@ import com.bumptech.glide.Glide
 import com.example.meyman.databinding.ItemSearchResultBinding
 import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 
-class SearchResultsAdapter :
+class SearchResultsAdapter(
+    private val onClick: (ResultsHotelItemUI) -> Unit
+) :
     ListAdapter<ResultsHotelItemUI, SearchResultsAdapter.ViewHolder>(diffUtil) {
     var onLikeClickOn: ((model: ResultsHotelItemUI, like: CompoundButton) -> Unit)? = null
     var onLikeClickOff: ((name: String, like: CompoundButton) -> Unit)? = null
-    val onClick: ((ResultsHotelItemUI) -> Unit)? = null
     val onButtonClick: ((id: Int) -> Unit)? = null
 
     inner class ViewHolder(private val binding: ItemSearchResultBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(dataItem: ResultsHotelItemUI) {
-            binding.tvHotel.text = dataItem.housingName
-            binding.tvLocation.text = dataItem.address
-            binding.ivSearchResult.setImage("https://meyman.geeks.kg${dataItem.housingImage}")
-            binding.tvRating.text = dataItem.stars.toString()
-            println(binding.tvHotel)
+        fun onBind(dataItem: ResultsHotelItemUI) = with(binding) {
+            tvHotel.text = dataItem.housingName
+            tvLocation.text = dataItem.address
+            ivSearchResult.setImage("https://meyman.geeks.kg${dataItem.housingImage}")
+            tvRating.text = dataItem.stars.toString()
+            tvLocation.text = dataItem.address
+            tvReviews.text = (dataItem.reviews?.count().toString()+" отзывов")
+            val stars = dataItem.stars
+            if (stars == 1) {
+                ivStar1.visibility = View.VISIBLE
+            } else if (stars == 2) {
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+            } else if (stars == 3) {
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+                ivStar3.visibility = View.VISIBLE
+            } else if (stars == 4) {
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+                ivStar3.visibility = View.VISIBLE
+                ivStar4.visibility = View.VISIBLE
+            } else if (stars == 5) {
+                ivStar1.visibility = View.VISIBLE
+                ivStar2.visibility = View.VISIBLE
+                ivStar3.visibility = View.VISIBLE
+                ivStar4.visibility = View.VISIBLE
+                ivStar5.visibility = View.VISIBLE
+            }
 
             itemView.setOnClickListener {
-                onClick?.let { it1 -> it1(dataItem) }
+                onClick(dataItem)
             }
 
             binding.like.setOnClickListener {

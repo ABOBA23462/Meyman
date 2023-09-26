@@ -24,26 +24,32 @@ class AdvertisingAdapter :
             ivHotelImage.setImage("https://meyman.geeks.kg${item?.housingImage?.getOrNull(0)}")
             tvLocation.text = item?.address
             val stars = item?.stars
-            if (stars == 1){
-                ivStar1.visibility = View.VISIBLE
-            }else if(stars == 2){
-                ivStar1.visibility = View.VISIBLE
-                ivStar2.visibility = View.VISIBLE
-            }else if(stars == 3){
-                ivStar1.visibility = View.VISIBLE
-                ivStar2.visibility = View.VISIBLE
-                ivStar3.visibility = View.VISIBLE
-            }else if(stars == 4){
-                ivStar1.visibility = View.VISIBLE
-                ivStar2.visibility = View.VISIBLE
-                ivStar3.visibility = View.VISIBLE
-                ivStar4.visibility = View.VISIBLE
-            }else if(stars == 5){
-                ivStar1.visibility = View.VISIBLE
-                ivStar2.visibility = View.VISIBLE
-                ivStar3.visibility = View.VISIBLE
-                ivStar4.visibility = View.VISIBLE
-                ivStar5.visibility = View.VISIBLE
+            when (stars) {
+                1 -> {
+                    ivStar1.visibility = View.VISIBLE
+                }
+                2 -> {
+                    ivStar1.visibility = View.VISIBLE
+                    ivStar2.visibility = View.VISIBLE
+                }
+                3 -> {
+                    ivStar1.visibility = View.VISIBLE
+                    ivStar2.visibility = View.VISIBLE
+                    ivStar3.visibility = View.VISIBLE
+                }
+                4 -> {
+                    ivStar1.visibility = View.VISIBLE
+                    ivStar2.visibility = View.VISIBLE
+                    ivStar3.visibility = View.VISIBLE
+                    ivStar4.visibility = View.VISIBLE
+                }
+                5 -> {
+                    ivStar1.visibility = View.VISIBLE
+                    ivStar2.visibility = View.VISIBLE
+                    ivStar3.visibility = View.VISIBLE
+                    ivStar4.visibility = View.VISIBLE
+                    ivStar5.visibility = View.VISIBLE
+                }
             }
         }
     }

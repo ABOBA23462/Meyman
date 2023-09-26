@@ -8,20 +8,23 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.ItemBookingBinding
 import com.example.meyman.presentation.models.hotels.ResultsHotelItemUI
 import com.example.meyman.presentation.models.reservation.ReservationResultUI
 import com.example.meyman.presentation.ui.screens.hotel_page.rooms.RoomsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 class ReservationAdapter() : ListAdapter<ReservationResultUI, ReservationAdapter.BookingViewHolder>(diffUtil) {
+
 
     inner class BookingViewHolder(private val binding: ItemBookingBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(dataItem: ReservationResultUI) {
-            dataItem.id
+        fun onBind(dataItem: ReservationResultUI) = with(binding) {
+           val reservId =  dataItem.id
             Log.e("erbol", "adapter: " + dataItem.room_name + " " + dataItem.housing )
         }
     }

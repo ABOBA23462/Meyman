@@ -12,6 +12,8 @@ const val PREF_CHILDREN: String = "children"
 const val PREF_ADULTS: String = "adults"
 const val PREF_ON_BOARD = "on_board"
 const val PREF_HOTEL_ID = "hotel_ID"
+const val PREF_ADDRESS = "address"
+const val PREF_NAME_ = "name"
 
 class UserDataPreferencesHelper @Inject constructor(
     private val preferences: PreferenceHelper
@@ -32,6 +34,14 @@ class UserDataPreferencesHelper @Inject constructor(
     var userEmail : String
         get() = preferences().getString(PREF_USER_EMAIL, "null")!!
         set(value) = preferences().edit().putString(PREF_USER_EMAIL, value).apply()
+
+    var adress : String
+        get() = preferences().getString(PREF_ADDRESS, "null")!!
+        set(value) = preferences().edit().putString(PREF_ADDRESS, value).apply()
+
+    var housingName : String
+        get() = preferences().getString(PREF_NAME_, "null")!!
+        set(value) = preferences().edit().putString(PREF_NAME_, value).apply()
 
     var saveOnBoard : Boolean
         get() = preferences().getBoolean(PREF_ON_BOARD, false)

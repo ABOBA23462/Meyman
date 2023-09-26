@@ -106,7 +106,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:inputType="none"
                 android:textSize="16sp"
+                android:lines="1"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,6 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:inputType="none"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -157,6 +160,7 @@
                 android:id="@+id/et_reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="none"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
@@ -183,6 +187,7 @@
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="none"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
@@ -209,6 +214,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_reg_password"
                 android:layout_width="match_parent"
+                android:inputType="none"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -236,6 +242,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_confirm_password"
                 android:layout_width="match_parent"
+                android:inputType="none"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"

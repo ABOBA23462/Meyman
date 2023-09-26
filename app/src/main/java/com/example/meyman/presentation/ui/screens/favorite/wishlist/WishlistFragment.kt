@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.example.meyman.R
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper
 import com.example.meyman.databinding.FragmentWishlistBinding
 import com.example.meyman.presentation.state.UIState
@@ -41,6 +43,9 @@ class WishlistFragment : Fragment() {
             binding.rvWishlist.isGone = true
             binding.noDataLinear.isGone = false
             binding.signButton.isGone = false
+            binding.signButton.setOnClickListener {
+                findNavController().navigate(R.id.guestProfileFragment)
+            }
         } else {
             binding.rvWishlist.isGone = false
             binding.noDataLinear.isGone = true
