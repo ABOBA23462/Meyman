@@ -42,29 +42,5 @@ class ReviewFragment : Fragment() {
         }
 
         private fun setupSubscribes() {
-            subscribeToFetchReview()
-        }
-
-        private fun subscribeToFetchReview() {
-            viewModel.getReviewState()
-            viewLifecycleOwner.lifecycleScope.launch {
-                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                    viewModel.reviewState.collect {
-                        when (it) {
-                            is UIState.Error -> {
-//                                binding.progressBar.isVisible = false
-                            }
-                            is UIState.Loading -> {
-//                                binding.progressBar.isVisible = true
-                            }
-                            is UIState.Success -> {
-                                Log.e("lox23", it.data.toString())
-//                                binding.progressBar.isVisible = false
-                                reviewAdapter.submitList(it.data)
-                            }
-                        }
-                    }
-                }
-            }
         }
     }

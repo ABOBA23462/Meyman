@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import by.kirich1409.viewbindingdelegate.viewBinding
-import coil.load
 import com.example.meyman.R
 import com.example.meyman.core.base.BaseFragment
 import com.example.meyman.data.remote.preferences.UserDataPreferencesHelper

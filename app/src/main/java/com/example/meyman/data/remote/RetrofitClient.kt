@@ -2,7 +2,6 @@ package com.example.meyman.data.remote
 
 import com.example.meyman.core.Constant
 import com.example.meyman.data.remote.apiservices.AdvertisingApiService
-import com.example.meyman.data.remote.apiservices.BookingApiService
 import com.example.meyman.data.remote.apiservices.HotelApiService
 import com.example.meyman.data.remote.apiservices.LoginApiService
 import com.example.meyman.data.remote.apiservices.RegisterApiService
@@ -12,7 +11,6 @@ import com.example.meyman.data.remote.apiservices.ReviewApiService
 import com.example.meyman.data.remote.apiservices.RoomsApiService
 import com.example.meyman.data.remote.apiservices.TokenApiService
 import com.example.meyman.data.remote.apiservices.UserProfileApiService
-import com.example.meyman.data.remote.apiservices.UsersApiService
 import com.example.meyman.data.remote.apiservices.VerifyApiService
 import com.example.meyman.data.remote.apiservices.WishlistApiService
 import com.google.gson.GsonBuilder
@@ -57,16 +55,8 @@ class RetrofitClient {
         return retrofitClient.create(RoomsApiService::class.java)
     }
 
-    fun provideUsersApiServer(): UsersApiService {
-        return retrofitClient.create(UsersApiService::class.java)
-    }
-
     fun provideRegisterApiServer(): RegisterApiService {
         return retrofitClient.create(RegisterApiService::class.java)
-    }
-
-    fun provideBooking(): BookingApiService {
-        return retrofitClient.create(BookingApiService::class.java)
     }
 
     fun provideVerifyAccount(): VerifyApiService {

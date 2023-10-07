@@ -21,14 +21,6 @@ object AppModule {
     @Singleton
     @Provides
     fun provideReviewApiService() = retrofitClient.provideReviewApiServer()
-    
-    @Singleton
-    @Provides
-    fun provideUsersApiService() = retrofitClient.provideUsersApiServer()
-
-    @Singleton
-    @Provides
-    fun provideBookingApiService() = retrofitClient.provideBooking()
 
     @Singleton
     @Provides

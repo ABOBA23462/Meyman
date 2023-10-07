@@ -19,6 +19,4 @@ class TabLayoutFragment : Fragment(R.layout.fragment_tab_layout) {
     private fun initialize() {
 
     }
-
-
 }

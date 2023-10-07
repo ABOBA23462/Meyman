@@ -33,11 +33,13 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class SignInFragment : BottomSheetDialogFragment() {
 
-    @Inject
-    lateinit var userPreferencesData: UserDataPreferencesHelper
     private lateinit var binding: FragmentSignInBinding
     private val viewModel: SignInViewModel by viewModels()
     private var originalMode: Int? = null
+
+    @Inject
+    lateinit var userPreferencesData: UserDataPreferencesHelper
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,6 +52,7 @@ class SignInFragment : BottomSheetDialogFragment() {
         binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     private fun customAdjustResize() {
         with(binding) {
             root.viewTreeObserver.addOnGlobalLayoutListener {
@@ -85,10 +88,7 @@ class SignInFragment : BottomSheetDialogFragment() {
     @SuppressLint("ResourceType")
     private fun setupSubscribes() = with(binding) {
 
-        var signIn = true
-
         tvSignUp.setOnClickListener {
-            signIn = false
             tvSignUp.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue1))
             tvSignIn.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             tilEmail.visibility = View.GONE
@@ -102,7 +102,6 @@ class SignInFragment : BottomSheetDialogFragment() {
             btnRegister.visibility = View.VISIBLE
         }
         tvSignIn.setOnClickListener {
-            signIn = true
             tvSignUp.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             tvSignIn.setTextColor(ContextCompat.getColor(requireContext(), R.color.blue1))
             tilRegEmail.visibility = View.GONE
@@ -122,6 +121,7 @@ class SignInFragment : BottomSheetDialogFragment() {
             findNavController().navigate(R.id.action_guestProfileFragment_to_forgotPasswordFragment)
             dismiss()
         }
+
         val bundle = Bundle()
         btnSignIn.setOnClickListener {
             val email = etEmail.text.toString().trim()
@@ -139,7 +139,11 @@ class SignInFragment : BottomSheetDialogFragment() {
                                 is Resource.Loading -> {}
 
                                 is Resource.Error -> {
-                                    Toast.makeText(requireContext(), "Введите корректные данные", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Введите корректные данные",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
 
                                 is Resource.Success -> {
@@ -192,7 +196,11 @@ class SignInFragment : BottomSheetDialogFragment() {
                                 }
 
                                 is Resource.Error -> {
-                                    Toast.makeText(requireContext(), "Данный email уже зарегистрирован", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Данный email уже зарегистрирован",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
 
                                 is Resource.Success -> {
